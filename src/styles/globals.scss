@@ -6,6 +6,8 @@
   margin: 0;
   transition: all 0.2s ease;
   font-family: "Lato", sans-serif;
+  list-style: none;
+  text-decoration: none;
 }
 
 h1,
@@ -45,6 +47,7 @@ h6 {
 }
 
 button {
+  border: none;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 700;

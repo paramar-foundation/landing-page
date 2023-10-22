@@ -1,0 +1,170 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+
+  &--standard {
+    padding: spacing(3);
+  }
+
+  &--small {
+    padding: spacing(2) spacing(3);
+  }
+
+  &--fullwidth {
+    width: 100%;
+  }
+
+  &__primary {
+    color: $color-white;
+
+    &--purple {
+      background-color: $color-purple;
+
+      &:hover {
+        background-color: $color-purple-800;
+      }
+
+      &-disabled {
+        background-color: $color-purple-300;
+        pointer-events: none;
+      }
+    }
+
+    &--orange {
+      background-color: $color-orange;
+
+      &:hover {
+        background-color: $color-orange-800;
+      }
+
+      &-disabled {
+        background-color: $color-orange-300;
+        pointer-events: none;
+      }
+    }
+
+    &--white {
+      background-color: $color-white;
+      color: $color-purple;
+
+      &:hover {
+        background-color: $color-purple-100;
+        color: $color-purple-800;
+      }
+
+      &-disabled {
+        color: $color-grey-400;
+        background-color: $color-grey-100;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__secondary {
+    background: transparent;
+
+    &--purple {
+      border: solid 2px $color-purple;
+      color: $color-purple;
+
+      &:hover {
+        border-color: $color-purple-800;
+        color: $color-purple-800;
+      }
+
+      &-disabled {
+        border-color: $color-purple-300;
+        color: $color-purple-300;
+        pointer-events: none;
+      }
+    }
+
+    &--orange {
+      border: solid 2px $color-orange;
+      color: $color-orange;
+
+      &:hover {
+        border-color: $color-orange-800;
+        color: $color-orange-800;
+      }
+
+      &-disabled {
+        border-color: $color-orange-300;
+        color: $color-orange-300;
+        pointer-events: none;
+      }
+    }
+
+    &--white {
+      border: solid 2px $color-white;
+      color: $color-white;
+
+      &:hover {
+        border-color: $color-purple-200;
+        color: $color-purple-200;
+      }
+
+      &-disabled {
+        border-color: $color-grey-400;
+        color: $color-grey-400;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__tertiary {
+    background-color: transparent;
+
+    &--purple {
+      color: $color-purple;
+
+      &:hover {
+        color: $color-purple-800;
+      }
+
+      &-disabled {
+        color: $color-purple-300;
+        pointer-events: none;
+      }
+    }
+
+    &--orange {
+      color: $color-orange;
+
+      &:hover {
+        color: $color-orange-800;
+      }
+
+      &-disabled {
+        color: $color-orange-300;
+        pointer-events: none;
+      }
+    }
+
+    &--white {
+      color: $color-purple;
+
+      &:hover {
+        color: $color-purple-800;
+      }
+
+      &-disabled {
+        color: $color-grey-400;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &:hover {
+    @include card;
+  }
+}

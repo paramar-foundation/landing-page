@@ -1,5 +1,5 @@
 import { NavigationBar } from "./_components/NavigationBar";
-import styles from "./index.module.css";
+import styles from "./layout.module.scss";
 
 export default function Home() {
   return (

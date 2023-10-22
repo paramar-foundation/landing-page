@@ -1,0 +1,28 @@
+@import "~/styles/variables.scss";
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 3%;
+
+  &__black svg {
+    fill: $color-black;
+  }
+
+  &__white svg {
+    fill: $color-white;
+  }
+
+  svg {
+    &:first-child {
+      height: 100%;
+      width: 30%;
+    }
+
+    &:last-child {
+      height: 80%;
+      width: 70%;
+    }
+  }
+}
