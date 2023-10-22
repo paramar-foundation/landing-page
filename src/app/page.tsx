@@ -1,7 +1,7 @@
 import { NavigationBar } from "./_components/NavigationBar";
 import styles from "./index.module.css";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className={styles.main}>
       <NavigationBar />

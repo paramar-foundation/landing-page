@@ -11,7 +11,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Ambassador {
+model ambassador {
   id        Int      @id @default(autoincrement())
   name      String
   createdAt DateTime @default(now())
