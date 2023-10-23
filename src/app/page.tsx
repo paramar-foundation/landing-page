@@ -1,11 +1,19 @@
+import { Banner } from "./_components/Banner";
 import { NavigationBar } from "./_components/NavigationBar";
+import { PageSection } from "./_components/PageSection";
+
 import styles from "./layout.module.scss";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <NavigationBar />
-      <h1 className="m-10">🚧 Work in Progress 🚧</h1>
+      <PageSection>
+        <Banner />
+      </PageSection>
+      <PageSection>
+        <h1 className="m-10">🚧 Work in Progress 🚧</h1>
+      </PageSection>
     </main>
   );
 }

@@ -9,6 +9,8 @@ import {
   WomanIcon,
 } from "./icons";
 
+import styles from "./Icon.module.scss";
+
 export enum IconEnum {
   chevronDown,
   donation,
@@ -51,9 +53,7 @@ export const Icon = ({
   };
 
   return (
-    <div
-      className={`flex h-[${height}] w-[${width}] items-center justify-center`}
-    >
+    <div className={styles.icon} style={{ height, width }}>
       {renderIcon()}
     </div>
   );

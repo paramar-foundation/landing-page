@@ -25,7 +25,7 @@ const LanguageSelection = () => {
         onClick={() => setDisplayingOptions(!isDisplayingOptions)}
       >
         <p>{selectedLocale}</p>
-        <Icon icon={IconEnum.chevronDown} width={5} height={5} />
+        <Icon icon={IconEnum.chevronDown} width={24} height={20} />
       </div>
       {isDisplayingOptions && (
         <ul className={styles["language-selection__list"]}>
@@ -51,6 +51,9 @@ const Hamburguer = () => {
 };
 
 export const NavigationBar = () => {
+  const [mainStyles, setMainStyles] = useState(styles["navigation-bar"]);
+  const [logoType, setLogoType] = useState(LogoType.white);
+  const [secondaryCtaColor, setSecondaryCtaColor] = useState(ButtonColor.white);
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const menuItems = [
@@ -62,15 +65,32 @@ export const NavigationBar = () => {
   ] as const;
 
   useEffect(() => {
-    if (headerRef.current) {
-      console.log((headerRef.current as HTMLSelectElement).offsetWidth);
-    }
-  });
+    const handleScroll = () => {
+      if (window.scrollY > 220) {
+        setSecondaryCtaColor(ButtonColor.purple);
+        setLogoType(LogoType.color);
+        setMainStyles(
+          `${styles["navigation-bar"]} ${styles["navigation-bar--on-scroll"]}`
+        );
+      } else {
+        setSecondaryCtaColor(ButtonColor.white);
+        setLogoType(LogoType.white);
+        setMainStyles(styles["navigation-bar"]);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={styles["navigation-bar"]} ref={headerRef}>
-      <Hamburguer />
-      <Logo type={LogoType.white} />
+    <header className={mainStyles} ref={headerRef}>
+      {/* <Hamburguer /> */}
+      <Logo type={logoType} />
       <section className={styles["navigation-bar__contents"]}>
         <ul className={styles["navigation-bar__menu-items"]} ref={menuRef}>
           {menuItems.map((menu) => (
@@ -82,7 +102,7 @@ export const NavigationBar = () => {
         <div className={styles["navigation-bar__actions"]}>
           <LanguageSelection />
           <Button>Dona aquí</Button>
-          <Button type={ButtonType.secondary} color={ButtonColor.white}>
+          <Button type={ButtonType.secondary} color={secondaryCtaColor}>
             Más información
           </Button>
         </div>

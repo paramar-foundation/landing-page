@@ -3,12 +3,16 @@
 @import "~/styles/variables.scss";
 
 .navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: flex;
   width: 100%;
   height: 112px;
   gap: spacing(8);
-  background-color: $color-black;
-  padding: spacing(4);
+  background-color: transparent;
+  padding: spacing(4) spacing(8);
 
   &__contents {
     display: flex;
@@ -48,60 +52,88 @@
     display: flex;
     gap: spacing(3);
   }
-}
 
-.language-selection {
-  user-select: none;
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: $color-white;
-
-  &__selected {
+  .language-selection {
     display: flex;
     align-items: center;
-    padding: spacing(2);
-    cursor: pointer;
-  }
+    flex-shrink: 0;
+    user-select: none;
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-white;
 
-  &__list {
-    position: absolute;
-    top: 95%;
-    width: spacing(9);
-    background-color: $color-white;
-    padding: spacing(1) 0;
+    svg {
+      stroke: $color-white;
+    }
 
-    @include card;
-
-    li {
+    &__selected {
       display: flex;
-      justify-content: center;
-      width: 100%;
-      background-color: $color-white;
-      color: $color-purple;
-      padding: spacing(1);
+      align-items: center;
+      padding: spacing(2);
       cursor: pointer;
+    }
 
-      &:hover {
-        background-color: $color-grey-100;
+    &__list {
+      position: absolute;
+      top: 95%;
+      width: spacing(9);
+      background-color: $color-white;
+      padding: spacing(1) 0;
+
+      @include card;
+
+      li {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: $color-white;
+        color: $color-purple;
+        padding: spacing(1);
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color-grey-100;
+        }
       }
     }
   }
-}
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: spacing(4);
-  gap: 6px;
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    width: spacing(4);
+    gap: 6px;
 
-  div {
-    height: 3px;
-    border-radius: 1px;
+    div {
+      height: 3px;
+      border-radius: 1px;
+      background-color: $color-white;
+    }
+  }
+
+  &--on-scroll {
     background-color: $color-white;
+    height: 96px;
+    padding: spacing(3) spacing(8);
+
+    .navigation-bar__menu-items li a {
+      color: $color-black;
+
+      &:visited {
+        color: $color-black;
+      }
+    }
+
+    .language-selection {
+      color: $color-purple;
+
+      svg {
+        stroke: $color-purple;
+      }
+    }
   }
 }

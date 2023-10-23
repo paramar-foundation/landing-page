@@ -7,16 +7,17 @@
   align-items: center;
   border-radius: 4px;
   white-space: nowrap;
+  padding: spacing(2) spacing(3);
   font-size: 16px;
   line-height: 16px;
   cursor: pointer;
 
   &--standard {
-    padding: spacing(3);
+    max-height: spacing(8);
   }
 
   &--small {
-    padding: spacing(2) spacing(3);
+    height: fit-content;
   }
 
   &--fullwidth {
