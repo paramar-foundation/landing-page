@@ -3,6 +3,10 @@ import {
   DonationIcon,
   HoursIcon,
   InstitutionIcon,
+  SocialFacebook,
+  SocialInstagram,
+  SocialLinkedIn,
+  SocialX,
   TherapyIcon,
   UsersIcon,
   WeightIcon,
@@ -11,10 +15,14 @@ import {
 
 import styles from "./Icon.module.scss";
 
-export enum IconEnum {
+export enum eIcons {
   chevronDown,
   donation,
   hours,
+  socialFacebook,
+  socialInstagram,
+  socialLinkedIn,
+  socialX,
   therapy,
   institution,
   users,
@@ -27,27 +35,35 @@ export const Icon = ({
   width = 20,
   height = 20,
 }: {
-  icon: IconEnum;
+  icon: eIcons;
   width?: number;
   height?: number;
 }) => {
   const renderIcon = () => {
     switch (icon) {
-      case IconEnum.chevronDown:
+      case eIcons.chevronDown:
         return <ChevronDownIcon />;
-      case IconEnum.donation:
+      case eIcons.donation:
         return <DonationIcon />;
-      case IconEnum.hours:
+      case eIcons.hours:
         return <HoursIcon />;
-      case IconEnum.institution:
+      case eIcons.institution:
         return <InstitutionIcon />;
-      case IconEnum.therapy:
+      case eIcons.socialFacebook:
+        return <SocialFacebook />;
+      case eIcons.socialInstagram:
+        return <SocialInstagram />;
+      case eIcons.socialLinkedIn:
+        return <SocialLinkedIn />;
+      case eIcons.socialX:
+        return <SocialX />;
+      case eIcons.therapy:
         return <TherapyIcon />;
-      case IconEnum.users:
+      case eIcons.users:
         return <UsersIcon />;
-      case IconEnum.weight:
+      case eIcons.weight:
         return <WeightIcon />;
-      case IconEnum.woman:
+      case eIcons.woman:
         return <WomanIcon />;
     }
   };

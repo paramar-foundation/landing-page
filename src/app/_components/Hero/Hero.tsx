@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, ButtonColor, ButtonType } from "../Button";
-import { Icon, IconEnum } from "../Icon";
+import { Button, eButtonColor, eButtonType } from "../Button";
+import { Icon, eIcons } from "../Icon";
 
 import styles from "./Hero.module.scss";
 
@@ -15,14 +15,14 @@ export const Hero = () => {
         Cada <b>2 segundos</b> una mujer o niña no recibe apoyo psicológico tras
         una agresión sexual quedando marcada de por vida.
       </span>
-      <Button color={ButtonColor.orange} onClick={() => console.log("Hello")}>
+      <Button color={eButtonColor.orange} onClick={() => console.log("Hello")}>
         AYÚDANOS A EVITARLO
       </Button>
       <div className={styles["hero__know-more"]}>
         <span>Conoce más</span>
         <div className={styles["hero__know-more__arrow"]}>
           <div className="line"></div>
-          <Icon icon={IconEnum.chevronDown} width={23} height={20} />
+          <Icon icon={eIcons.chevronDown} width={23} height={20} />
         </div>
       </div>
       <img

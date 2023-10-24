@@ -2,39 +2,39 @@ import { MouseEventHandler, ReactElement } from "react";
 
 import styles from "./Button.module.scss";
 
-export enum ButtonType {
+export enum eButtonType {
   primary,
   secondary,
   tertiary,
 }
 
-export enum ButtonColor {
+export enum eButtonColor {
   purple,
   orange,
   white,
 }
 
-export enum ButtonSize {
+export enum eButtonSize {
   standard,
   small,
 }
 
-interface ButtonProps {
+interface IButtonProps {
   children?: ReactElement | string;
-  color?: ButtonColor;
-  size?: ButtonSize;
-  type?: ButtonType;
+  color?: eButtonColor;
+  size?: eButtonSize;
+  type?: eButtonType;
   disabled?: boolean;
   fullWidth?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = (props: IButtonProps) => {
   const {
     children,
-    type = ButtonType.primary,
-    color = ButtonColor.purple,
-    size = ButtonSize.standard,
+    type = eButtonType.primary,
+    color = eButtonColor.purple,
+    size = eButtonSize.standard,
     fullWidth = false,
     disabled = false,
     onClick,
@@ -44,52 +44,52 @@ export const Button = (props: ButtonProps) => {
     const disableString = disabled ? "disabled" : "active";
     const stylesCombination = {
       types: {
-        [ButtonType.primary]: {
-          [ButtonColor.purple]: {
+        [eButtonType.primary]: {
+          [eButtonColor.purple]: {
             active: `${styles.button__primary} ${styles["button__primary--purple"]}`,
             disabled: `${styles.button__primary} ${styles["button__primary--purple-disabled"]}`,
           },
-          [ButtonColor.orange]: {
+          [eButtonColor.orange]: {
             active: `${styles.button__primary} ${styles["button__primary--orange"]}`,
             disabled: `${styles.button__primary} ${styles["button__primary--orange-disabled"]}`,
           },
-          [ButtonColor.white]: {
+          [eButtonColor.white]: {
             active: `${styles.button__primary} ${styles["button__primary--white"]}`,
             disabled: `${styles.button__primary} ${styles["button__primary--white-disabled"]}`,
           },
         },
-        [ButtonType.secondary]: {
-          [ButtonColor.purple]: {
+        [eButtonType.secondary]: {
+          [eButtonColor.purple]: {
             active: `${styles.button__secondary} ${styles["button__secondary--purple"]}`,
             disabled: `${styles.button__secondary} ${styles["button__secondary--purple-disabled"]}`,
           },
-          [ButtonColor.orange]: {
+          [eButtonColor.orange]: {
             active: `${styles.button__secondary} ${styles["button__secondary--orange"]}`,
             disabled: `${styles.button__secondary} ${styles["button__secondary--orange-disabled"]}`,
           },
-          [ButtonColor.white]: {
+          [eButtonColor.white]: {
             active: `${styles.button__secondary} ${styles["button__secondary--white"]}`,
             disabled: `${styles.button__secondary} ${styles["button__secondary--white-disabled"]}`,
           },
         },
-        [ButtonType.tertiary]: {
-          [ButtonColor.purple]: {
+        [eButtonType.tertiary]: {
+          [eButtonColor.purple]: {
             active: `${styles.button__tertiary} ${styles["button__tertiary--purple"]}`,
             disabled: `${styles.button__tertiary} ${styles["button__tertiary--purple-disabled"]}`,
           },
-          [ButtonColor.orange]: {
+          [eButtonColor.orange]: {
             active: `${styles.button__tertiary} ${styles["button__tertiary--orange"]}`,
             disabled: `${styles.button__tertiary} ${styles["button__tertiary--orange-disabled"]}`,
           },
-          [ButtonColor.white]: {
+          [eButtonColor.white]: {
             active: `${styles.button__tertiary} ${styles["button__tertiary--white"]}`,
             disabled: `${styles.button__tertiary} ${styles["button__tertiary--white-disabled"]}`,
           },
         },
       },
       size: {
-        [ButtonSize.standard]: styles["button--standard"],
-        [ButtonSize.small]: styles["button--small"],
+        [eButtonSize.standard]: styles["button--standard"],
+        [eButtonSize.small]: styles["button--small"],
       },
     };
 

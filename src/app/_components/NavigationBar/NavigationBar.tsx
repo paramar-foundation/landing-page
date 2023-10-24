@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { Logo, LogoType } from "../Logo";
-import { Icon, IconEnum } from "../Icon";
-import { Button, ButtonColor, ButtonType } from "../Button";
+import { Logo, eLogoType } from "../Logo";
+import { Icon, eIcons } from "../Icon";
+import { Button, eButtonColor, eButtonType } from "../Button";
 
 import styles from "./NavigationBar.module.scss";
 
@@ -25,7 +25,7 @@ const LanguageSelection = () => {
         onClick={() => setDisplayingOptions(!isDisplayingOptions)}
       >
         <p>{selectedLocale}</p>
-        <Icon icon={IconEnum.chevronDown} width={24} height={20} />
+        <Icon icon={eIcons.chevronDown} width={24} height={20} />
       </div>
       {isDisplayingOptions && (
         <ul className={styles["language-selection__list"]}>
@@ -52,8 +52,10 @@ const Hamburguer = () => {
 
 export const NavigationBar = () => {
   const [mainStyles, setMainStyles] = useState(styles["navigation-bar"]);
-  const [logoType, setLogoType] = useState(LogoType.white);
-  const [secondaryCtaColor, setSecondaryCtaColor] = useState(ButtonColor.white);
+  const [logoType, seteLogoType] = useState(eLogoType.white);
+  const [secondaryCtaColor, setSecondaryCtaColor] = useState(
+    eButtonColor.white
+  );
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const menuItems = [
@@ -67,14 +69,14 @@ export const NavigationBar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 220) {
-        setSecondaryCtaColor(ButtonColor.purple);
-        setLogoType(LogoType.color);
+        setSecondaryCtaColor(eButtonColor.purple);
+        seteLogoType(eLogoType.color);
         setMainStyles(
           `${styles["navigation-bar"]} ${styles["navigation-bar--on-scroll"]}`
         );
       } else {
-        setSecondaryCtaColor(ButtonColor.white);
-        setLogoType(LogoType.white);
+        setSecondaryCtaColor(eButtonColor.white);
+        seteLogoType(eLogoType.white);
         setMainStyles(styles["navigation-bar"]);
       }
     };
@@ -102,7 +104,7 @@ export const NavigationBar = () => {
         <div className={styles["navigation-bar__actions"]}>
           <LanguageSelection />
           <Button>Dona aquí</Button>
-          <Button type={ButtonType.secondary} color={secondaryCtaColor}>
+          <Button type={eButtonType.secondary} color={secondaryCtaColor}>
             Más información
           </Button>
         </div>

@@ -1,3 +1,4 @@
+import { Footer } from "./_components/Footer";
 import { Hero } from "./_components/Hero";
 import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <PageSection>
         <h1 className="m-10">🚧 Work in Progress 🚧</h1>
       </PageSection>
+      <Footer />
     </main>
   );
 }
