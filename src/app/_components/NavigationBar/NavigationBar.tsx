@@ -81,6 +81,8 @@ export const NavigationBar = () => {
       }
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     // Clean up the event listener when the component unmounts

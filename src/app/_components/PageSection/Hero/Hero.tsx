@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, eButtonColor, eButtonType } from "../Button";
-import { Icon, eIcons } from "../Icon";
+import { Button, eButtonColor, eButtonType } from "../../Button";
+import { Icon, eIcons } from "../../Icon";
 
 import styles from "./Hero.module.scss";
 

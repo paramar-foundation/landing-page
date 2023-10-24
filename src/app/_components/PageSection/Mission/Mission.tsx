@@ -1,11 +1,10 @@
 "use client";
 
-import { Button, eButtonColor } from "../Button";
-import { Icon, eIcons } from "../Icon";
+import { Button, eButtonColor } from "../../Button";
 
-import styles from "./MissionSection.module.scss";
+import styles from "./Mission.module.scss";
 
-export const MissionSection = () => {
+export const Mission = () => {
   return (
     <article className={styles.mission}>
       <div className={styles["mission__image-container"]}>

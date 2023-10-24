@@ -1,8 +1,9 @@
 import { Footer } from "./_components/Footer";
-import { Hero } from "./_components/Hero";
-import { MissionSection } from "./_components/MissionSection";
 import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
+import { AboutUs } from "./_components/PageSection/AboutUs";
+import { Hero } from "./_components/PageSection/Hero";
+import { Mission } from "./_components/PageSection/Mission";
 
 import styles from "./layout.module.scss";
 
@@ -14,7 +15,10 @@ export default function Home() {
         <Hero />
       </PageSection>
       <PageSection>
-        <MissionSection />
+        <Mission />
+      </PageSection>
+      <PageSection>
+        <AboutUs />
       </PageSection>
       <PageSection>
         <h1 className={styles.wip}>🚧 Work in Progress 🚧</h1>
