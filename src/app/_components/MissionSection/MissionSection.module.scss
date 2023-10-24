@@ -1,0 +1,86 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(11);
+  padding: spacing(20) spacing(13) spacing(20) spacing(8);
+
+  &__image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .mission__title {
+      margin-bottom: spacing(3);
+    }
+
+    .mission__subtitle {
+      text-transform: uppercase;
+      color: $color-purple;
+      margin-bottom: spacing(2);
+    }
+
+    .mission__body {
+      color: $color-black;
+      margin-bottom: spacing(5);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .mission {
+    gap: spacing(8);
+    padding: spacing(16) spacing(8) spacing(16) spacing(6);
+
+    &__content {
+      height: fit-content;
+    }
+
+    &__title {
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .mission {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: spacing(12);
+    padding: spacing(20) spacing(4) spacing(12) spacing(4);
+
+    &__title {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .mission {
+    padding: spacing(20) spacing(4) spacing(8) spacing(4);
+
+    &__title {
+      font-size: 25px;
+    }
+
+    &__body,
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+}

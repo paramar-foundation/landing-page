@@ -15,7 +15,7 @@ export const Hero = () => {
         Cada <b>2 segundos</b> una mujer o niña no recibe apoyo psicológico tras
         una agresión sexual quedando marcada de por vida.
       </span>
-      <Button color={eButtonColor.orange} onClick={() => console.log("Hello")}>
+      <Button color={eButtonColor.orange} onClick={() => console.log("Hero")}>
         AYÚDANOS A EVITARLO
       </Button>
       <div className={styles["hero__know-more"]}>

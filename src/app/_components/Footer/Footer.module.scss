@@ -39,11 +39,6 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
-  .footer {
-  }
-}
-
 @media (max-width: $breakpoint-tablet) {
   .footer {
     padding: 0 spacing(4);
@@ -64,10 +59,5 @@
       font-size: 14px;
       gap: 0;
     }
-  }
-}
-
-@media (max-width: $breakpoint-mobile) {
-  .footer {
   }
 }

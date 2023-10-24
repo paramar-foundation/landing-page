@@ -1,5 +1,6 @@
 import { Footer } from "./_components/Footer";
 import { Hero } from "./_components/Hero";
+import { MissionSection } from "./_components/MissionSection";
 import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
 
@@ -13,7 +14,10 @@ export default function Home() {
         <Hero />
       </PageSection>
       <PageSection>
-        <h1 className="m-10">🚧 Work in Progress 🚧</h1>
+        <MissionSection />
+      </PageSection>
+      <PageSection>
+        <h1 className={styles.wip}>🚧 Work in Progress 🚧</h1>
       </PageSection>
       <Footer />
     </main>
