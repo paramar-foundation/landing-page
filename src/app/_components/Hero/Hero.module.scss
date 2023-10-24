@@ -1,0 +1,141 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 15%;
+
+  background-image: url("/bg-hero.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &__source {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $color-grey-100;
+  }
+
+  &__quote {
+    font-weight: 700;
+    font-size: 49px;
+    color: $color-white;
+    margin-top: spacing(1);
+    margin-bottom: spacing(8);
+
+    b {
+      color: $color-orange;
+    }
+  }
+
+  &__know-more {
+    position: absolute;
+    bottom: spacing(4);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spacing(2);
+    width: 100%;
+    color: $color-white;
+    cursor: default;
+
+    svg path {
+      stroke: white;
+    }
+
+    &__arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      div:first-child {
+        height: 24px;
+        width: 2px;
+        border-radius: 1px;
+        background-color: $color-white;
+      }
+
+      div:last-child {
+        margin-top: -15px;
+      }
+    }
+  }
+
+  &__paint {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .hero {
+    &__quote {
+      font-size: 42px;
+      margin-bottom: spacing(6);
+    }
+
+    &__paint {
+      max-width: 35%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .hero {
+    padding: 0 spacing(4);
+
+    &__source {
+      font-size: 14px;
+    }
+
+    &__quote {
+      font-size: 36px;
+      margin-bottom: spacing(5);
+    }
+
+    &__know-more {
+      position: absolute;
+      bottom: spacing(4);
+      left: spacing(4);
+      align-items: flex-start;
+
+      &__arrow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        div:first-child {
+          height: 96px;
+        }
+      }
+    }
+
+    &__paint {
+      max-width: 42%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .hero {
+    &__quote {
+      font-size: 28px;
+      margin-bottom: spacing(4);
+    }
+
+    &__paint {
+      max-width: 50%;
+    }
+  }
+}

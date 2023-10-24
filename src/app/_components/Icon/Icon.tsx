@@ -28,8 +28,8 @@ export const Icon = ({
   height = 20,
 }: {
   icon: IconEnum;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }) => {
   const renderIcon = () => {
     switch (icon) {

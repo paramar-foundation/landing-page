@@ -1,4 +1,4 @@
-import { Banner } from "./_components/Banner";
+import { Hero } from "./_components/Hero";
 import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
 
@@ -9,7 +9,7 @@ export default function Home() {
     <main className={styles.main}>
       <NavigationBar />
       <PageSection>
-        <Banner />
+        <Hero />
       </PageSection>
       <PageSection>
         <h1 className="m-10">🚧 Work in Progress 🚧</h1>
