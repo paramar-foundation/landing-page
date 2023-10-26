@@ -1,0 +1,46 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  padding: spacing(1);
+  font-size: 16px;
+  line-height: 16px;
+  color: $color-white;
+  background-color: $color-purple;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-purple-800;
+    @include card;
+  }
+
+  &--disabled {
+    background-color: $color-purple-300;
+    pointer-events: none;
+  }
+
+  &--rounded {
+    border-radius: 100%;
+  }
+
+  &--previous {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  &--next {
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+  svg {
+    stroke: $color-white;
+  }
+}

@@ -15,8 +15,8 @@ export enum eButtonColor {
 }
 
 export enum eButtonSize {
-  standard,
-  small,
+  standard = "standard",
+  small = "small",
 }
 
 interface IButtonProps {
@@ -29,17 +29,15 @@ interface IButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = (props: IButtonProps) => {
-  const {
-    children,
-    type = eButtonType.primary,
-    color = eButtonColor.purple,
-    size = eButtonSize.standard,
-    fullWidth = false,
-    disabled = false,
-    onClick,
-  } = props;
-
+export const Button = ({
+  children,
+  type = eButtonType.primary,
+  color = eButtonColor.purple,
+  size = eButtonSize.standard,
+  fullWidth = false,
+  disabled = false,
+  onClick,
+}: IButtonProps) => {
   const getClassName = () => {
     const disableString = disabled ? "disabled" : "active";
     const stylesCombination = {
@@ -87,16 +85,12 @@ export const Button = (props: IButtonProps) => {
           },
         },
       },
-      size: {
-        [eButtonSize.standard]: styles["button--standard"],
-        [eButtonSize.small]: styles["button--small"],
-      },
     };
 
     const classes = [
       styles.button,
       stylesCombination.types[type][color][disableString],
-      stylesCombination.size[size],
+      styles[`button--${size}`],
       fullWidth ? styles["button--fullwidth"] : "",
     ];
 
@@ -104,7 +98,11 @@ export const Button = (props: IButtonProps) => {
   };
 
   return (
-    <button className={getClassName()} onClick={(e) => onClick && onClick(e)}>
+    <button
+      className={getClassName()}
+      onClick={(e) => onClick && onClick(e)}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
