@@ -1,0 +1,68 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.goals {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: spacing(8);
+  padding: spacing(15) spacing(12) spacing(17);
+
+  &__title {
+    flex-shrink: 0;
+    color: $color-purple;
+  }
+
+  &__list {
+    display: grid;
+    gap: spacing(5);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .goal {
+    &__data {
+      display: flex;
+      align-items: center;
+      gap: spacing(1);
+      margin-bottom: spacing(1);
+
+      svg {
+        fill: $color-purple;
+      }
+    }
+
+    &__number {
+      font-size: 39px;
+      line-height: 46px;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .goals {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .goals {
+    padding: spacing(15) spacing(4) spacing(15);
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .goals {
+    &__list {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+    }
+  }
+}
