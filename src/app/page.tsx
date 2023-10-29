@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <NavigationBar />
-      <PageSection>
+      <PageSection bgImage="/bg-hero.jpg" bgDefaultColor="$color-grey-400">
         <Hero />
       </PageSection>
       <PageSection>
@@ -27,17 +27,20 @@ export default function Home() {
       <PageSection>
         <h1 className={styles.wip}>🚧 Ambassadors [WIP] 🚧</h1>
       </PageSection>
-      <PageSection>
+      <PageSection bgImage="/bg-numbers.jpg" bgDefaultColor="$color-purple">
         <Numbers />
       </PageSection>
       <PageSection>
         <Goals />
       </PageSection>
-      <PageSection>
-        <h1 className={styles.wip}>🚧 Why Us [WIP] 🚧</h1>
-      </PageSection>
-      <PageSection>
-        <h1 className={styles.wip}>🚧 Therapy [WIP] 🚧</h1>
+      <PageSection
+        bgImage="bg-projects-and-therapy.jpg"
+        bgDefaultColor="$color-grey-400"
+      >
+        <>
+          <h1 className={styles.wip}>🚧 Why Us [WIP] 🚧</h1>
+          <h1 className={styles.wip}>🚧 Therapy [WIP] 🚧</h1>
+        </>
       </PageSection>
       <PageSection>
         <Professionals />

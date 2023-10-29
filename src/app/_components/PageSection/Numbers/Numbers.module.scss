@@ -12,11 +12,6 @@
   gap: spacing(8);
   padding: spacing(16) spacing(14) spacing(12);
 
-  background-color: $color-purple;
-  background-image: url("/bg-numbers.jpg");
-  background-size: cover;
-  background-position: center;
-
   * {
     z-index: 1;
   }
