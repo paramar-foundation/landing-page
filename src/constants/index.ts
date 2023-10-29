@@ -21,6 +21,25 @@ export const professionalsData = [
   },
 ];
 
+export const numbersData = [
+  {
+    number: "3",
+    type: "Billones de mujeres",
+    description:
+      "Serán víctimas de algún tipo de violencia sexual durante los próximos 75 años.",
+  },
+  {
+    number: "70%",
+    type: "De las víctimas",
+    description: "No tiene acceso a apoyo psicológico tras la agresión.",
+  },
+  {
+    number: "130",
+    type: "Mil mujeres y niñas",
+    description: "Que han sufrido agresión sexual se suicidan cada año.",
+  },
+];
+
 export const goalsData = [
   {
     icon: eIcons.woman,

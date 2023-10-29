@@ -6,6 +6,7 @@ import { FAQs } from "./_components/PageSection/FAQs";
 import { Goals } from "./_components/PageSection/Goals";
 import { Hero } from "./_components/PageSection/Hero";
 import { Mission } from "./_components/PageSection/Mission";
+import { Numbers } from "./_components/PageSection/Numbers";
 import { Professionals } from "./_components/PageSection/Professionals/";
 
 import styles from "./layout.module.scss";
@@ -27,7 +28,7 @@ export default function Home() {
         <h1 className={styles.wip}>🚧 Ambassadors [WIP] 🚧</h1>
       </PageSection>
       <PageSection>
-        <h1 className={styles.wip}>🚧 Numbers [WIP] 🚧</h1>
+        <Numbers />
       </PageSection>
       <PageSection>
         <Goals />

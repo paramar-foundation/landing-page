@@ -1,0 +1,214 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.numbers {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: spacing(8);
+  padding: spacing(16) spacing(14) spacing(12);
+
+  background-color: $color-purple;
+  background-image: url("/bg-numbers.jpg");
+  background-size: cover;
+  background-position: center;
+
+  * {
+    z-index: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-purple;
+    opacity: 0.7;
+    z-index: 0;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 49px;
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__list {
+    display: grid;
+    gap: spacing(12);
+    grid-template-columns: repeat(3, 1fr);
+
+    .number {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(1);
+      color: $color-white;
+      text-align: center;
+
+      &__main {
+        font-size: 96px;
+        line-height: 106px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      &__type {
+        text-transform: uppercase;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 35px;
+        letter-spacing: 0px;
+      }
+
+      &__description {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  &__source {
+    position: absolute;
+    width: 100%;
+    bottom: spacing(2);
+    left: 0;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    color: $color-grey-100;
+    padding: 0 10%;
+  }
+
+  &__paint-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__paint-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .numbers {
+    padding: spacing(16) spacing(14) spacing(28);
+
+    &__title {
+      font-size: 42px;
+      padding: 0 10%;
+    }
+
+    &__list {
+      gap: spacing(8);
+    }
+
+    &__source {
+      bottom: spacing(14);
+    }
+
+    &__paint-top {
+      max-width: 20%;
+    }
+
+    &__paint-bottom {
+      max-width: 35%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .numbers {
+    gap: spacing(5);
+    padding: spacing(20) spacing(4) spacing(32);
+
+    &__title {
+      font-size: 36px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      gap: spacing(4);
+
+      .number {
+        &__main {
+          font-size: 61px;
+          line-height: 66px;
+        }
+
+        &__type {
+          text-transform: uppercase;
+          font-size: 24px;
+          line-height: 28px;
+        }
+
+        &__description {
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    &__source {
+      font-size: 14px;
+      bottom: spacing(18);
+    }
+
+    &__paint-top {
+      max-width: 28%;
+    }
+
+    &__paint-bottom {
+      max-width: 42%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .numbers {
+    &__title {
+      font-size: 28px;
+    }
+
+    &__list {
+      gap: spacing(6);
+
+      .number {
+        &__main {
+          font-size: 50px;
+          line-height: 55px;
+        }
+
+        &__type {
+          font-size: 20px;
+          line-height: 22px;
+        }
+
+        &__description {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    &__paint-top {
+      max-width: 30%;
+    }
+
+    &__paint-bottom {
+      max-width: 50%;
+    }
+  }
+}
