@@ -1,0 +1,29 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.faqs {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: spacing(8);
+  padding: spacing(10);
+
+  &__title {
+    flex-shrink: 0;
+    color: $color-purple;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .faqs {
+    flex-direction: column;
+    gap: spacing(4);
+    padding: spacing(5) spacing(4) spacing(5);
+  }
+}

@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: spacing(11);
-  padding: spacing(20) spacing(13) spacing(16) spacing(8);
+  padding: spacing(16) spacing(13) spacing(16) spacing(8);
 
   &__image-container {
     display: flex;
@@ -45,7 +45,7 @@
 @media (max-width: $breakpoint-small-laptop) {
   .mission {
     gap: spacing(8);
-    padding: spacing(16) spacing(8) spacing(16) spacing(6);
+    padding: spacing(14) spacing(8) spacing(14) spacing(6);
 
     &__content {
       height: fit-content;
@@ -62,7 +62,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     gap: spacing(12);
-    padding: spacing(20) spacing(4) spacing(12) spacing(4);
+    padding: spacing(12) spacing(4) spacing(12) spacing(4);
 
     &__title {
       font-size: 32px;
@@ -72,7 +72,7 @@
 
 @media (max-width: $breakpoint-mobile) {
   .mission {
-    padding: spacing(20) spacing(4) spacing(8) spacing(4);
+    padding: spacing(8) spacing(4) spacing(8) spacing(4);
 
     &__title {
       font-size: 25px;
