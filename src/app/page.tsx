@@ -2,6 +2,7 @@ import { Footer } from "./_components/Footer";
 import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
 import { AboutUs } from "./_components/PageSection/AboutUs";
+import { Ambassadors } from "./_components/PageSection/Ambassadors";
 import { FAQs } from "./_components/PageSection/FAQs";
 import { Goals } from "./_components/PageSection/Goals";
 import { Hero } from "./_components/PageSection/Hero";
@@ -27,7 +28,7 @@ export default function Home() {
         <AboutUs />
       </PageSection>
       <PageSection>
-        <h1 className={styles.wip}>🚧 Ambassadors [WIP] 🚧</h1>
+        <Ambassadors />
       </PageSection>
       <PageSection bgImage="/bg-numbers.jpg" bgDefaultColor="$color-purple">
         <Numbers />

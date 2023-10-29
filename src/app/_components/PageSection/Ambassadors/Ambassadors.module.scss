@@ -1,0 +1,159 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.ambassadors {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  padding: spacing(16) spacing(13);
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    gap: spacing(4);
+    border: solid 2px $color-grey-100;
+    border-left: 0px;
+    border-radius: 0 10px 10px 0;
+    height: 100%;
+    padding: spacing(6) spacing(8) spacing(4);
+
+    & > div > svg {
+      fill: $color-purple;
+    }
+  }
+
+  &__role {
+    color: $color-purple;
+  }
+
+  &__role,
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+    color: $color-purple;
+    margin-bottom: spacing(2);
+  }
+
+  &__quote {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0px;
+    flex-grow: 1;
+  }
+
+  &__socials {
+    display: flex;
+    gap: spacing(1);
+  }
+
+  &__button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+    width: 100%;
+  }
+
+  &__dots {
+    display: flex;
+    gap: spacing(0.5);
+    position: absolute;
+    right: spacing(1);
+
+    .dot {
+      background-color: $color-purple-100;
+      height: spacing(1);
+      width: spacing(1);
+      border-radius: spacing(1);
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-purple-600;
+      }
+
+      &--active {
+        background-color: $color-purple-800;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .ambassadors {
+    padding: spacing(12) spacing(13);
+
+    &__quote {
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .ambassadors {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    padding: spacing(12) spacing(8);
+
+    &__image {
+      width: 100%;
+      max-height: 460px;
+      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+
+      img {
+        width: 100%;
+        height: unset;
+      }
+    }
+
+    &__role,
+    &__name {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 20px;
+    }
+
+    &__content {
+      border: solid 2px $color-grey-100;
+      border-top: 0px;
+      border-radius: 0 0 10px 10px;
+      margin-top: -1px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .ambassadors {
+    padding: spacing(12) spacing(4) spacing(8) spacing(4);
+
+    &__bio,
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+}

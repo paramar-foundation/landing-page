@@ -1,5 +1,39 @@
 import { eIcons } from "~/app/_components/Icon";
 
+export const ambassadorsData = [
+  {
+    id: 1,
+    profile: "/profile-ambassador-1.jpg",
+    name: "Cristina Gutierrez",
+    role: "Ambassador",
+    instagram: "https:www.instagram.com",
+    x: "https:www.x.com",
+    linkedin: "https:www.linkedin.com",
+    quote:
+      "La terapia psicológica especializada es crucial en la recuperación de quienes han sufrido violencia sexual, brindando apoyo emocional y herramientas para sanar y reconstruir sus vidas",
+  },
+  {
+    id: 2,
+    profile: "/profile-ambassador-2.jpg",
+    name: "Cristina Gutierrez",
+    role: "Ambassador",
+    instagram: "https:www.instagram.com",
+    x: "https:www.x.com",
+    quote:
+      "La terapia especializada psicológica es fundamental para ayudar a las víctimas de violencia sexual a sanar y recuperarse",
+  },
+  {
+    id: 2,
+    profile: "/profile-ambassador-3.jpg",
+    name: "Cristina Gutierrez",
+    role: "Ambassador",
+    instagram: "https:www.instagram.com",
+    linkedin: "https:www.linkedin.com",
+    quote:
+      "La terapia es un mapa que ayuda a las personas a navegar por sus desafíos emocionales e ir bien encaminados",
+  },
+];
+
 export const professionalsData = [
   {
     id: 1,

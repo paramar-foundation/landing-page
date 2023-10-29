@@ -9,6 +9,7 @@ import {
   SocialX,
   TherapyIcon,
   UsersIcon,
+  QuoteIcon,
   WeightIcon,
   WomanIcon,
 } from "./icons";
@@ -26,14 +27,15 @@ export enum eIcons {
   therapy,
   institution,
   users,
+  quote,
   weight,
   woman,
 }
 
 export const Icon = ({
   icon,
-  width = 20,
-  height = 20,
+  width = 24,
+  height = 24,
 }: {
   icon: eIcons;
   width?: number;
@@ -61,6 +63,8 @@ export const Icon = ({
         return <TherapyIcon />;
       case eIcons.users:
         return <UsersIcon />;
+      case eIcons.quote:
+        return <QuoteIcon />;
       case eIcons.weight:
         return <WeightIcon />;
       case eIcons.woman:
