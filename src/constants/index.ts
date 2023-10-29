@@ -2,18 +2,21 @@ import { eIcons } from "~/app/_components/Icon";
 
 export const professionalsData = [
   {
+    id: 1,
     profile: "/profile-camila-gonzalez.jpg",
     name: "Camila Gonzalez",
     bio: "Destacada psicóloga especializada en terapia de violencia sexual. Con una sólida formación académica y una amplia experiencia en el campo. Camila brinda apoyo terapéutico a las mujeres víctimas de violencia sexual en su proceso de recuperación. Su enfoque terapéutico es cálido y empático, creando un espacio seguro donde las sobrevivientes pueden compartir sus experiencias y emociones. Utiliza técnicas terapéuticas basadas en la evidencia, como la terapia cognitivo-conductual y la terapia de exposición, para abordar el trauma y los efectos a largo plazo.",
     expertise: ["Infancia y adolecencia", "Violencia de género", "Familiar"],
   },
   {
+    id: 2,
     profile: "/profile-jessica-gonzalez.jpg",
     name: "Jessica Gonzalez",
     bio: "Destacada psicóloga especializada en terapia de violencia sexual. Con una sólida formación académica y una amplia experiencia en el campo. Camila brinda apoyo terapéutico a las mujeres víctimas de violencia sexual en su proceso de recuperación. Su enfoque terapéutico es cálido y empático, creando un espacio seguro donde las sobrevivientes pueden compartir sus experiencias y emociones. Utiliza técnicas terapéuticas basadas en la evidencia, como la terapia cognitivo-conductual y la terapia de exposición, para abordar el trauma y los efectos a largo plazo.",
     expertise: ["Infancia y adolecencia", "Violencia de género", "Familiar"],
   },
   {
+    id: 2,
     profile: "/profile-luisa-maria-bayona.jpg",
     name: "Luisa Maria Bayona",
     bio: "Destacada psicóloga especializada en terapia de violencia sexual. Con una sólida formación académica y una amplia experiencia en el campo. Camila brinda apoyo terapéutico a las mujeres víctimas de violencia sexual en su proceso de recuperación. Su enfoque terapéutico es cálido y empático, creando un espacio seguro donde las sobrevivientes pueden compartir sus experiencias y emociones. Utiliza técnicas terapéuticas basadas en la evidencia, como la terapia cognitivo-conductual y la terapia de exposición, para abordar el trauma y los efectos a largo plazo.",
@@ -23,17 +26,20 @@ export const professionalsData = [
 
 export const numbersData = [
   {
+    id: 1,
     number: "3",
     type: "Billones de mujeres",
     description:
       "Serán víctimas de algún tipo de violencia sexual durante los próximos 75 años.",
   },
   {
+    id: 2,
     number: "70%",
     type: "De las víctimas",
     description: "No tiene acceso a apoyo psicológico tras la agresión.",
   },
   {
+    id: 3,
     number: "130",
     type: "Mil mujeres y niñas",
     description: "Que han sufrido agresión sexual se suicidan cada año.",
@@ -42,34 +48,40 @@ export const numbersData = [
 
 export const goalsData = [
   {
+    id: 1,
     icon: eIcons.woman,
     number: "250K",
     description:
       "Esperamos que 250.000 mujeres y niñas que reciban apoyo psicológico",
   },
   {
+    id: 2,
     icon: eIcons.hours,
     number: "1M",
     description:
       "Un millón de horas gratuitas de apoyo psicológico a mujeres y niñas",
   },
   {
+    id: 3,
     icon: eIcons.donation,
     number: "25M",
     description: "25 millones de dólares invertidos en causas sociales",
   },
   {
+    id: 4,
     icon: eIcons.therapy,
     number: "80%",
     description:
       "De terapias gratuitas en los países más pobres y con mayor prevalencia",
   },
   {
+    id: 5,
     icon: eIcons.institution,
     number: "+1K",
     description: "De formaciones a instituciones públicas y privadas",
   },
   {
+    id: 6,
     icon: eIcons.users,
     number: "+5K",
     description: "Más de 5.000 usuarias de terapias de pago",
@@ -173,5 +185,46 @@ export const faqsData = [
       "¿Cuáles son los objetivos a largo plazo de su organización para mejorar la salud mental de las sobrevivientes de agresión sexual?",
     answer:
       "Nuestros objetivos a largo plazo incluyen expandir nuestro alcance, aumentar el acceso a servicios de salud mental y abogar por políticas que protejan los derechos y el bienestar de las sobrevivientes. Estamos comprometidos en crear cambios positivos duraderos en la vida de las sobrevivientes en todo el mundo.",
+  },
+];
+
+export const whyUsData = [
+  {
+    id: 1,
+    paint: "/paint-whyus-card-1.png",
+    title: "Cuánto más das más ahorras",
+    description:
+      "Las donaciones a fundaciones sin ánimo de lucro son la mejor manera de pagar menos impuestos",
+  },
+  {
+    id: 2,
+    paint: "/paint-whyus-card-2.png",
+    title: "20 años de experiencia",
+    description:
+      "Gestionando proyectos escalables y capital aplicado a generar impacto social",
+  },
+  {
+    id: 3,
+    paint: "/paint-whyus-card-3.png",
+    title: "Transparencia",
+    description:
+      "Nuestras cuentas son públicas, transparentes y auditadas, el primer trimestre de cada año",
+  },
+];
+
+export const therapyData = [
+  {
+    id: 1,
+    paint: "/paint-therapy-card-1.png",
+    title: "Tu terapia aquí es esperanza para otras",
+    description:
+      "Por cada hora de terapia de pago una mujer o niña con bajos recursos recibe una hora gratuita de apoyo psicológico",
+  },
+  {
+    id: 2,
+    paint: "/paint-therapy-card-2.png",
+    title: "Somos especialistas",
+    description:
+      "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales",
   },
 ];

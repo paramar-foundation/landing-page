@@ -14,7 +14,7 @@ export const Goals = () => {
       </h2>
       <ul className={styles.goals__list}>
         {goalsData.map((data) => (
-          <li className={styles.goal} key={data.number}>
+          <li className={styles.goal} key={data.id}>
             <div className={styles.goal__data}>
               <Icon icon={data.icon} width={48} height={40} />
               <span className={styles.goal__number}>{data.number}</span>

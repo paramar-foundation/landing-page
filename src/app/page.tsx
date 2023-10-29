@@ -8,6 +8,8 @@ import { Hero } from "./_components/PageSection/Hero";
 import { Mission } from "./_components/PageSection/Mission";
 import { Numbers } from "./_components/PageSection/Numbers";
 import { Professionals } from "./_components/PageSection/Professionals/";
+import { Therapy } from "./_components/PageSection/Therapy";
+import { WhyUs } from "./_components/PageSection/WhyUs";
 
 import styles from "./layout.module.scss";
 
@@ -38,8 +40,8 @@ export default function Home() {
         bgDefaultColor="$color-grey-400"
       >
         <>
-          <h1 className={styles.wip}>🚧 Why Us [WIP] 🚧</h1>
-          <h1 className={styles.wip}>🚧 Therapy [WIP] 🚧</h1>
+          <WhyUs />
+          <Therapy />
         </>
       </PageSection>
       <PageSection>
