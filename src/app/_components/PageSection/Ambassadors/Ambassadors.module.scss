@@ -5,7 +5,8 @@
 .ambassadors {
   display: grid;
   grid-template-columns: 35% 1fr;
-  padding: spacing(16) spacing(13);
+
+  @include section;
 
   &__image {
     display: flex;
@@ -104,7 +105,7 @@
 
 @media (max-width: $breakpoint-small-laptop) {
   .ambassadors {
-    padding: spacing(12) spacing(13);
+    @include section-lg;
 
     &__quote {
       font-size: 22px;
@@ -117,7 +118,8 @@
   .ambassadors {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    padding: spacing(12) spacing(8);
+
+    @include section-md;
 
     &__image {
       width: 100%;
@@ -149,7 +151,7 @@
 
 @media (max-width: $breakpoint-mobile) {
   .ambassadors {
-    padding: spacing(12) spacing(4) spacing(8) spacing(4);
+    @include section-sm;
 
     &__bio,
     &__subtitle {

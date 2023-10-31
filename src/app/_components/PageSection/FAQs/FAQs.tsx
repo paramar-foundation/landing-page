@@ -10,9 +10,7 @@ import { Accordeon } from "../../Accordeon";
 export const FAQs = () => {
   return (
     <article className={styles.faqs}>
-      <h2 className={styles.faqs__title}>
-        Preguntas <br /> frecuentes
-      </h2>
+      <h2 className={styles.faqs__title}>Preguntas frecuentes</h2>
       <div className={styles.faqs__list}>
         {faqsData.map(({ id, question, answer }) => (
           <Accordeon key={id} question={question} answer={answer} />

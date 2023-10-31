@@ -7,7 +7,7 @@ import styles from "./AboutUs.module.scss";
 export const AboutUs = () => {
   return (
     <article className={styles["about-us"]}>
-      <h1 className={styles["about-us__title"]}>Sobre nosotras</h1>
+      <h2 className={styles["about-us__title"]}>Sobre nosotras</h2>
       <p className={styles["about-us__body"]}>
         Conoce más sobre nuestra intención y objetivo como fundación, así como
         también sobre quiénes somos como fundación y cómo asignamos todas

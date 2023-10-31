@@ -7,10 +7,12 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 spacing(8);
+
+  @include section;
 
   &__title {
     margin-bottom: spacing(4);
+    font-size: 49px;
   }
 
   &__body {
@@ -58,6 +60,12 @@
 
 @media (max-width: $breakpoint-small-laptop) {
   .about-us {
+    @include section-lg;
+
+    &__title {
+      font-size: 42px;
+    }
+
     &__cards {
       grid-template-columns: repeat(2, 1fr);
 
@@ -80,7 +88,11 @@
 
 @media (max-width: $breakpoint-tablet) {
   .about-us {
-    padding: 0 spacing(4);
+    @include section-md;
+
+    &__title {
+      font-size: 32px;
+    }
 
     &__cards {
       grid-template-columns: 1fr;
@@ -101,6 +113,12 @@
 
 @media (max-width: $breakpoint-mobile) {
   .about-us {
+    @include section-sm;
+
+    &__title {
+      font-size: 28px;
+    }
+
     .card ul li {
       font-size: 14px;
       line-height: 17px;

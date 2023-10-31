@@ -1,3 +1,5 @@
+@import "~/styles/functions.scss";
+
 @mixin animate($animation, $duration, $method, $times) {
   animation: $animation $duration $method $times forwards;
 }
@@ -30,4 +32,20 @@
 
 @mixin card-elevated {
   box-shadow: 0 1px 7px -2px #00000066;
+}
+
+@mixin section {
+  padding: spacing(12) spacing(8);
+}
+
+@mixin section-lg {
+  padding: spacing(8);
+}
+
+@mixin section-md {
+  padding-bottom: spacing(6) spacing(4);
+}
+
+@mixin section-sm {
+  padding: spacing(4);
 }

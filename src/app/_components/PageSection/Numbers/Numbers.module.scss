@@ -10,7 +10,8 @@
   flex-direction: column;
   width: 100%;
   gap: spacing(8);
-  padding: spacing(16) spacing(14) spacing(12);
+
+  @include section;
 
   * {
     z-index: 1;
@@ -99,7 +100,7 @@
 
 @media (max-width: $breakpoint-small-laptop) {
   .numbers {
-    padding: spacing(16) spacing(14) spacing(28);
+    @include section-lg;
 
     &__title {
       font-size: 42px;
@@ -127,7 +128,8 @@
 @media (max-width: $breakpoint-tablet) {
   .numbers {
     gap: spacing(5);
-    padding: spacing(20) spacing(4) spacing(32);
+
+    @include section-md;
 
     &__title {
       font-size: 36px;
@@ -173,6 +175,8 @@
 
 @media (max-width: $breakpoint-mobile) {
   .numbers {
+    @include section-sm;
+
     &__title {
       font-size: 28px;
     }

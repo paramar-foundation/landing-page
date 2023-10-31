@@ -9,9 +9,9 @@ export const Therapy = () => {
     <article className={styles.therapy}>
       <div className={styles.therapy__overlay}></div>
       <p className={styles.therapy__subtitle}>Comienza terapia</p>
-      <h1 className={styles.therapy__title}>
+      <h2 className={styles.therapy__title}>
         ¿Por qué tomar terapia con nosotras?
-      </h1>
+      </h2>
       <ul className={styles.therapy__cards}>
         {therapyData.map((data) => (
           <li className={styles.card} key={data.id}>

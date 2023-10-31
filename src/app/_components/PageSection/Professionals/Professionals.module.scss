@@ -6,7 +6,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: spacing(11);
-  padding: spacing(20) spacing(13) spacing(16) spacing(8);
+
+  @include section;
 
   &__image-container {
     display: flex;
@@ -90,7 +91,8 @@
 @media (max-width: $breakpoint-small-laptop) {
   .professionals {
     gap: spacing(8);
-    padding: spacing(16) spacing(8) spacing(16) spacing(6);
+
+    @include section-lg;
 
     &__content {
       height: fit-content;
@@ -107,7 +109,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     gap: spacing(12);
-    padding: spacing(20) spacing(4) spacing(12) spacing(4);
+
+    @include section-md;
 
     &__title {
       font-size: 32px;
@@ -121,7 +124,7 @@
 
 @media (max-width: $breakpoint-mobile) {
   .professionals {
-    padding: spacing(20) spacing(4) spacing(8) spacing(4);
+    @include section-sm;
 
     &__title {
       font-size: 25px;

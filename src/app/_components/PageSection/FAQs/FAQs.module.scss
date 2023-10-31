@@ -7,11 +7,13 @@
   align-items: flex-start;
   width: 100%;
   gap: spacing(8);
-  padding: spacing(10);
+
+  @include section;
 
   &__title {
     flex-shrink: 0;
     color: $color-purple;
+    max-width: 200px;
   }
 
   &__list {
@@ -20,10 +22,32 @@
   }
 }
 
+@media (max-width: $breakpoint-small-laptop) {
+  .faqs {
+    @include section-lg;
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
   .faqs {
     flex-direction: column;
     gap: spacing(4);
-    padding: spacing(5) spacing(4) spacing(5);
+
+    @include section-md;
+
+    &__title {
+      font-size: 32px;
+      max-width: unset;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .faqs {
+    @include section-sm;
+
+    &__title {
+      font-size: 28px;
+    }
   }
 }

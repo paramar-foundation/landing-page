@@ -9,7 +9,7 @@ export const WhyUs = () => {
     <article className={styles["why-us"]}>
       <div className={styles["why-us__overlay"]}></div>
       <p className={styles["why-us__subtitle"]}>Conoce nuestros proyectos</p>
-      <h1 className={styles["why-us__title"]}>¿Por qué donar con nosotras?</h1>
+      <h2 className={styles["why-us__title"]}>¿Por qué donar con nosotras?</h2>
       <ul className={styles["why-us__cards"]}>
         {whyUsData.map((data) => (
           <li className={styles.card} key={data.id}>

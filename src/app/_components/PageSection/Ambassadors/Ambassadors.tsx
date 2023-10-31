@@ -95,10 +95,10 @@ export const Ambassadors = () => {
             disabled={isNextDisabled}
           />
           <ul className={styles.ambassadors__dots}>
-            {ambassadorsData.map(({ name }, index) => (
+            {ambassadorsData.map(({ id }, index) => (
               <li
                 className={getDotClassName(index)}
-                key={name}
+                key={id}
                 onClick={() => setambassadorIndex(index)}
               />
             ))}

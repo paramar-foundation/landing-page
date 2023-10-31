@@ -7,7 +7,8 @@
   align-items: flex-start;
   width: 100%;
   gap: spacing(8);
-  padding: spacing(15) spacing(12) spacing(17);
+
+  @include section;
 
   &__title {
     flex-shrink: 0;
@@ -44,12 +45,18 @@
 @media (max-width: $breakpoint-small-laptop) {
   .goals {
     flex-direction: column;
+
+    @include section-lg;
   }
 }
 
 @media (max-width: $breakpoint-tablet) {
   .goals {
-    padding: spacing(15) spacing(4) spacing(15);
+    @include section-md;
+
+    &__title {
+      font-size: 32px;
+    }
 
     &__list {
       grid-template-columns: repeat(2, 1fr);
@@ -60,6 +67,12 @@
 
 @media (max-width: $breakpoint-mobile) {
   .goals {
+    @include section-sm;
+
+    &__title {
+      font-size: 26px;
+    }
+
     &__list {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, 1fr);

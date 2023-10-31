@@ -18,9 +18,11 @@
 
   &--small {
     height: fit-content;
+    padding: spacing(1.5);
   }
 
   &--fullwidth {
+    justify-content: center;
     width: 100%;
   }
 

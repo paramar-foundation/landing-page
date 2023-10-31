@@ -3,6 +3,7 @@ import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
 import { AboutUs } from "./_components/PageSection/AboutUs";
 import { Ambassadors } from "./_components/PageSection/Ambassadors";
+import { Donations } from "./_components/PageSection/Donations";
 import { FAQs } from "./_components/PageSection/FAQs";
 import { Goals } from "./_components/PageSection/Goals";
 import { Hero } from "./_components/PageSection/Hero";
@@ -52,7 +53,7 @@ export default function Home() {
         <h1 className={styles.wip}>🚧 Contact [WIP] 🚧</h1>
       </PageSection>
       <PageSection>
-        <h1 className={styles.wip}>🚧 Donate Now [WIP] 🚧</h1>
+        <Donations />
       </PageSection>
       <PageSection>
         <FAQs />

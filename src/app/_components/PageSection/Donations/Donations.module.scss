@@ -1,0 +1,148 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.donations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @include section;
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-purple;
+    margin-bottom: spacing(1);
+  }
+
+  &__title {
+    font-size: 49px;
+    line-height: 60px;
+    margin-bottom: spacing(3);
+  }
+
+  &__body {
+    max-width: 716px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    margin-bottom: spacing(5);
+  }
+
+  &__cards {
+    display: grid;
+    gap: spacing(6);
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: spacing(5);
+  }
+
+  &__button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+    width: 100%;
+    margin-bottom: spacing(5);
+  }
+
+  &__dots {
+    display: flex;
+    gap: spacing(0.5);
+    position: absolute;
+    right: spacing(1);
+
+    .dot {
+      background-color: $color-purple-100;
+      height: spacing(1.5);
+      width: spacing(1.5);
+      border-radius: spacing(1.5);
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-purple-600;
+      }
+
+      &--active {
+        background-color: $color-purple-800;
+      }
+    }
+  }
+
+  &__thanks {
+    display: flex;
+    align-items: center;
+    background-color: $color-purple-200;
+    color: $color-purple;
+    padding: spacing(3);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: $breakpoint-small-laptop) {
+  .donations {
+    @include section-lg;
+
+    &__title {
+      font-size: 39px;
+      line-height: 48px;
+    }
+
+    &__cards {
+      gap: spacing(3);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__thanks {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .donations {
+    @include section-md;
+
+    &__body,
+    &__subtitle {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: spacing(2);
+    }
+
+    &__body {
+      margin-bottom: spacing(2);
+    }
+
+    &__cards {
+      grid-template-columns: 1fr;
+      margin-bottom: spacing(2);
+    }
+
+    &__thanks {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .donations {
+    @include section-sm;
+
+    &__title {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+}

@@ -23,7 +23,7 @@ export const ambassadorsData = [
       "La terapia especializada psicológica es fundamental para ayudar a las víctimas de violencia sexual a sanar y recuperarse",
   },
   {
-    id: 2,
+    id: 3,
     profile: "/profile-ambassador-3.jpg",
     name: "Cristina Gutierrez",
     role: "Ambassador",
@@ -260,5 +260,41 @@ export const therapyData = [
     title: "Somos especialistas",
     description:
       "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales",
+  },
+];
+
+export const donationsData = [
+  {
+    id: 1,
+    image: "/donate-1.jpg",
+    location: "Paramar Foundation",
+    name: "Apoya a más mujeres y niñas",
+    description:
+      "La gestión de los fondos provenientes de los beneficios de nuestros servicios de pago y las donaciones, se asignan...",
+    lastDonation: "Última donación hace 5h",
+    currentAmount: 50000,
+    goalAmount: 70000,
+  },
+  {
+    id: 3,
+    image: "/donate-2.jpg",
+    location: "Washington, D.C.",
+    name: "RAINN.org",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...",
+    lastDonation: "Última donación hace 5h",
+    currentAmount: 50000,
+    goalAmount: 70000,
+  },
+  {
+    id: 2,
+    image: "/donate-3.jpg",
+    location: "Washington, D.C.",
+    name: "HUMAN RIGHTS CAMPAIGN",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...",
+    lastDonation: "Última donación hace 5h",
+    currentAmount: 50000,
+    goalAmount: 70000,
   },
 ];

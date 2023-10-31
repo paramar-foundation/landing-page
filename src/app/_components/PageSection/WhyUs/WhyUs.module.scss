@@ -8,7 +8,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: spacing(15) spacing(8) spacing(8);
+
+  @include section;
 
   * {
     z-index: 1;
@@ -97,6 +98,8 @@
 
 @media (max-width: $breakpoint-small-laptop) {
   .why-us {
+    @include section-lg;
+
     &__cards {
       grid-template-columns: repeat(2, 1fr);
 
@@ -116,7 +119,7 @@
 
 @media (max-width: $breakpoint-tablet) {
   .why-us {
-    padding: spacing(8) spacing(4);
+    @include section-md;
 
     &__title {
       font-size: 36px;
@@ -152,6 +155,8 @@
 
 @media (max-width: $breakpoint-mobile) {
   .why-us {
+    @include section-sm;
+
     &__title {
       font-size: 28px;
     }

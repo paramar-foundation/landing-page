@@ -8,7 +8,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: spacing(8) spacing(8) spacing(15);
+
+  @include section;
 
   * {
     z-index: 1;
@@ -98,6 +99,8 @@
 
 @media (max-width: $breakpoint-small-laptop) {
   .therapy {
+    @include section-lg;
+
     &__cards {
       max-width: 100%;
       grid-template-columns: repeat(2, 1fr);
@@ -114,7 +117,7 @@
 
 @media (max-width: $breakpoint-tablet) {
   .therapy {
-    padding: spacing(8) spacing(4);
+    @include section-md;
 
     &__title {
       font-size: 36px;
@@ -150,6 +153,8 @@
 
 @media (max-width: $breakpoint-mobile) {
   .therapy {
+    @include section-sm;
+
     &__title {
       font-size: 28px;
     }
