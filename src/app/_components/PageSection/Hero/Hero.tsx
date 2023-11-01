@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, eButtonColor, eButtonType } from "../../Button";
+import Image from "next/image";
+import { Button, eButtonColor } from "../../Button";
 import { Icon, eIcons } from "../../Icon";
 
 import styles from "./Hero.module.scss";
@@ -25,7 +26,7 @@ export const Hero = () => {
           <Icon icon={eIcons.chevronDown} width={23} height={20} />
         </div>
       </div>
-      <img
+      <Image
         className={styles.hero__paint}
         src="/paint-hero.png"
         alt="Paint splatter decoration"

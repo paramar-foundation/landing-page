@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
@@ -49,8 +50,8 @@ export const Ambassadors = () => {
   return (
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>
-        <img
-          src={ambassadorsData[ambassadorIndex]?.profile}
+        <Image
+          src={ambassadorsData[ambassadorIndex]!.profile}
           alt={`${ambassadorsData[ambassadorIndex]?.name} profile picture`}
           loading="lazy"
         />

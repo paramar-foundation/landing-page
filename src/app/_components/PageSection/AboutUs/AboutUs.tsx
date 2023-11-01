@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, eButtonColor } from "../../Button";
+import Image from "next/image";
 
 import styles from "./AboutUs.module.scss";
 
@@ -15,7 +15,7 @@ export const AboutUs = () => {
       </p>
       <div className={styles["about-us__cards"]}>
         <article className={styles.card}>
-          <img
+          <Image
             className={styles.card__image}
             src="/paint-aboutus-card-1.png"
             alt="paint splatter decoration"
@@ -36,7 +36,7 @@ export const AboutUs = () => {
           </ul>
         </article>
         <article className={styles.card}>
-          <img
+          <Image
             className={styles.card__image}
             src="/paint-aboutus-card-2.png"
             alt="paint splatter decoration"
@@ -56,7 +56,7 @@ export const AboutUs = () => {
           </ul>
         </article>
         <article className={styles.card}>
-          <img
+          <Image
             className={styles.card__image}
             src="/paint-aboutus-card-3.png"
             alt="paint splatter decoration"

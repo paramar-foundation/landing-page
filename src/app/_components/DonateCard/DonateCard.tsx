@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styles from "./DonateCard.module.scss";
 import { Button, eButtonSize } from "../Button";
+import Image from "next/image";
 
 interface IDonateCardProps {
   data:
@@ -38,7 +38,7 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
   return (
     <article className={styles["donate-card"]}>
       <div className={styles["image-container"]}>
-        <img src={image} alt={`${name} donation cover`} />
+        <Image src={image} alt={`${name} donation cover`} />
       </div>
       <div className={styles.content}>
         <p className={styles.content__location}>{location}</p>

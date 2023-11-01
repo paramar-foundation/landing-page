@@ -7,7 +7,6 @@ import { Icon, eIcons } from "../Icon";
 import { Button, eButtonColor, eButtonType } from "../Button";
 
 import styles from "./NavigationBar.module.scss";
-import { breakpoints } from "~/constants";
 
 const LanguageSelection = ({ isHidden = false }) => {
   const [selectedLocale, setSelectedLocale] = useState("es");
@@ -87,22 +86,22 @@ export const NavigationBar = () => {
     ].join(" ");
   };
 
-  const handleScroll = () => {
-    if (window.scrollY > 220) {
-      setScroll(true);
-      setSecondaryCtaColor(eButtonColor.purple);
-      setLogoType(eLogoType.color);
-    } else {
-      setScroll(false);
-
-      if (!isMenuOpen) {
-        setSecondaryCtaColor(eButtonColor.white);
-        setLogoType(eLogoType.white);
-      }
-    }
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 220) {
+        setScroll(true);
+        setSecondaryCtaColor(eButtonColor.purple);
+        setLogoType(eLogoType.color);
+      } else {
+        setScroll(false);
+
+        if (!isMenuOpen) {
+          setSecondaryCtaColor(eButtonColor.white);
+          setLogoType(eLogoType.white);
+        }
+      }
+    };
+
     if (!isMenuOpen && !isScroll) {
       setLogoType(eLogoType.white);
       setSecondaryCtaColor(eButtonColor.white);
@@ -118,7 +117,7 @@ export const NavigationBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isScroll]);
 
   const renderMenu = (modifier = "") => {
     return (
@@ -132,7 +131,7 @@ export const NavigationBar = () => {
         }
         ref={menuRef}
       >
-        <li className={styles["mission"]}>
+        <li className={styles.mission}>
           <a href="">Misión</a>
         </li>
         <li className={styles["about-us"]}>
@@ -141,10 +140,10 @@ export const NavigationBar = () => {
         <li className={styles["why-us"]}>
           <a href="">¿Por qué nosotras</a>
         </li>
-        <li className={styles["therapy"]}>
+        <li className={styles.therapy}>
           <a href="">Terapia</a>
         </li>
-        <li className={styles["faqs"]}>
+        <li className={styles.faqs}>
           <a href="">FAQs</a>
         </li>
       </ul>

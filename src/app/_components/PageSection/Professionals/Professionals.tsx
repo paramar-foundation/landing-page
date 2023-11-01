@@ -5,6 +5,7 @@ import { IconButton, eIconButtonType } from "../../IconButton";
 
 import { professionalsData } from "~/constants";
 import styles from "./Professionals.module.scss";
+import Image from "next/image";
 
 export const Professionals = () => {
   const maxIndex = professionalsData.length - 1;
@@ -48,9 +49,9 @@ export const Professionals = () => {
   return (
     <article className={styles.professionals}>
       <div className={styles["professionals__image-container"]}>
-        <img
+        <Image
           className={styles.professionals__image}
-          src={professionalsData[professionalIndex]?.profile}
+          src={professionalsData[professionalIndex]!.profile}
           alt={`${professionalsData[professionalIndex]?.name} profile picture`}
           loading="lazy"
         />

@@ -3,6 +3,7 @@
 import { Button, eButtonColor } from "../../Button";
 import { therapyData } from "~/constants";
 import styles from "./Therapy.module.scss";
+import Image from "next/image";
 
 export const Therapy = () => {
   return (
@@ -16,7 +17,7 @@ export const Therapy = () => {
         {therapyData.map((data) => (
           <li className={styles.card} key={data.id}>
             <div className={styles.card__bg}></div>
-            <img
+            <Image
               className={styles.card__image}
               src={data.paint}
               alt="paint splatter decoration"
