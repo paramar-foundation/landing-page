@@ -10,13 +10,12 @@
   display: flex;
   width: 100%;
   height: 112px;
-  gap: spacing(8);
+  gap: spacing(6);
   background-color: transparent;
   padding: spacing(4) spacing(8);
 
   &__contents {
     display: flex;
-    flex-grow: 1;
     gap: spacing(4);
   }
 
@@ -30,13 +29,12 @@
       display: flex;
       height: 100%;
       align-content: stretch;
-      gap: spacing(2);
 
       a {
         display: flex;
         align-items: center;
         white-space: nowrap;
-        padding: spacing(2);
+        padding: spacing(1.5);
         font-size: 16px;
         font-weight: 700;
         color: $color-white;
@@ -50,7 +48,7 @@
 
   &__actions {
     display: flex;
-    gap: spacing(3);
+    gap: spacing(2);
   }
 
   .language-selection {
@@ -71,7 +69,7 @@
     &__selected {
       display: flex;
       align-items: center;
-      padding: spacing(2);
+      padding: spacing(1);
       cursor: pointer;
     }
 
@@ -101,7 +99,7 @@
   }
 
   .hamburger {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
@@ -112,13 +110,31 @@
       height: 3px;
       border-radius: 1px;
       background-color: $color-white;
+      margin: 0;
+    }
+
+    &--open {
+      gap: 0;
+
+      div:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      div:nth-child(2) {
+        display: none;
+      }
+
+      div:nth-child(3) {
+        transform: rotate(-45deg);
+        margin-top: -3px;
+      }
     }
   }
 
+  &--menu-open,
   &--on-scroll {
+    padding: spacing(4) spacing(8);
     background-color: $color-white;
-    height: 96px;
-    padding: spacing(3) spacing(8);
 
     @include card-elevated;
 
@@ -136,6 +152,108 @@
       svg {
         stroke: $color-purple;
       }
+    }
+
+    .hamburger {
+      div {
+        background-color: $color-purple;
+      }
+
+      &--open div {
+        background-color: $color-grey-400;
+      }
+    }
+  }
+
+  &--on-scroll {
+    height: 96px;
+    padding: spacing(3) spacing(6);
+  }
+
+  &__responsive-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 0;
+    padding: 0 spacing(4);
+    overflow: hidden;
+  }
+
+  &--menu-open {
+    .navigation-bar__responsive-menu {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      padding: spacing(4);
+      background-color: $color-white;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .navigation-bar {
+    gap: spacing(3);
+    padding: spacing(4);
+
+    &__contents {
+      gap: spacing(2);
+    }
+
+    &__menu-items {
+      .mission,
+      .therapy {
+        display: none;
+      }
+    }
+
+    &--on-scroll {
+      padding: spacing(3) spacing(4);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .navigation-bar {
+    &__menu-items {
+      display: none;
+    }
+
+    &__contents {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .navigation-bar {
+    &__actions {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    .language-selection {
+      display: none;
+    }
+
+    #more-info-btn {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .navigation-bar {
+    height: 108px;
+    padding: spacing(4);
+
+    &--on-scroll {
+      height: 96px;
+      padding: spacing(3) spacing(6);
     }
   }
 }

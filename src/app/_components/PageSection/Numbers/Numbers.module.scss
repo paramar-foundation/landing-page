@@ -98,7 +98,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .numbers {
     @include section-lg;
 
@@ -125,7 +125,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .numbers {
     gap: spacing(5);
 
@@ -173,7 +173,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .numbers {
     @include section-sm;
 

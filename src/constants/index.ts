@@ -1,5 +1,12 @@
 import { eIcons } from "~/app/_components/Icon";
 
+export const breakpoints = {
+  xl: 1440,
+  lg: 1024,
+  md: 744,
+  sm: 480,
+};
+
 export const ambassadorsData = [
   {
     id: 1,

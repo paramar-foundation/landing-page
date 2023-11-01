@@ -20,6 +20,7 @@ export enum eButtonSize {
 }
 
 interface IButtonProps {
+  id?: string;
   children?: ReactElement | string;
   color?: eButtonColor;
   size?: eButtonSize;
@@ -30,6 +31,7 @@ interface IButtonProps {
 }
 
 export const Button = ({
+  id,
   children,
   type = eButtonType.primary,
   color = eButtonColor.purple,
@@ -99,6 +101,7 @@ export const Button = ({
 
   return (
     <button
+      id={id}
       className={getClassName()}
       onClick={(e) => onClick && onClick(e)}
       disabled={disabled}

@@ -74,7 +74,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .hero {
     &__quote {
       font-size: 42px;
@@ -87,7 +87,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .hero {
     padding: 0 spacing(4);
 
@@ -123,7 +123,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .hero {
     &__quote {
       font-size: 28px;

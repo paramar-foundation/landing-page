@@ -7,8 +7,9 @@ import { Icon, eIcons } from "../Icon";
 import { Button, eButtonColor, eButtonType } from "../Button";
 
 import styles from "./NavigationBar.module.scss";
+import { breakpoints } from "~/constants";
 
-const LanguageSelection = () => {
+const LanguageSelection = ({ isHidden = false }) => {
   const [selectedLocale, setSelectedLocale] = useState("es");
   const [isDisplayingOptions, setDisplayingOptions] = useState(false);
   const locales = ["es", "en"] as const;
@@ -18,8 +19,14 @@ const LanguageSelection = () => {
     setDisplayingOptions(false);
   };
 
+  const getClassName = () => {
+    return isHidden
+      ? styles["language-selection-responsive"]
+      : styles["language-selection"];
+  };
+
   return (
-    <article className={styles["language-selection"]}>
+    <article className={getClassName()}>
       <div
         className={styles["language-selection__selected"]}
         onClick={() => setDisplayingOptions(!isDisplayingOptions)}
@@ -40,9 +47,21 @@ const LanguageSelection = () => {
   );
 };
 
-const Hamburguer = () => {
+const Hamburguer = ({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) => {
+  const getClassName = () => {
+    return [styles.hamburger, isOpen ? styles["hamburger--open"] : ""].join(
+      " "
+    );
+  };
+
   return (
-    <article className={styles.hamburger}>
+    <article className={getClassName()} onClick={onClick}>
       <div className={styles.hamburger__top}></div>
       <div className={styles.hamburger__middle}></div>
       <div className={styles.hamburger__bottom}></div>
@@ -51,35 +70,46 @@ const Hamburguer = () => {
 };
 
 export const NavigationBar = () => {
-  const [mainStyles, setMainStyles] = useState(styles["navigation-bar"]);
-  const [logoType, seteLogoType] = useState(eLogoType.white);
+  const [logoType, setLogoType] = useState(eLogoType.white);
+  const [isScroll, setScroll] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
     eButtonColor.white
   );
   const headerRef = useRef(null);
   const menuRef = useRef(null);
-  const menuItems = [
-    "Mision",
-    "Sobre Nosotras",
-    "Por qué nosotras?",
-    "Terapia",
-    "FAQs",
-  ] as const;
+
+  const getClassName = () => {
+    return [
+      styles["navigation-bar"],
+      isScroll ? styles["navigation-bar--on-scroll"] : "",
+      isMenuOpen ? styles["navigation-bar--menu-open"] : "",
+    ].join(" ");
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 220) {
+      setScroll(true);
+      setSecondaryCtaColor(eButtonColor.purple);
+      setLogoType(eLogoType.color);
+    } else {
+      setScroll(false);
+
+      if (!isMenuOpen) {
+        setSecondaryCtaColor(eButtonColor.white);
+        setLogoType(eLogoType.white);
+      }
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 220) {
-        setSecondaryCtaColor(eButtonColor.purple);
-        seteLogoType(eLogoType.color);
-        setMainStyles(
-          `${styles["navigation-bar"]} ${styles["navigation-bar--on-scroll"]}`
-        );
-      } else {
-        setSecondaryCtaColor(eButtonColor.white);
-        seteLogoType(eLogoType.white);
-        setMainStyles(styles["navigation-bar"]);
-      }
-    };
+    if (!isMenuOpen && !isScroll) {
+      setLogoType(eLogoType.white);
+      setSecondaryCtaColor(eButtonColor.white);
+    } else {
+      setLogoType(eLogoType.color);
+      setSecondaryCtaColor(eButtonColor.purple);
+    }
 
     handleScroll();
 
@@ -88,27 +118,62 @@ export const NavigationBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMenuOpen]);
+
+  const renderMenu = (modifier = "") => {
+    return (
+      <ul
+        className={
+          styles[
+            `navigation-bar__menu-items${
+              modifier !== "" ? `--${modifier}` : ""
+            }`
+          ]
+        }
+        ref={menuRef}
+      >
+        <li className={styles["mission"]}>
+          <a href="">Misión</a>
+        </li>
+        <li className={styles["about-us"]}>
+          <a href="">Sobre nosotras</a>
+        </li>
+        <li className={styles["why-us"]}>
+          <a href="">¿Por qué nosotras</a>
+        </li>
+        <li className={styles["therapy"]}>
+          <a href="">Terapia</a>
+        </li>
+        <li className={styles["faqs"]}>
+          <a href="">FAQs</a>
+        </li>
+      </ul>
+    );
+  };
 
   return (
-    <header className={mainStyles} ref={headerRef}>
-      {/* <Hamburguer /> */}
+    <header className={getClassName()} ref={headerRef}>
+      <Hamburguer
+        isOpen={isMenuOpen}
+        onClick={() => setMenuOpen((prev) => !prev)}
+      />
       <Logo type={logoType} />
+      {renderMenu()}
       <section className={styles["navigation-bar__contents"]}>
-        <ul className={styles["navigation-bar__menu-items"]} ref={menuRef}>
-          {menuItems.map((menu) => (
-            <li key={menu}>
-              <a href={"/"}>{menu}</a>
-            </li>
-          ))}
-        </ul>
         <div className={styles["navigation-bar__actions"]}>
           <LanguageSelection />
           <Button>Dona aquí</Button>
-          <Button type={eButtonType.secondary} color={secondaryCtaColor}>
+          <Button
+            id={styles["more-info-btn"]}
+            type={eButtonType.secondary}
+            color={secondaryCtaColor}
+          >
             Más información
           </Button>
         </div>
+      </section>
+      <section className={styles["navigation-bar__responsive-menu"]}>
+        {renderMenu("responsive-menu")}
       </section>
     </header>
   );

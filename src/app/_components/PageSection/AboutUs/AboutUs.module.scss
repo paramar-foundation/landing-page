@@ -58,7 +58,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .about-us {
     @include section-lg;
 
@@ -86,7 +86,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .about-us {
     @include section-md;
 
@@ -111,7 +111,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .about-us {
     @include section-sm;
 

@@ -1,22 +1,28 @@
+import styles from "./Logo.module.scss";
+
 export enum eLogoType {
   black,
   color,
   white,
 }
 
-import styles from "./Logo.module.scss";
+interface ILogo {
+  type?: eLogoType;
+}
 
-export const Logo = ({ type = eLogoType.color }) => {
+export const Logo = ({ type = eLogoType.color }: ILogo) => {
   const getClassName = () => {
+    const classes = [styles.logo];
+
     if (type === eLogoType.white) {
-      return [styles.logo, styles.logo__white].join(" ");
+      classes.push(styles.logo__white);
     }
 
     if (type === eLogoType.black) {
-      return [styles.logo, styles.logo__black].join(" ");
+      classes.push(styles.logo__black);
     }
 
-    return styles.logo;
+    return classes.join(" ");
   };
 
   return (

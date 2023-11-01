@@ -43,7 +43,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .mission {
     gap: spacing(8);
 
@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .mission {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
@@ -73,7 +73,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .mission {
     @include section-sm;
 

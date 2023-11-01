@@ -97,7 +97,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .therapy {
     @include section-lg;
 
@@ -115,7 +115,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .therapy {
     @include section-md;
 
@@ -151,7 +151,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .therapy {
     @include section-sm;
 

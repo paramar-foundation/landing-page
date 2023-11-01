@@ -83,7 +83,7 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .donations {
     @include section-lg;
 
@@ -105,7 +105,7 @@
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .donations {
     @include section-md;
 
@@ -136,7 +136,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .donations {
     @include section-sm;
 

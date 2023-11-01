@@ -15,12 +15,12 @@
   }
 
   svg {
-    &:first-child {
+    &:nth-child(1) {
       height: 100%;
       width: 30%;
     }
 
-    &:last-child {
+    &:nth-child(2) {
       height: 80%;
       width: 70%;
     }
@@ -32,6 +32,28 @@
 
       &.fill-orange {
         fill: $color-orange;
+      }
+    }
+  }
+
+  &--responsive {
+    svg {
+      &:nth-child(1) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .logo {
+    svg {
+      &:nth-child(1) {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        display: none;
       }
     }
   }

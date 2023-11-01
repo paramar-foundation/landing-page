@@ -22,13 +22,13 @@
   }
 }
 
-@media (max-width: $breakpoint-small-laptop) {
+@media (max-width: $breakpoint-lg) {
   .faqs {
     @include section-lg;
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: $breakpoint-md) {
   .faqs {
     flex-direction: column;
     gap: spacing(4);
@@ -42,7 +42,7 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-sm) {
   .faqs {
     @include section-sm;
 
