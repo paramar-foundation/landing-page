@@ -1,14 +1,16 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 
 import styles from "./PageSection.module.scss";
 
 interface ISectionProps {
+  id?: string;
   children?: ReactElement | string;
   bgDefaultColor?: string;
   bgImage?: string;
 }
 
 export const PageSection = ({
+  id,
   children,
   bgDefaultColor = "$color-white",
   bgImage,
@@ -25,6 +27,7 @@ export const PageSection = ({
   };
   return (
     <section className={styles["page-section"]} style={getBgImage()}>
+      <div className={styles.anchor} id={id}></div>
       {children}
     </section>
   );

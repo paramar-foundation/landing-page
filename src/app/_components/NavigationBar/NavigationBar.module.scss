@@ -218,12 +218,17 @@
         background-color: $color-white;
 
         li {
-          padding: spacing(2) spacing(1);
+          display: flex;
           border-bottom: solid 1px $color-grey-100;
           border-top: solid 1px $color-grey-100;
 
           &:first-child {
             border-top-width: 0px;
+          }
+
+          a {
+            padding: spacing(2) spacing(1);
+            width: 100%;
           }
         }
 

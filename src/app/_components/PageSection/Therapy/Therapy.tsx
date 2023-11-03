@@ -8,7 +8,7 @@ import styles from "./Therapy.module.scss";
 
 export const Therapy = () => {
   return (
-    <article className={styles.therapy}>
+    <article id="therapy" className={styles.therapy}>
       <div className={styles.therapy__overlay}></div>
       <p className={styles.therapy__subtitle}>Comienza terapia</p>
       <h2 className={styles.therapy__title}>

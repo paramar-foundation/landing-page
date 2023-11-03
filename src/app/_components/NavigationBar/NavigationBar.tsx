@@ -146,19 +146,29 @@ export const NavigationBar = () => {
       >
         <ul>
           <li className={styles.mission}>
-            <a href="">Misión</a>
+            <a onClick={() => setMenuOpen(false)} href="#mission">
+              Misión
+            </a>
           </li>
           <li className={styles["about-us"]}>
-            <a href="">Sobre nosotras</a>
+            <a onClick={() => setMenuOpen(false)} href="#about-us">
+              Sobre nosotras
+            </a>
           </li>
           <li className={styles["why-us"]}>
-            <a href="">¿Por qué nosotras</a>
+            <a onClick={() => setMenuOpen(false)} href="#why-us">
+              ¿Por qué nosotras
+            </a>
           </li>
           <li className={styles.therapy}>
-            <a href="">Terapia</a>
+            <a onClick={() => setMenuOpen(false)} href="#therapy">
+              Terapia
+            </a>
           </li>
           <li className={styles.faqs}>
-            <a href="">FAQs</a>
+            <a onClick={() => setMenuOpen(false)} href="#faqs">
+              FAQs
+            </a>
           </li>
         </ul>
         {isResponsive && (
