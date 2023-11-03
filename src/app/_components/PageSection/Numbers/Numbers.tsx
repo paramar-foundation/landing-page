@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button, eButtonColor } from "../../Button";
 
 import { numbersData } from "~/constants";
@@ -25,15 +26,19 @@ export const Numbers = () => {
       >
         Ayúdanos a evitarlo
       </Button>
-      <img
+      <Image
         className={styles["numbers__paint-top"]}
         src="/paint-numbers-top.png"
         alt="Paint splatter decoration"
+        width={200}
+        height={200}
       />
-      <img
+      <Image
         className={styles["numbers__paint-bottom"]}
         src="/paint-numbers-bottom.png"
         alt="Paint splatter decoration"
+        width={200}
+        height={200}
       />
       <span className={styles.numbers__source}>
         Organización Mundial de la Salud, 2019/ UN Women, 2022

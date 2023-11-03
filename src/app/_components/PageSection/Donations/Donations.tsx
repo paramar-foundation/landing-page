@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 
 import { DonateCard } from "../../DonateCard";
+import { IconButton, eIconButtonType } from "../../IconButton";
 
 import { donationsData } from "~/constants";
 import styles from "./Donations.module.scss";
-import { IconButton, eIconButtonType } from "../../IconButton";
 
 export const Donations = () => {
   const maxIndex = donationsData.length - 1;

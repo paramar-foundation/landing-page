@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Button, eButtonColor } from "../../Button";
+
 import { therapyData } from "~/constants";
 import styles from "./Therapy.module.scss";
 
@@ -16,10 +18,12 @@ export const Therapy = () => {
         {therapyData.map((data) => (
           <li className={styles.card} key={data.id}>
             <div className={styles.card__bg}></div>
-            <img
+            <Image
               className={styles.card__image}
               src={data.paint}
               alt="paint splatter decoration"
+              width={200}
+              height={150}
             />
             <span className={styles.card__title}>{data.title}</span>
             <p className={styles.card__description}>{data.description}</p>

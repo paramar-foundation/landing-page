@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
@@ -48,11 +49,13 @@ export const Professionals = () => {
   return (
     <article className={styles.professionals}>
       <div className={styles["professionals__image-container"]}>
-        <img
+        <Image
           className={styles.professionals__image}
           src={professionalsData[professionalIndex]!.profile}
           alt={`${professionalsData[professionalIndex]?.name} profile picture`}
           loading="lazy"
+          width={600}
+          height={700}
         />
       </div>
       <div className={styles.professionals__content}>

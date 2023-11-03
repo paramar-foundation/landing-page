@@ -89,12 +89,14 @@
     position: absolute;
     top: 0;
     right: 0;
+    height: auto;
   }
 
   &__paint-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
+    height: auto;
   }
 }
 
@@ -112,7 +114,7 @@
     }
 
     &__source {
-      bottom: spacing(14);
+      position: static;
     }
 
     &__paint-top {
@@ -127,9 +129,11 @@
 
 @media (max-width: $breakpoint-md) {
   .numbers {
-    gap: spacing(5);
-
     @include section-md;
+
+    gap: spacing(5);
+    padding-top: spacing(21);
+    padding-bottom: spacing(18);
 
     &__title {
       font-size: 36px;
@@ -160,7 +164,6 @@
 
     &__source {
       font-size: 14px;
-      bottom: spacing(18);
     }
 
     &__paint-top {
@@ -175,8 +178,6 @@
 
 @media (max-width: $breakpoint-sm) {
   .numbers {
-    @include section-sm;
-
     &__title {
       font-size: 28px;
     }

@@ -14,6 +14,11 @@
   background-color: transparent;
   padding: spacing(4) spacing(8);
 
+  &__logo-container {
+    display: flex;
+    height: 100%;
+  }
+
   &__contents {
     display: flex;
     gap: spacing(4);
@@ -23,24 +28,28 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
-    gap: spacing(1);
 
-    li {
+    ul {
       display: flex;
-      height: 100%;
-      align-content: stretch;
+      gap: spacing(1);
 
-      a {
+      li {
         display: flex;
-        align-items: center;
-        white-space: nowrap;
-        padding: spacing(1.5);
-        font-size: 16px;
-        font-weight: 700;
-        color: $color-white;
+        height: 100%;
+        align-content: stretch;
 
-        &:visited {
+        a {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          padding: spacing(1.5);
+          font-size: 16px;
+          font-weight: 700;
           color: $color-white;
+
+          &:visited {
+            color: $color-white;
+          }
         }
       }
     }
@@ -178,7 +187,7 @@
 
   &__responsive-menu {
     position: absolute;
-    display: flex;
+    display: none;
     top: 100%;
     left: 0;
     padding: 0;
@@ -199,6 +208,7 @@
 
   &--menu-open {
     .navigation-bar__responsive-menu {
+      display: flex;
       height: 100vh;
       border-top: solid 1px $color-grey-100;
 
@@ -261,6 +271,15 @@
     .hamburger {
       display: flex;
     }
+
+    &--menu-open {
+      .navigation-bar__responsive-menu {
+        button,
+        .language-selection {
+          display: none !important;
+        }
+      }
+    }
   }
 }
 
@@ -290,6 +309,15 @@
       height: 88px;
       padding: spacing(3) spacing(4);
     }
+
+    &--menu-open {
+      .navigation-bar__responsive-menu {
+        button,
+        .language-selection {
+          display: flex !important;
+        }
+      }
+    }
   }
 }
 
@@ -298,9 +326,15 @@
     height: 96px;
     padding: spacing(3);
 
+    &__logo-container {
+      display: flex;
+      height: 100%;
+      padding: spacing(1) 0;
+    }
+
     &--on-scroll {
       height: 72px;
-      padding: spacing(2) spacing(3);
+      padding: spacing(1.5) spacing(3);
     }
   }
 }

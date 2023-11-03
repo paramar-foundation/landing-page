@@ -105,6 +105,14 @@ export const NavigationBar = () => {
       }
     };
 
+    const handleEscPress = (e: KeyboardEvent) => {
+      console.log(e.key);
+
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
     if (!isMenuOpen && !isScroll) {
       setLogoType(eLogoType.white);
       setSecondaryCtaColor(eButtonColor.white);
@@ -116,13 +124,15 @@ export const NavigationBar = () => {
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("keydown", handleEscPress);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("keydown", handleEscPress);
     };
   }, [isMenuOpen, isScroll]);
 
-  const renderMenu = (modifier = "") => {
+  const renderMenu = (modifier = "", isResponsive = false) => {
     return (
       <article
         className={
@@ -151,14 +161,18 @@ export const NavigationBar = () => {
             <a href="">FAQs</a>
           </li>
         </ul>
-        <LanguageSelection />
-        <Button
-          type={eButtonType.secondary}
-          color={secondaryCtaColor}
-          fullWidth
-        >
-          Más información
-        </Button>
+        {isResponsive && (
+          <>
+            <LanguageSelection />
+            <Button
+              type={eButtonType.secondary}
+              color={secondaryCtaColor}
+              fullWidth
+            >
+              Más información
+            </Button>
+          </>
+        )}
       </article>
     );
   };
@@ -169,7 +183,9 @@ export const NavigationBar = () => {
         isOpen={isMenuOpen}
         onClick={() => setMenuOpen((prev) => !prev)}
       />
-      <Logo type={logoType} />
+      <div className={styles["navigation-bar__logo-container"]}>
+        <Logo type={logoType} />
+      </div>
       {renderMenu()}
       <section className={styles["navigation-bar__contents"]}>
         <div className={styles["navigation-bar__actions"]}>
@@ -185,7 +201,7 @@ export const NavigationBar = () => {
         </div>
       </section>
       <section className={styles["navigation-bar__responsive-menu"]}>
-        {renderMenu("responsive-menu")}
+        {renderMenu("responsive-menu", true)}
       </section>
     </header>
   );

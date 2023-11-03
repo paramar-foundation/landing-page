@@ -35,7 +35,7 @@
 }
 
 @mixin section {
-  padding: spacing(12) spacing(8);
+  padding: spacing(10) spacing(8);
 }
 
 @mixin section-lg {
@@ -47,5 +47,5 @@
 }
 
 @mixin section-sm {
-  padding: spacing(4);
+  padding: spacing(5) spacing(4);
 }
