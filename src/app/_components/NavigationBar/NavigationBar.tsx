@@ -31,7 +31,10 @@ const LanguageSelection = ({ isHidden = false }) => {
         onClick={() => setDisplayingOptions(!isDisplayingOptions)}
       >
         <p>{selectedLocale}</p>
-        <Icon icon={eIcons.chevronDown} width={24} height={20} />
+        <Icon
+          icon={eIcons.chevronDown}
+          className={styles["language-selection__icon"]}
+        />
       </div>
       {isDisplayingOptions && (
         <ul className={styles["language-selection__list"]}>
@@ -71,7 +74,7 @@ const Hamburguer = ({
 export const NavigationBar = () => {
   const [logoType, setLogoType] = useState(eLogoType.white);
   const [isScroll, setScroll] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(true);
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
     eButtonColor.white
   );
@@ -121,7 +124,7 @@ export const NavigationBar = () => {
 
   const renderMenu = (modifier = "") => {
     return (
-      <ul
+      <article
         className={
           styles[
             `navigation-bar__menu-items${
@@ -131,22 +134,32 @@ export const NavigationBar = () => {
         }
         ref={menuRef}
       >
-        <li className={styles.mission}>
-          <a href="">Misión</a>
-        </li>
-        <li className={styles["about-us"]}>
-          <a href="">Sobre nosotras</a>
-        </li>
-        <li className={styles["why-us"]}>
-          <a href="">¿Por qué nosotras</a>
-        </li>
-        <li className={styles.therapy}>
-          <a href="">Terapia</a>
-        </li>
-        <li className={styles.faqs}>
-          <a href="">FAQs</a>
-        </li>
-      </ul>
+        <ul>
+          <li className={styles.mission}>
+            <a href="">Misión</a>
+          </li>
+          <li className={styles["about-us"]}>
+            <a href="">Sobre nosotras</a>
+          </li>
+          <li className={styles["why-us"]}>
+            <a href="">¿Por qué nosotras</a>
+          </li>
+          <li className={styles.therapy}>
+            <a href="">Terapia</a>
+          </li>
+          <li className={styles.faqs}>
+            <a href="">FAQs</a>
+          </li>
+        </ul>
+        <LanguageSelection />
+        <Button
+          type={eButtonType.secondary}
+          color={secondaryCtaColor}
+          fullWidth
+        >
+          Más información
+        </Button>
+      </article>
     );
   };
 

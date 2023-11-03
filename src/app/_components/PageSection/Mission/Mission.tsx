@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Button, eButtonColor } from "../../Button";
 
 import styles from "./Mission.module.scss";
@@ -9,7 +8,7 @@ export const Mission = () => {
   return (
     <article className={styles.mission}>
       <div className={styles["mission__image-container"]}>
-        <Image
+        <img
           className={styles.mission__image}
           src="/mission-section.jpg"
           alt="Three women"

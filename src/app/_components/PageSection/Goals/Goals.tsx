@@ -1,7 +1,6 @@
 "use client";
 
 import { goalsData } from "~/constants";
-import { Button, eButtonColor } from "../../Button";
 import { Icon } from "../../Icon";
 
 import styles from "./Goals.module.scss";
@@ -16,7 +15,7 @@ export const Goals = () => {
         {goalsData.map((data) => (
           <li className={styles.goal} key={data.id}>
             <div className={styles.goal__data}>
-              <Icon icon={data.icon} width={48} height={40} />
+              <Icon icon={data.icon} className={styles.goal__icon} />
               <span className={styles.goal__number}>{data.number}</span>
             </div>
             <p className={styles.goal__description}>{data.description}</p>

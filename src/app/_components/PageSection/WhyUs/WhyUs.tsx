@@ -3,7 +3,6 @@
 import { Button, eButtonColor } from "../../Button";
 import { whyUsData } from "~/constants";
 import styles from "./WhyUs.module.scss";
-import Image from "next/image";
 
 export const WhyUs = () => {
   return (
@@ -15,7 +14,7 @@ export const WhyUs = () => {
         {whyUsData.map((data) => (
           <li className={styles.card} key={data.id}>
             <div className={styles.card__bg}></div>
-            <Image
+            <img
               className={styles.card__image}
               src={data.paint}
               alt="paint splatter decoration"

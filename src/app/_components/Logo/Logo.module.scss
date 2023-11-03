@@ -35,18 +35,10 @@
       }
     }
   }
-
-  &--responsive {
-    svg {
-      &:nth-child(1) {
-        width: 100%;
-      }
-    }
-  }
 }
 
-@media (max-width: $breakpoint-lg) {
-  .logo {
+@media (max-width: $breakpoint-md) {
+  .logo__responsive {
     svg {
       &:nth-child(1) {
         width: 100%;

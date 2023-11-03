@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-
 import styles from "./AboutUs.module.scss";
 
 export const AboutUs = () => {
@@ -19,6 +18,8 @@ export const AboutUs = () => {
             className={styles.card__image}
             src="/paint-aboutus-card-1.png"
             alt="paint splatter decoration"
+            width={150}
+            height={100}
           />
           <h5 className={styles.card__title}>¿Qué hacemos?</h5>
           <ul>
@@ -40,6 +41,8 @@ export const AboutUs = () => {
             className={styles.card__image}
             src="/paint-aboutus-card-2.png"
             alt="paint splatter decoration"
+            width={150}
+            height={100}
           />
           <h5 className={styles.card__title}>¿Cómo ayudamos?</h5>
           <ul>
@@ -60,6 +63,8 @@ export const AboutUs = () => {
             className={styles.card__image}
             src="/paint-aboutus-card-3.png"
             alt="paint splatter decoration"
+            width={150}
+            height={100}
           />
           <h5 className={styles.card__title}>¿Quiénes somos?</h5>
           <ul>

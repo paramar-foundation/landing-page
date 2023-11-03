@@ -8,9 +8,13 @@ export enum eLogoType {
 
 interface ILogo {
   type?: eLogoType;
+  isResponsive?: boolean;
 }
 
-export const Logo = ({ type = eLogoType.color }: ILogo) => {
+export const Logo = ({
+  type = eLogoType.color,
+  isResponsive = true,
+}: ILogo) => {
   const getClassName = () => {
     const classes = [styles.logo];
 
@@ -20,6 +24,10 @@ export const Logo = ({ type = eLogoType.color }: ILogo) => {
 
     if (type === eLogoType.black) {
       classes.push(styles.logo__black);
+    }
+
+    if (isResponsive) {
+      classes.push(styles.logo__responsive);
     }
 
     return classes.join(" ");

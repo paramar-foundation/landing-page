@@ -34,12 +34,10 @@ export enum eIcons {
 
 export const Icon = ({
   icon,
-  width = 24,
-  height = 24,
+  className,
 }: {
   icon: eIcons;
-  width?: number;
-  height?: number;
+  className?: string;
 }) => {
   const renderIcon = () => {
     switch (icon) {
@@ -72,9 +70,5 @@ export const Icon = ({
     }
   };
 
-  return (
-    <div className={styles.icon} style={{ height, width }}>
-      {renderIcon()}
-    </div>
-  );
+  return <div className={styles.icon + " " + className}>{renderIcon()}</div>;
 };

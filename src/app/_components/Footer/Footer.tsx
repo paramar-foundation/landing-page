@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <hr className={styles.footer__divider} />
       <article className={styles.footer__content}>
-        <Logo type={eLogoType.color} />
+        <Logo type={eLogoType.color} isResponsive={false} />
         <div className={styles.footer__rights}>
           <span>@2023 all rights reserved</span>
           <span>

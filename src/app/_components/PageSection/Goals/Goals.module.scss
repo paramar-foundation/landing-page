@@ -23,6 +23,11 @@
   }
 
   .goal {
+    &__icon {
+      width: 48px;
+      height: 40px;
+    }
+
     &__data {
       display: flex;
       align-items: center;

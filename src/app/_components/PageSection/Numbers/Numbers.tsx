@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 import { Button, eButtonColor } from "../../Button";
 
@@ -26,12 +25,12 @@ export const Numbers = () => {
       >
         Ayúdanos a evitarlo
       </Button>
-      <Image
+      <img
         className={styles["numbers__paint-top"]}
         src="/paint-numbers-top.png"
         alt="Paint splatter decoration"
       />
-      <Image
+      <img
         className={styles["numbers__paint-bottom"]}
         src="/paint-numbers-bottom.png"
         alt="Paint splatter decoration"

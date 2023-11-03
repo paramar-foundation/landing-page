@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
@@ -7,6 +7,7 @@ import { Icon, eIcons } from "../../Icon";
 
 import { ambassadorsData } from "~/constants";
 import styles from "./Ambassadors.module.scss";
+import Image from "next/image";
 
 export const Ambassadors = () => {
   const maxIndex = ambassadorsData.length - 1;
@@ -54,10 +55,15 @@ export const Ambassadors = () => {
           src={ambassadorsData[ambassadorIndex]!.profile}
           alt={`${ambassadorsData[ambassadorIndex]?.name} profile picture`}
           loading="lazy"
+          width={400}
+          height={400}
         />
       </div>
       <div className={styles.ambassadors__content}>
-        <Icon icon={eIcons.quote} width={64} height={48} />
+        <Icon
+          icon={eIcons.quote}
+          className={styles["ambassadors__quote-icon"]}
+        />
         <p className={styles.ambassadors__quote}>
           “{ambassadorsData[ambassadorIndex]?.quote}”
         </p>

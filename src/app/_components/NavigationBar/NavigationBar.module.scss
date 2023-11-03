@@ -62,8 +62,13 @@
     text-transform: uppercase;
     color: $color-white;
 
-    svg {
-      stroke: $color-white;
+    &__icon {
+      width: 24px;
+      height: 20px;
+
+      svg {
+        stroke: $color-white;
+      }
     }
 
     &__selected {
@@ -104,7 +109,8 @@
     justify-content: center;
     flex-shrink: 0;
     width: spacing(4);
-    gap: 6px;
+    padding-bottom: 3px;
+    gap: 5px;
 
     div {
       height: 3px;
@@ -167,25 +173,58 @@
 
   &--on-scroll {
     height: 96px;
-    padding: spacing(3) spacing(6);
+    padding: spacing(3) spacing(8);
   }
 
   &__responsive-menu {
     position: absolute;
+    display: flex;
     top: 100%;
     left: 0;
+    padding: 0;
+    width: 100vw;
     height: 0;
-    padding: 0 spacing(4);
+    background-color: $color-black-overlay;
+    backdrop-filter: blur(8px);
     overflow: hidden;
+
+    & > article {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: fit-content;
+      padding: spacing(1) spacing(3) spacing(3);
+    }
   }
 
   &--menu-open {
     .navigation-bar__responsive-menu {
-      display: flex;
       height: 100vh;
-      width: 100vw;
-      padding: spacing(4);
-      background-color: $color-white;
+      border-top: solid 1px $color-grey-100;
+
+      & > article {
+        gap: spacing(2);
+        padding: spacing(1) spacing(3) spacing(3);
+        background-color: $color-white;
+
+        li {
+          padding: spacing(2) spacing(1);
+          border-bottom: solid 1px $color-grey-100;
+          border-top: solid 1px $color-grey-100;
+
+          &:first-child {
+            border-top-width: 0px;
+          }
+
+          &:last-child {
+            border-bottom-width: 0px;
+          }
+        }
+
+        .language-selection {
+          display: flex;
+        }
+      }
     }
   }
 }
@@ -231,9 +270,16 @@
 
 @media (max-width: $breakpoint-md) {
   .navigation-bar {
+    height: 104px;
+    padding: spacing(4);
+
     &__actions {
       flex-grow: 1;
       justify-content: flex-end;
+    }
+
+    .hamburger {
+      width: spacing(3.5);
     }
 
     .language-selection {
@@ -243,17 +289,22 @@
     #more-info-btn {
       display: none;
     }
+
+    &--on-scroll {
+      height: 88px;
+      padding: spacing(3) spacing(4);
+    }
   }
 }
 
 @media (max-width: $breakpoint-sm) {
   .navigation-bar {
-    height: 108px;
-    padding: spacing(4);
+    height: 96px;
+    padding: spacing(3);
 
     &--on-scroll {
-      height: 96px;
-      padding: spacing(3) spacing(6);
+      height: 72px;
+      padding: spacing(2) spacing(3);
     }
   }
 }

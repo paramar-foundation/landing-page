@@ -23,13 +23,15 @@ export const Hero = () => {
         <span>Conoce más</span>
         <div className={styles["hero__know-more__arrow"]}>
           <div className="line"></div>
-          <Icon icon={eIcons.chevronDown} width={23} height={20} />
+          <Icon icon={eIcons.chevronDown} />
         </div>
       </div>
       <Image
         className={styles.hero__paint}
         src="/paint-hero.png"
         alt="Paint splatter decoration"
+        width={300}
+        height={300}
       />
     </article>
   );

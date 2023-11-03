@@ -38,7 +38,12 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
   return (
     <article className={styles["donate-card"]}>
       <div className={styles["image-container"]}>
-        <Image src={image} alt={`${name} donation cover`} />
+        <Image
+          src={image}
+          alt={`${name} donation cover`}
+          width={400}
+          height={400}
+        />
       </div>
       <div className={styles.content}>
         <p className={styles.content__location}>{location}</p>

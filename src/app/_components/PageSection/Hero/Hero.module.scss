@@ -63,6 +63,8 @@
 
       div:last-child {
         margin-top: -15px;
+        width: 23px;
+        height: 20px;
       }
     }
   }
@@ -71,6 +73,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    height: auto;
   }
 }
 
