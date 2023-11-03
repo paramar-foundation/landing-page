@@ -74,7 +74,7 @@ const Hamburguer = ({
 export const NavigationBar = () => {
   const [logoType, setLogoType] = useState(eLogoType.white);
   const [isScroll, setScroll] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
     eButtonColor.white
   );
