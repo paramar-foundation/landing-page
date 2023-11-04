@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactElement } from "react";
+import { ButtonHTMLAttributes, MouseEventHandler, ReactElement } from "react";
 
 import styles from "./Button.module.scss";
 
@@ -27,6 +27,7 @@ interface IButtonProps {
   type?: eButtonType;
   disabled?: boolean;
   fullWidth?: boolean;
+  htmlType?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -36,6 +37,7 @@ export const Button = ({
   type = eButtonType.primary,
   color = eButtonColor.purple,
   size = eButtonSize.standard,
+  htmlType = "button",
   fullWidth = false,
   disabled = false,
   onClick,
@@ -105,6 +107,7 @@ export const Button = ({
       className={getClassName()}
       onClick={(e) => onClick && onClick(e)}
       disabled={disabled}
+      type={htmlType}
     >
       {children}
     </button>

@@ -3,6 +3,7 @@ import { NavigationBar } from "./_components/NavigationBar";
 import { PageSection } from "./_components/PageSection";
 import { AboutUs } from "./_components/PageSection/AboutUs";
 import { Ambassadors } from "./_components/PageSection/Ambassadors";
+import { Contact } from "./_components/PageSection/Contact";
 import { Donations } from "./_components/PageSection/Donations";
 import { FAQs } from "./_components/PageSection/FAQs";
 import { Goals } from "./_components/PageSection/Goals";
@@ -55,7 +56,7 @@ export default function Home() {
         <Professionals />
       </PageSection>
       <PageSection>
-        <h1 className={styles.wip}>🚧 Contact [WIP] 🚧</h1>
+        <Contact />
       </PageSection>
       <PageSection id="donate">
         <Donations />

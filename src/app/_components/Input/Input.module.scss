@@ -1,0 +1,135 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.fieldset {
+  position: relative;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: none;
+
+  label {
+    position: absolute;
+    top: spacing(1.5);
+    left: spacing(1.5);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    pointer-events: none;
+  }
+
+  article,
+  textarea,
+  select,
+  input {
+    display: flex;
+    width: 100%;
+    padding: spacing(1.5);
+    outline: none;
+    border: solid 2px;
+    border-radius: 4px;
+    background: none;
+    font-size: 16px;
+    line-height: 12px;
+  }
+
+  &--select-open,
+  &--filled,
+  &:focus-within {
+    label {
+      top: spacing(-2.5);
+      left: 0;
+      font-size: 12px;
+    }
+  }
+
+  &--filled:not(&.fieldset--select-open, &:focus-within) {
+    label {
+      color: $color-grey-400;
+    }
+  }
+
+  &--light {
+    label {
+      color: $color-white;
+    }
+
+    article,
+    textarea,
+    select,
+    input {
+      border-color: $color-grey-400;
+      background-color: $color-grey-800;
+      color: $color-white;
+    }
+
+    &.fieldset--select-open,
+    &:focus-within {
+      label {
+        color: $color-purple-400;
+      }
+
+      article,
+      textarea,
+      select,
+      input {
+        border-color: $color-purple-400;
+      }
+
+      svg {
+        fill: $color-purple-400;
+      }
+    }
+  }
+}
+
+.select {
+  position: relative;
+  z-index: 2;
+
+  &__selection {
+    line-height: 20px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: spacing(1.7);
+    right: spacing(1);
+    width: 28px;
+    height: 20px;
+
+    svg {
+      fill: $color-white;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    border: solid 2px $color-grey-400;
+    border-top: none;
+    background-color: $color-grey-800;
+    border-radius: 0 0 2px 2px;
+    padding: spacing(1) 0;
+    z-index: -1;
+
+    .option {
+      font-size: 14px;
+      width: 100%;
+      padding: spacing(1) spacing(2);
+      background-color: $color-grey-800;
+      color: $color-white;
+      cursor: pointer;
+
+      &--selected,
+      &:hover {
+        background-color: $color-grey-400;
+      }
+    }
+  }
+}

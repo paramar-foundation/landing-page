@@ -1,0 +1,135 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.contact {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: spacing(8);
+  padding: spacing(22) spacing(15);
+  background-color: $color-black;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__title {
+      font-weight: 700;
+      font-size: 49px;
+      color: $color-white;
+      text-align: center;
+      margin-bottom: spacing(3);
+    }
+
+    &__body {
+      color: $color-white;
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(4);
+    padding: 0 spacing(5);
+  }
+
+  &__paint-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+  }
+
+  &__paint-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: auto;
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .contact {
+    &__form {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .contact {
+    padding: spacing(22) spacing(8);
+    grid-template-columns: minmax(auto, 40%) 1fr;
+
+    &__content__title {
+      font-size: 42px;
+    }
+
+    &__paint-top {
+      max-width: 20%;
+    }
+
+    &__paint-bottom {
+      max-width: 35%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .contact {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    @include section-md;
+
+    gap: spacing(5);
+    padding-top: spacing(16);
+    padding-bottom: spacing(20);
+
+    &__content {
+      &__title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 34px;
+      }
+
+      &__body {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+      }
+    }
+
+    &__paint-top {
+      max-width: 28%;
+    }
+
+    &__paint-bottom {
+      max-width: 42%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .contact {
+    @include section-sm;
+
+    padding-top: spacing(12);
+    padding-bottom: spacing(16);
+
+    &__paint-top {
+      max-width: 30%;
+    }
+
+    &__paint-bottom {
+      max-width: 50%;
+    }
+  }
+}
