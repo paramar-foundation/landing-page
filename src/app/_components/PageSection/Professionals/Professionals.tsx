@@ -50,12 +50,27 @@ export const Professionals = () => {
     <article className={styles.professionals}>
       <div className={styles["professionals__image-container"]}>
         <Image
-          className={styles.professionals__image}
+          src="/paint-image-decorator-top.png"
+          alt="Paint Decoration"
+          loading="lazy"
+          width={300}
+          height={250}
+          className={styles["paint-top"]}
+        />
+        <Image
           src={professionalsData[professionalIndex]!.profile}
           alt={`${professionalsData[professionalIndex]?.name} profile picture`}
           loading="lazy"
           width={600}
           height={700}
+        />
+        <Image
+          src="/paint-image-decorator-bottom.png"
+          alt="Paint Decoration"
+          loading="lazy"
+          width={320}
+          height={350}
+          className={styles["paint-bottom"]}
         />
       </div>
       <div className={styles.professionals__content}>

@@ -9,6 +9,7 @@
   @include section;
 
   &__image {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,10 +17,27 @@
     overflow: hidden;
     border-radius: 10px 0 0 10px;
 
-    img {
+    img:not(.paint) {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
-      width: auto;
+      width: 100%;
+      object-fit: cover;
     }
+
+    .paint {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: auto;
+      width: 40%;
+    }
+  }
+
+  .paint {
+    top: unset;
+    bottom: 0;
   }
 
   &__content {
@@ -130,14 +148,9 @@
 
     &__image {
       height: 100%;
-      max-height: 400px;
+      min-height: 400px;
       overflow: hidden;
       border-radius: 10px 10px 0 0;
-
-      img {
-        width: 100%;
-        height: unset;
-      }
     }
 
     &__quote-icon {

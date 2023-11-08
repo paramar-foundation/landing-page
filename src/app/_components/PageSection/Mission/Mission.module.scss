@@ -3,25 +3,47 @@
 @import "~/styles/variables.scss";
 
 .mission {
+  @include section;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: spacing(11);
-
-  @include section;
+  padding-top: spacing(22);
 
   &__image-container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
 
-    img {
+    img:not(.paint-bottom, .paint-top) {
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .paint-bottom,
+    .paint-top {
+      position: absolute;
       height: auto;
     }
-  }
 
-  &__image {
-    border-radius: 10px;
-    width: 100%;
+    .paint-top {
+      width: 45%;
+      top: -13%;
+      right: 5%;
+    }
+
+    .paint-bottom {
+      width: 75%;
+      bottom: -8%;
+      left: -30%;
+    }
   }
 
   &__content {
@@ -49,9 +71,9 @@
 
 @media (max-width: $breakpoint-lg) {
   .mission {
-    gap: spacing(8);
-
     @include section-lg;
+    gap: spacing(4);
+    padding-top: spacing(16);
 
     &__content {
       height: fit-content;
@@ -65,11 +87,11 @@
 
 @media (max-width: $breakpoint-md) {
   .mission {
+    @include section-md;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     gap: spacing(12);
-
-    @include section-md;
+    padding-top: spacing(12);
 
     &__title {
       font-size: 32px;

@@ -58,6 +58,14 @@ export const Ambassadors = () => {
           width={400}
           height={400}
         />
+        <Image
+          src="/paint-ambassador-bottom.png"
+          alt="Paint Decoration"
+          loading="lazy"
+          width={175}
+          height={200}
+          className={styles.paint}
+        />
       </div>
       <div className={styles.ambassadors__content}>
         <Icon
