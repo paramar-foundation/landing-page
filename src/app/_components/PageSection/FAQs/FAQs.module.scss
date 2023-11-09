@@ -13,7 +13,8 @@
   &__title {
     flex-shrink: 0;
     color: $color-purple;
-    max-width: 200px;
+    max-width: 300px;
+    font-size: 49px;
   }
 
   &__list {
@@ -26,6 +27,11 @@
 @media (max-width: $breakpoint-lg) {
   .faqs {
     @include section-lg;
+
+    &__title {
+      max-width: 240px;
+      font-size: 42px;
+    }
   }
 }
 

@@ -8,7 +8,7 @@
   width: 100%;
   gap: spacing(8);
 
-  @include section;
+  @include section-spaced;
 
   &__title {
     flex-shrink: 0;
@@ -43,6 +43,7 @@
       font-size: 39px;
       line-height: 46px;
       font-weight: 700;
+      font-family: "Inter", sans-serif;
     }
   }
 }

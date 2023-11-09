@@ -34,7 +34,7 @@ export const Therapy = () => {
         color={eButtonColor.purple}
         onClick={() => console.log("Therapy")}
       >
-        Solicitar terpia de pago
+        Solicitar terapia de pago
       </Button>
     </article>
   );

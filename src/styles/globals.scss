@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap");
+@import "~/styles/variables.scss";
 
 html,
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  color: $color-black;
 }
 
 * {

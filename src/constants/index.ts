@@ -17,7 +17,7 @@ export const ambassadorsData = [
     x: "https:www.x.com",
     linkedin: "https:www.linkedin.com",
     quote:
-      "La terapia psicológica especializada es crucial en la recuperación de quienes han sufrido violencia sexual, brindando apoyo emocional y herramientas para sanar y reconstruir sus vidas",
+      "Sex Education es una serie que me encanta y la historia de Amy es una de mis favoritas. La vida no es una serie pero podemos aprender de ella: Amy era una chica sencilla y feliz y todo cambió después de que sufrió una agresión sexual. Tuvo que recorrer un camino complicado para volver a encontrarse a sí misma. No quiero dar más spoilers, solo destacar que la terapia fue una de las claves. Y creo que lo importante no es solo recibir terapia sino también que todas las personas puedan tener acceso a ella.",
   },
   {
     id: 2,
@@ -93,39 +93,39 @@ export const goalsData = [
     icon: eIcons.woman,
     number: "250K",
     description:
-      "Esperamos que 250.000 mujeres y niñas que reciban apoyo psicológico",
+      "Esperamos que 250.000 mujeres y niñas que reciban apoyo psicológico.",
   },
   {
     id: 2,
     icon: eIcons.hours,
     number: "1M",
     description:
-      "Un millón de horas gratuitas de apoyo psicológico a mujeres y niñas",
+      "Un millón de horas gratuitas de apoyo psicológico a mujeres y niñas.",
   },
   {
     id: 3,
     icon: eIcons.donation,
     number: "25M",
-    description: "25 millones de dólares invertidos en causas sociales",
+    description: "25 millones de dólares invertidos en causas sociales.",
   },
   {
     id: 4,
     icon: eIcons.therapy,
     number: "80%",
     description:
-      "De terapias gratuitas en los países más pobres y con mayor prevalencia",
+      "De terapias gratuitas en los países más pobres y con mayor prevalencia.",
   },
   {
     id: 5,
     icon: eIcons.institution,
     number: "+1K",
-    description: "De formaciones a instituciones públicas y privadas",
+    description: "De formaciones a instituciones públicas y privadas.",
   },
   {
     id: 6,
     icon: eIcons.users,
     number: "+5K",
-    description: "Más de 5.000 usuarias de terapias de pago",
+    description: "Más de 5.000 usuarias de terapias de pago.",
   },
 ];
 
@@ -235,21 +235,21 @@ export const whyUsData = [
     paint: "/paint-whyus-card-1.png",
     title: "Cuánto más das más ahorras",
     description:
-      "Las donaciones a fundaciones sin ánimo de lucro son la mejor manera de pagar menos impuestos",
+      "Las donaciones a fundaciones sin ánimo de lucro son la mejor manera de pagar menos impuestos.",
   },
   {
     id: 2,
     paint: "/paint-whyus-card-2.png",
     title: "20 años de experiencia",
     description:
-      "Gestionando proyectos escalables y capital aplicado a generar impacto social",
+      "Gestionando proyectos escalables y capital aplicado a generar impacto social.",
   },
   {
     id: 3,
     paint: "/paint-whyus-card-3.png",
     title: "Transparencia",
     description:
-      "Nuestras cuentas son públicas, transparentes y auditadas, el primer trimestre de cada año",
+      "Nuestras cuentas son públicas, transparentes y auditadas, el primer trimestre de cada año.",
   },
 ];
 
@@ -259,14 +259,14 @@ export const therapyData = [
     paint: "/paint-therapy-card-1.png",
     title: "Tu terapia aquí es esperanza para otras",
     description:
-      "Por cada hora de terapia de pago una mujer o niña con bajos recursos recibe una hora gratuita de apoyo psicológico",
+      "Por cada hora de terapia de pago una mujer o niña con bajos recursos recibe una hora gratuita de apoyo psicológico.",
   },
   {
     id: 2,
     paint: "/paint-therapy-card-2.png",
     title: "Somos especialistas",
     description:
-      "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales",
+      "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales.",
   },
 ];
 

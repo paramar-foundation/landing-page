@@ -157,7 +157,7 @@ export const NavigationBar = () => {
           </li>
           <li className={styles["why-us"]}>
             <a onClick={() => setMenuOpen(false)} href="#why-us">
-              ¿Por qué nosotras
+              ¿Por qué nosotras?
             </a>
           </li>
           <li className={styles.therapy}>

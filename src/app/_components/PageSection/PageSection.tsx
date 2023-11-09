@@ -12,18 +12,16 @@ interface ISectionProps {
 export const PageSection = ({
   id,
   children,
-  bgDefaultColor = "$color-white",
+  bgDefaultColor = "#fff",
   bgImage,
 }: ISectionProps) => {
   const getBgImage = () => {
-    if (bgImage) {
-      return {
-        backgroundColor: bgDefaultColor,
-        backgroundImage: `url(${bgImage})`,
-      };
-    }
+    const styles = {} as { backgroundColor?: string; backgroundImage?: string };
 
-    return {};
+    if (bgDefaultColor) styles.backgroundColor = bgDefaultColor;
+    if (bgImage) styles.backgroundImage = `url(${bgImage})`;
+
+    return styles;
   };
   return (
     <section className={styles["page-section"]} style={getBgImage()}>

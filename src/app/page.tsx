@@ -20,11 +20,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <NavigationBar />
-      <PageSection
-        id="hero"
-        bgImage="/bg-hero.jpg"
-        bgDefaultColor="$color-grey-400"
-      >
+      <PageSection id="hero" bgImage="/bg-hero.jpg" bgDefaultColor="#494a4d">
         <Hero />
       </PageSection>
       <PageSection id="mission">
@@ -36,7 +32,7 @@ export default function Home() {
       <PageSection>
         <Ambassadors />
       </PageSection>
-      <PageSection bgImage="/bg-numbers.jpg" bgDefaultColor="$color-purple">
+      <PageSection bgImage="/bg-numbers.jpg" bgDefaultColor="#6432c8">
         <Numbers />
       </PageSection>
       <PageSection>
@@ -45,7 +41,7 @@ export default function Home() {
       <PageSection
         id="why-us"
         bgImage="bg-projects-and-therapy.jpg"
-        bgDefaultColor="$color-grey-400"
+        bgDefaultColor="#494a4d"
       >
         <>
           <WhyUs />
@@ -55,7 +51,7 @@ export default function Home() {
       <PageSection>
         <Professionals />
       </PageSection>
-      <PageSection>
+      <PageSection bgDefaultColor="#1c1d20">
         <Contact />
       </PageSection>
       <PageSection id="donate">

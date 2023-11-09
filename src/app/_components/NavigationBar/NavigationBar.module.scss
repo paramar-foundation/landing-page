@@ -93,6 +93,7 @@
       width: spacing(9);
       background-color: $color-white;
       padding: spacing(1) 0;
+      border-radius: 4px;
 
       @include card;
 
@@ -194,7 +195,7 @@
     width: 100vw;
     height: 0;
     background-color: $color-black-overlay;
-    backdrop-filter: blur(8px);
+    mix-blend-mode: multiply;
     overflow: hidden;
 
     & > article {

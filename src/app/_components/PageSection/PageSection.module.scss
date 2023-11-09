@@ -18,4 +18,8 @@
     position: absolute;
     top: spacing(-4);
   }
+
+  & > * {
+    max-width: $section-max-width;
+  }
 }

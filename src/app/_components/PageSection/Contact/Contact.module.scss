@@ -3,7 +3,6 @@
 @import "~/styles/variables.scss";
 
 .contact {
-  position: relative;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -11,7 +10,6 @@
   width: 100%;
   gap: spacing(8);
   padding: spacing(22) spacing(15);
-  background-color: $color-black;
 
   &__content {
     display: flex;
@@ -30,6 +28,7 @@
       color: $color-white;
       font-size: 25px;
       line-height: 30px;
+      font-family: "Inter", sans-serif;
     }
   }
 
@@ -89,7 +88,7 @@
 
     @include section-md;
 
-    gap: spacing(5);
+    gap: spacing(6);
     padding-top: spacing(16);
     padding-bottom: spacing(20);
 

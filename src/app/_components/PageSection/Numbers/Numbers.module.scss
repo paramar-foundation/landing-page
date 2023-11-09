@@ -3,7 +3,6 @@
 @import "~/styles/variables.scss";
 
 .numbers {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,6 +45,10 @@
       gap: spacing(1);
       color: $color-white;
       text-align: center;
+
+      & > * {
+        font-family: "Inter", sans-serif;
+      }
 
       &__main {
         font-size: 96px;

@@ -34,6 +34,10 @@
   box-shadow: 0 1px 7px -2px #00000066;
 }
 
+@mixin section-spaced {
+  padding: spacing(10) spacing(15);
+}
+
 @mixin section {
   padding: spacing(10) spacing(8);
 }
