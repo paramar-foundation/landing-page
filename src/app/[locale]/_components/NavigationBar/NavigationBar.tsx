@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 import { Logo, eLogoType } from "../Logo";
 import { Icon, eIcons } from "../Icon";
@@ -9,13 +11,17 @@ import { Button, eButtonColor, eButtonType } from "../Button";
 import styles from "./NavigationBar.module.scss";
 
 const LanguageSelection = ({ isHidden = false }) => {
-  const [selectedLocale, setSelectedLocale] = useState("es");
+  const [selectedLocale, setSelectedLocale] = useState(useLocale());
   const [isDisplayingOptions, setDisplayingOptions] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
   const locales = ["es", "en"] as const;
 
   const handleSelect = (locale: string) => {
+    const scrollLocation = window.localStorage.getItem("scroll-location");
     setSelectedLocale(locale);
     setDisplayingOptions(false);
+    router.replace(pathname + scrollLocation, { locale });
   };
 
   const getClassName = () => {
@@ -72,14 +78,24 @@ const Hamburguer = ({
 };
 
 export const NavigationBar = () => {
+  const t = useTranslations("nav");
   const [logoType, setLogoType] = useState(eLogoType.white);
   const [isScroll, setScroll] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
     eButtonColor.white
   );
+  const pathname = usePathname();
+  const router = useRouter();
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const menuItems = [
+    "mission",
+    "about-us",
+    "why-us",
+    "therapy",
+    "faqs",
+  ] as const;
 
   const getClassName = () => {
     return [
@@ -132,45 +148,37 @@ export const NavigationBar = () => {
     };
   }, [isMenuOpen, isScroll]);
 
+  const handleLinkClick = (anchor: string) => {
+    setMenuOpen(false);
+    window.localStorage.setItem("scroll-location", anchor);
+  };
+
+  const handleCtaClick = (anchor: string) => {
+    handleLinkClick(anchor);
+    router.replace(pathname + anchor);
+  };
+
   const renderMenu = (modifier = "", isResponsive = false) => {
+    const style = `navigation-bar__menu-items${
+      modifier !== "" ? `--${modifier}` : ""
+    }`;
+
     return (
-      <article
-        className={
-          styles[
-            `navigation-bar__menu-items${
-              modifier !== "" ? `--${modifier}` : ""
-            }`
-          ]
-        }
-        ref={menuRef}
-      >
+      <article className={styles[style]} ref={menuRef}>
         <ul>
-          <li className={styles.mission}>
-            <a onClick={() => setMenuOpen(false)} href="#mission">
-              Misión
-            </a>
-          </li>
-          <li className={styles["about-us"]}>
-            <a onClick={() => setMenuOpen(false)} href="#about-us">
-              Sobre nosotras
-            </a>
-          </li>
-          <li className={styles["why-us"]}>
-            <a onClick={() => setMenuOpen(false)} href="#why-us">
-              ¿Por qué nosotras?
-            </a>
-          </li>
-          <li className={styles.therapy}>
-            <a onClick={() => setMenuOpen(false)} href="#therapy">
-              Terapia
-            </a>
-          </li>
-          <li className={styles.faqs}>
-            <a onClick={() => setMenuOpen(false)} href="#faqs">
-              FAQs
-            </a>
-          </li>
+          {menuItems.map((item) => {
+            const anchor = `#${item}`;
+
+            return (
+              <li key={item} className={styles[item]}>
+                <a onClick={() => handleLinkClick(anchor)} href={anchor}>
+                  {t(item)}
+                </a>
+              </li>
+            );
+          })}
         </ul>
+
         {isResponsive && (
           <>
             <LanguageSelection />
@@ -193,20 +201,27 @@ export const NavigationBar = () => {
         isOpen={isMenuOpen}
         onClick={() => setMenuOpen((prev) => !prev)}
       />
-      <div className={styles["navigation-bar__logo-container"]}>
+      <a
+        className={styles["navigation-bar__logo-container"]}
+        onClick={() => handleLinkClick("")}
+        href=""
+      >
         <Logo type={logoType} />
-      </div>
+      </a>
       {renderMenu()}
       <section className={styles["navigation-bar__contents"]}>
         <div className={styles["navigation-bar__actions"]}>
           <LanguageSelection />
-          <Button>Dona aquí</Button>
+          <Button onClick={() => handleCtaClick("#projects")}>
+            {t("donate")}
+          </Button>
           <Button
             id={styles["more-info-btn"]}
             type={eButtonType.secondary}
             color={secondaryCtaColor}
+            onClick={() => handleCtaClick("#projects")}
           >
-            Más información
+            {t("more-info")}
           </Button>
         </div>
       </section>

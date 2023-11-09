@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "mission": "Mission",
+    "about-us": "Sobre nosotras",
+    "why-us": "¿Por qué nosotras?",
+    "therapy": "Terapia",
+    "faqs": "FAQs",
+    "donate": "Dona aquí",
+    "more-info": "Más información"
+  },
+  "hero": {
+    "source": "Organización Mundial de la Salud, 2019/ UN Women, 2022",
+    "quote": "Cada <b>2 segundos</b> una mujer o niña no recibe apoyo psicológico tras una agresión sexual quedando marcada de por vida.",
+    "call-to-action": "AYÚDANOS A EVITARLO",
+    "read-more": "Conoce más"
+  },
+  "mission": {
+    "title": "Nuestra misión",
+    "description": "Que toda mujer o niña víctima de agresión sexual tenga acceso a apoyo psicológico.",
+    "content": "Nos dedicamos a proporcionar apoyo psicológico a mujeres y niñas que son víctimas de agresiones sexuales y a conseguirlo de manera gratuita para aquellas que carecen de recursos. Lo hacemos a través de proyectos externos e internos que financiamos con el 100% de nuestros beneficios y donaciones.",
+    "learn-more": "Conoce nuestros proyectos"
+  },
+  "about-us": {
+    "title": "About us",
+    "description": "Discover more about our foundation's purpose and goals, who we are as a foundation and how we allocate all our donations.",
+    "what-we-do": "What do we do?",
+    "how-we-help": "How do we help?",
+    "who-we-are": "Who are we?"
+  },
+  "ambassadors": {
+    "quote1": "Specialized psychological therapy is crucial in the recovery of those who have experienced sexual violence, providing emotional support and tools for healing and rebuilding their lives.",
+    "quote2": "Specialized psychological therapy is essential to help victims of sexual violence heal and recover.",
+    "quote3": "Therapy is like a map that helps individuals navigate their emotional challenges and stay on the right path.",
+    "know-them-all": "Know them all"
+  },
+  "numbers": {
+    "title": "The Issue in Numbers",
+    "statistics": [
+      "3 BILLION WOMEN will be victims of some form of sexual violence in the next 75 years.",
+      "70% OF THE VICTIMS do not have access to psychological support after the assault.",
+      "130,000 WOMEN AND GIRLS who have suffered sexual assault commit suicide each year."
+    ],
+    "call-to-action": "Help us prevent it.",
+    "source": "World Health Organization, 2019/ UN Women, 2022"
+  },
+  "goals-2030": {
+    "title": "Our goals for 2030",
+    "goals": [
+      "250K/ We hope to provide psychological support to 250,000 women and girls.",
+      "1M/ One million free hours of psychological support for women and girls.",
+      "25M/ 25 million dollars invested in social causes.",
+      "80% of free therapies are in the poorest and most affected countries.",
+      "+1K/ Over a thousand training sessions for public and private institutions.",
+      "+5K/ Over 5,000 paying therapy users."
+    ]
+  },
+  "why-us": {
+    "title": "Why us?",
+    "get-to-know-projects": "Get to know our projects",
+    "why-donate": "Why donate to us?",
+    "donate-now": "Donate now",
+    "start-therapy": "Start therapy",
+    "why-choose-therapy": "Why choose therapy with us?",
+    "request-paid-therapy": "Request paid therapy"
+  },
+  "professionals": {
+    "title": "Our professionals",
+    "camila-gonzalez": {
+      "specializations": "Childhood and Adolescence/ Gender-based Violence/ Family",
+      "description": "A prominent psychologist specialized in sexual violence therapy. With a solid academic background and extensive experience in the field, Camila provides therapeutic support to women who are victims of sexual violence in their recovery process. Her therapeutic approach is warm and empathetic, creating a safe space where survivors can share their experiences and emotions. She employs evidence-based therapeutic techniques, such as cognitive-behavioral therapy and exposure therapy, to address trauma and its long-term effects."
+    }
+  },
+  "contact-us": {
+    "title": "Contact us",
+    "sensitivity-workshop": "Are you looking for a sensitivity and best practices workshop for your company, or personal therapy, or want to collaborate with us?",
+    "name": "Name",
+    "last-name": "Last name",
+    "email": "Email Address",
+    "information": "What information are you looking for?"
+  },
+  "projects": {
+    "title": "Our projects",
+    "be-part-of-change": "Be part of the change",
+    "project1": "Project 1",
+    "project2": "Project 2",
+    "project3": "Project 3",
+    "thank-you": "Thank you! All donations received are tax-deductible."
+  }
+}

@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+import { useTranslations } from "next-intl";
+
 import { Button, eButtonColor } from "../../Button";
 import { Icon, eIcons } from "../../Icon";
 
 import styles from "./Hero.module.scss";
 
 export const Hero = () => {
+  const t = useTranslations("hero");
   const [bgIndex, setBgIndex] = useState(1);
 
   useEffect(() => {
@@ -35,18 +38,16 @@ export const Hero = () => {
     <section className={getClassName()}>
       <div className={styles.anchor} id={"hero"}></div>
       <article className={styles.hero}>
-        <span className={styles.hero__source}>
-          Organización Mundial de la Salud, 2019/ UN Women, 2022
-        </span>
-        <span className={styles.hero__quote}>
-          Cada <b>2 segundos</b> una mujer o niña no recibe apoyo psicológico
-          tras una agresión sexual quedando marcada de por vida.
-        </span>
+        <span className={styles.hero__source}>{t("source")}</span>
+        <span
+          className={styles.hero__quote}
+          dangerouslySetInnerHTML={{ __html: t.raw("quote") as string }}
+        />
         <Button color={eButtonColor.orange} onClick={() => console.log("Hero")}>
-          AYÚDANOS A EVITARLO
+          {t("call-to-action")}
         </Button>
         <div className={styles["hero__know-more"]}>
-          <span>Conoce más</span>
+          <span>{t("read-more")}</span>
           <div className={styles["hero__know-more__arrow"]}>
             <div className="line"></div>
             <Icon icon={eIcons.chevronDown} />

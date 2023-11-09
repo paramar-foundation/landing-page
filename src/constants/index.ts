@@ -1,4 +1,4 @@
-import { eIcons } from "~/app/_components/Icon";
+import { eIcons } from "~/src/app/[locale]/_components/Icon";
 
 export const breakpoints = {
   xl: 1440,

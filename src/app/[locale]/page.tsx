@@ -10,7 +10,7 @@ import { Goals } from "./_components/PageSection/Goals";
 import { Hero } from "./_components/PageSection/Hero";
 import { Mission } from "./_components/PageSection/Mission";
 import { Numbers } from "./_components/PageSection/Numbers";
-import { Professionals } from "./_components/PageSection/Professionals/";
+import { Professionals } from "./_components/PageSection/Professionals";
 import { Therapy } from "./_components/PageSection/Therapy";
 import { WhyUs } from "./_components/PageSection/WhyUs";
 
@@ -52,7 +52,7 @@ export default function Home() {
       <PageSection bgDefaultColor="#1c1d20">
         <Contact />
       </PageSection>
-      <PageSection id="donate">
+      <PageSection id="projects">
         <Donations />
       </PageSection>
       <PageSection id="faqs">
