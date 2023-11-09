@@ -47,7 +47,7 @@ export const Hero = () => {
           {t("call-to-action")}
         </Button>
         <div className={styles["hero__know-more"]}>
-          <span>{t("read-more")}</span>
+          <span>{t("know-more")}</span>
           <div className={styles["hero__know-more__arrow"]}>
             <div className="line"></div>
             <Icon icon={eIcons.chevronDown} />

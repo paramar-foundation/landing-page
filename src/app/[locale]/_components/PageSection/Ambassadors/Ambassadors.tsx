@@ -2,14 +2,18 @@
 
 import { useEffect, useState } from "react";
 
+import { useTranslations } from "next-intl";
+
 import { IconButton, eIconButtonType } from "../../IconButton";
 import { Icon, eIcons } from "../../Icon";
 
 import { ambassadorsData } from "~/constants";
 import styles from "./Ambassadors.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Ambassadors = () => {
+  const t = useTranslations("ambassadors");
   const maxIndex = ambassadorsData.length - 1;
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
@@ -46,7 +50,7 @@ export const Ambassadors = () => {
     } else {
       setPrevDisabled(false);
     }
-  }, [ambassadorIndex]);
+  }, [ambassadorIndex, maxIndex]);
 
   return (
     <article className={styles.ambassadors}>
@@ -119,6 +123,13 @@ export const Ambassadors = () => {
             ))}
           </ul>
         </div>
+        <Link href="/ambassadors" className={styles["ambassadors__know-more"]}>
+          <span>{t("know-more")}</span>
+          <Icon
+            icon={eIcons.arrowRight}
+            className={styles["ambassadors__know-more__arrow"]}
+          />
+        </Link>
       </div>
     </article>
   );

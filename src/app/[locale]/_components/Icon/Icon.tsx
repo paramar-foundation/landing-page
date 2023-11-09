@@ -1,4 +1,5 @@
 import {
+  ArrowRightIcon,
   ChevronDownIcon,
   DonationIcon,
   HoursIcon,
@@ -17,6 +18,7 @@ import {
 import styles from "./Icon.module.scss";
 
 export enum eIcons {
+  arrowRight,
   chevronDown,
   donation,
   hours,
@@ -41,6 +43,8 @@ export const Icon = ({
 }) => {
   const renderIcon = () => {
     switch (icon) {
+      case eIcons.arrowRight:
+        return <ArrowRightIcon />;
       case eIcons.chevronDown:
         return <ChevronDownIcon />;
       case eIcons.donation:

@@ -1,89 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next-intl/client";
+import Link from "next-intl/link";
 
-import { Logo, eLogoType } from "../Logo";
-import { Icon, eIcons } from "../Icon";
 import { Button, eButtonColor, eButtonType } from "../Button";
+import { Logo, eLogoType } from "../Logo";
+import { LanguageSelection } from "./LanguajeSelection";
+import { Hamburguer } from "./Hamburger";
 
 import styles from "./NavigationBar.module.scss";
 
-const LanguageSelection = ({ isHidden = false }) => {
-  const [selectedLocale, setSelectedLocale] = useState(useLocale());
-  const [isDisplayingOptions, setDisplayingOptions] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
-  const locales = ["es", "en"] as const;
-
-  const handleSelect = (locale: string) => {
-    const scrollLocation = window.localStorage.getItem("scroll-location");
-    setSelectedLocale(locale);
-    setDisplayingOptions(false);
-    router.replace(pathname + scrollLocation, { locale });
-  };
-
-  const getClassName = () => {
-    return isHidden
-      ? styles["language-selection-responsive"]
-      : styles["language-selection"];
-  };
-
-  return (
-    <article className={getClassName()}>
-      <div
-        className={styles["language-selection__selected"]}
-        onClick={() => setDisplayingOptions(!isDisplayingOptions)}
-      >
-        <p>{selectedLocale}</p>
-        <Icon
-          icon={eIcons.chevronDown}
-          className={styles["language-selection__icon"]}
-        />
-      </div>
-      {isDisplayingOptions && (
-        <ul className={styles["language-selection__list"]}>
-          {locales.map((locale) => (
-            <li key={locale} onClick={() => handleSelect(locale)}>
-              {locale}
-            </li>
-          ))}
-        </ul>
-      )}
-    </article>
-  );
-};
-
-const Hamburguer = ({
-  isOpen,
-  onClick,
-}: {
-  isOpen: boolean;
-  onClick: () => void;
-}) => {
-  const getClassName = () => {
-    return [styles.hamburger, isOpen ? styles["hamburger--open"] : ""].join(
-      " "
-    );
-  };
-
-  return (
-    <article className={getClassName()} onClick={onClick}>
-      <div className={styles.hamburger__top}></div>
-      <div className={styles.hamburger__middle}></div>
-      <div className={styles.hamburger__bottom}></div>
-    </article>
-  );
-};
-
-export const NavigationBar = () => {
+export const NavigationBar = ({ light = false }) => {
   const t = useTranslations("nav");
-  const [logoType, setLogoType] = useState(eLogoType.white);
   const [isScroll, setScroll] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [logoType, setLogoType] = useState(
+    light ? eLogoType.color : eLogoType.white
+  );
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
-    eButtonColor.white
+    light ? eButtonColor.purple : eButtonColor.white
   );
   const pathname = usePathname();
   const router = useRouter();
@@ -100,6 +37,7 @@ export const NavigationBar = () => {
   const getClassName = () => {
     return [
       styles["navigation-bar"],
+      light ? styles["navigation-bar--light"] : "",
       isScroll ? styles["navigation-bar--on-scroll"] : "",
       isMenuOpen ? styles["navigation-bar--menu-open"] : "",
     ].join(" ");
@@ -114,7 +52,7 @@ export const NavigationBar = () => {
       } else {
         setScroll(false);
 
-        if (!isMenuOpen) {
+        if (!isMenuOpen && !light) {
           setSecondaryCtaColor(eButtonColor.white);
           setLogoType(eLogoType.white);
         }
@@ -122,14 +60,15 @@ export const NavigationBar = () => {
     };
 
     const handleEscPress = (e: KeyboardEvent) => {
-      console.log(e.key);
-
       if (e.key === "Escape") {
         setMenuOpen(false);
       }
     };
 
-    if (!isMenuOpen && !isScroll) {
+    if (light) {
+      setLogoType(eLogoType.color);
+      setSecondaryCtaColor(eButtonColor.purple);
+    } else if (!isMenuOpen && !isScroll) {
       setLogoType(eLogoType.white);
       setSecondaryCtaColor(eButtonColor.white);
     } else {
@@ -146,15 +85,10 @@ export const NavigationBar = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleEscPress);
     };
-  }, [isMenuOpen, isScroll]);
-
-  const handleLinkClick = (anchor: string) => {
-    setMenuOpen(false);
-    window.localStorage.setItem("scroll-location", anchor);
-  };
+  }, [isMenuOpen, isScroll, light]);
 
   const handleCtaClick = (anchor: string) => {
-    handleLinkClick(anchor);
+    setMenuOpen(false);
     router.replace(pathname + anchor);
   };
 
@@ -171,9 +105,9 @@ export const NavigationBar = () => {
 
             return (
               <li key={item} className={styles[item]}>
-                <a onClick={() => handleLinkClick(anchor)} href={anchor}>
+                <Link onClick={() => setMenuOpen(false)} href={anchor}>
                   {t(item)}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -186,8 +120,9 @@ export const NavigationBar = () => {
               type={eButtonType.secondary}
               color={secondaryCtaColor}
               fullWidth
+              onClick={() => handleCtaClick("#projects")}
             >
-              Más información
+              {t("more-info")}
             </Button>
           </>
         )}
@@ -201,13 +136,13 @@ export const NavigationBar = () => {
         isOpen={isMenuOpen}
         onClick={() => setMenuOpen((prev) => !prev)}
       />
-      <a
+      <Link
+        href="/"
         className={styles["navigation-bar__logo-container"]}
-        onClick={() => handleLinkClick("")}
-        href=""
+        onClick={() => setMenuOpen(false)}
       >
         <Logo type={logoType} />
-      </a>
+      </Link>
       {renderMenu()}
       <section className={styles["navigation-bar__contents"]}>
         <div className={styles["navigation-bar__actions"]}>
