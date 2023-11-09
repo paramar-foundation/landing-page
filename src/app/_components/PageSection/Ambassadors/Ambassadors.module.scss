@@ -3,10 +3,10 @@
 @import "~/styles/variables.scss";
 
 .ambassadors {
+  @include section;
   display: grid;
   grid-template-columns: minmax(30%, auto) 1fr;
-
-  @include section;
+  padding-bottom: spacing(20);
 
   &__image {
     position: relative;
