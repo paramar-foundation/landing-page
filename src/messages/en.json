@@ -23,9 +23,20 @@
   "about-us": {
     "title": "About us",
     "description": "Discover more about our foundation's purpose and goals, who we are as a foundation and how we allocate all our donations.",
-    "what-we-do": "What do we do?",
-    "how-we-help": "How do we help?",
-    "who-we-are": "Who are we?"
+    "what-we-do": {
+      "title": "What do we do?",
+      "item-1": "We provide individualized and personalized therapy sessions, delivered by our team of psychologists, to women and girls who are victims of sexual assault. Sessions are available in both in-person and remote formats and can be conducted on an individual or group basis.",
+      "item-2": "We run campaigns and offer awareness courses to companies and institutions to help reduce the number of women and girls who are assaulted."
+    },
+    "how-we-help": {
+      "title": "What do we do?",
+      "item-1": "100% of the profit from these therapies and courses will be dedicated to provide free psychological support to other women and girls without resources who are also victims of sexual assault.",
+      "item-2": "We provide a platform for other individuals to contribute to this mission through donations to our projects."
+    },
+    "who-we-are": {
+      "title": "What do we do?",
+      "item-1": "We are a group of professionals with over 20 years of experience in the fields of clinical psychology and social project management. Our ambassadors and Paramar Foundation's managers have raised and managed funds totaling over $1 billion USD throughout their careers, generating positive economic and social impacts in various regions through collaborations with organizations such as Prodis, Ibero-American Commerce Bank, United Nations, Mexican Institute of Sexual Identity, and more."
+    }
   },
   "ambassadors": {
     "quote1": "Specialized psychological therapy is crucial in the recovery of those who have experienced sexual violence, providing emotional support and tools for healing and rebuilding their lives.",
@@ -35,33 +46,82 @@
   },
   "numbers": {
     "title": "The Issue in Numbers",
-    "statistics": [
-      "3 BILLION WOMEN will be victims of some form of sexual violence in the next 75 years.",
-      "70% OF THE VICTIMS do not have access to psychological support after the assault.",
-      "130,000 WOMEN AND GIRLS who have suffered sexual assault commit suicide each year."
-    ],
+    "1": {
+      "number": "3",
+      "type": "Billion women",
+      "description": "will be victims of some form of sexual violence in the next 75 years."
+    },
+    "2": {
+      "number": "70%",
+      "type": "Of the victims",
+      "description": "do not have access to psychological support after the assault."
+    },
+    "3": {
+      "number": "130k",
+      "type": "Women and girls",
+      "description": "who have suffered sexual assault commit suicide each year."
+    },
     "call-to-action": "Help us prevent it.",
     "source": "World Health Organization, 2019/ UN Women, 2022"
   },
-  "goals-2030": {
+  "goals": {
     "title": "Our goals for 2030",
-    "goals": [
-      "250K/ We hope to provide psychological support to 250,000 women and girls.",
-      "1M/ One million free hours of psychological support for women and girls.",
-      "25M/ 25 million dollars invested in social causes.",
-      "80% of free therapies are in the poorest and most affected countries.",
-      "+1K/ Over a thousand training sessions for public and private institutions.",
-      "+5K/ Over 5,000 paying therapy users."
-    ]
+    "1": {
+      "number": "250K",
+      "description": "We hope to provide psychological support to 250,000 women and girls."
+    },
+    "2": {
+      "number": "1M",
+      "description": "One million free hours of psychological support for women and girls."
+    },
+    "3": {
+      "number": "25M",
+      "description": "25 million dollars invested in social causes."
+    },
+    "4": {
+      "number": "80%",
+      "description": "of free therapies are in the poorest and most affected countries."
+    },
+    "5": {
+      "number": "+1K",
+      "description": "Over a thousand training sessions for public and private institutions."
+    },
+    "6": {
+      "number": "+5K",
+      "description": "Over 5,000 paying therapy users."
+    }
   },
   "why-us": {
     "title": "Why us?",
-    "get-to-know-projects": "Get to know our projects",
+    "subtitle": "Get to know our projects",
     "why-donate": "Why donate to us?",
-    "donate-now": "Donate now",
-    "start-therapy": "Start therapy",
-    "why-choose-therapy": "Why choose therapy with us?",
-    "request-paid-therapy": "Request paid therapy"
+    "1": {
+      "title": "The more you give, the more you save",
+      "description": "Donations to nonprofit foundations are the best way to reduce your tax burden."
+    },
+    "2": {
+      "title": "20 years of experience",
+      "description": "Managing scalable projects with capital applied to generate social impact."
+    },
+    "3": {
+      "title": "Transparency",
+      "description": "Our accounts are public, transparent, and audited, within the first quarter of each year."
+    },
+    "call-to-action": "Donate now"
+  },
+  "therapy": {
+    "title": "Why choose therapy with us?",
+    "subtitle": "Start therapy",
+    "why-donate": "Why donate to us?",
+    "1": {
+      "title": "Your therapy here is hope for others",
+      "description": "For every paid therapy hour, a low-income woman or girl receives one free hour of psychological support."
+    },
+    "2": {
+      "title": "We are specialists",
+      "description": "Experts in clinical psychology applied to disorders and traumas caused by sexual assaults."
+    },
+    "call-to-action": "Request paid therapy"
   },
   "professionals": {
     "title": "Our professionals",
@@ -85,5 +145,67 @@
     "project2": "Project 2",
     "project3": "Project 3",
     "thank-you": "Thank you! All donations received are tax-deductible."
+  },
+  "faqs": {
+    "1": {
+      "question": "What is the mission of your nonprofit organization?",
+      "answer": "Our mission is to improve the mental health of women who have experienced sexual aggression by providing free mental health therapy to those with limited financial resources, and by raising funds to support our initiatives worldwide."
+    },
+    "2": {
+      "question": "Who does your organization primarily serve?",
+      "answer": "We primarily serve women who have been victims of sexual aggression, regardless of their age, background, or location. Our goal is to reach out to women globally and provide support."
+    },
+    "3": {
+      "question": "How can I donate to your organization?",
+      "answer": "You can make a donation on our website through our secure donation portal. We accept various payment methods, including credit/debit cards and electronic transfers. Additionally, you can explore other ways to support us on our \"Get Involved\" page."
+    },
+    "4": {
+      "question": "Are donations tax-deductible?",
+      "answer": "Yes, donations made to our nonprofit organization are tax-deductible to the extent allowed by law. We provide donation receipts for tax purposes upon request."
+    },
+    "5": {
+      "question": "Where does the money donated to your organization go?",
+      "answer": "Donated funds are primarily used to provide free mental health therapy to women who cannot afford it. A portion of the funds also goes toward administrative costs, awareness campaigns, and fundraising efforts to sustain our mission."
+    },
+    "6": {
+      "question": "How do you ensure the privacy and confidentiality of therapy sessions?",
+      "answer": "We take client confidentiality seriously. All therapy sessions are conducted by licensed professionals who adhere to strict ethical guidelines and legal requirements. We use secure and encrypted platforms to protect client information."
+    },
+    "7": {
+      "question": "Can survivors of sexual aggression access therapy services online?",
+      "answer": "Yes, we offer online therapy services to survivors worldwide. Our online platform enables survivors to access therapy from the comfort and safety of their own space."
+    },
+    "8": {
+      "question": "How can I volunteer with your organization?",
+      "answer": "We welcome volunteers who share our commitment to improving mental health for survivors. You can find information about volunteer opportunities on our \"Get Involved\" page."
+    },
+    "9": {
+      "question": "How can I refer someone to your therapy services?",
+      "answer": "If you know someone who could benefit from our services, please encourage them to visit our website and complete our referral form. We will reach out to them as soon as possible."
+    },
+    "10": {
+      "question": "Do you offer support for family members of survivors?",
+      "answer": "While our primary focus is on survivors, we understand the importance of supporting their loved ones. We provide resources and referrals to support networks for family members seeking help."
+    },
+    "11": {
+      "question": "Is your organization only focused on therapy, or do you have other programs?",
+      "answer": "Therapy is a central component of our work, but we also engage in advocacy, awareness campaigns, and educational programs to address the root causes of sexual aggression and promote prevention."
+    },
+    "12": {
+      "question": "How do you ensure inclusivity and cultural sensitivity in your therapy services?",
+      "answer": "Our therapists undergo extensive training to ensure they are sensitive to cultural and individual differences. We strive to create a safe and inclusive environment for all survivors."
+    },
+    "13": {
+      "question": "Can I share my survivor story on your platform to raise awareness?",
+      "answer": "Yes, we welcome survivor stories as a way to raise awareness and inspire others. You can contact us through our website to discuss sharing your story."
+    },
+    "14": {
+      "question": "How can I stay updated on your organization's activities and events?",
+      "answer": "You can subscribe to our newsletter on our website to receive regular updates about our programs, events, and the impact of your support."
+    },
+    "15": {
+      "question": "What long-term goals does your organization have in improving mental health for survivors of sexual aggression?",
+      "answer": "Our long-term goals include expanding our reach, increasing access to mental health services, and advocating for policies that protect survivors' rights and well-being. We are committed to making lasting positive changes in the lives of survivors worldwide."
+    }
   }
 }

@@ -1,22 +1,28 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+
 import { Button, eButtonColor } from "../../Button";
 
-import { numbersData } from "~/constants";
 import styles from "./Numbers.module.scss";
 
 export const Numbers = () => {
+  const t = useTranslations("numbers");
+  const numbers = [1, 2, 3] as const;
+
   return (
     <article className={styles.numbers}>
       <div className={styles.numbers__overlay}></div>
-      <span className={styles.numbers__title}>LA PROBLEMÁTICA EN CIFRAS</span>
+      <span className={styles.numbers__title}>{t("title")}</span>
       <ul className={styles.numbers__list}>
-        {numbersData.map((data) => (
-          <li className={styles.number} key={data.number}>
-            <span className={styles.number__main}>{data.number}</span>
-            <span className={styles.number__type}>{data.type}</span>
-            <p className={styles.number__description}>{data.description}</p>
+        {numbers.map((number) => (
+          <li className={styles.number} key={number}>
+            <span className={styles.number__main}>{t(`${number}.number`)}</span>
+            <span className={styles.number__type}>{t(`${number}.type`)}</span>
+            <p className={styles.number__description}>
+              {t(`${number}.description`)}
+            </p>
           </li>
         ))}
       </ul>
@@ -24,7 +30,7 @@ export const Numbers = () => {
         color={eButtonColor.orange}
         onClick={() => console.log("Numbers")}
       >
-        Ayúdanos a evitarlo
+        {t("call-to-action")}
       </Button>
       <Image
         className={styles["numbers__paint-top"]}
@@ -40,9 +46,7 @@ export const Numbers = () => {
         width={200}
         height={200}
       />
-      <span className={styles.numbers__source}>
-        Organización Mundial de la Salud, 2019/ UN Women, 2022
-      </span>
+      <span className={styles.numbers__source}>{t("source")}</span>
     </article>
   );
 };

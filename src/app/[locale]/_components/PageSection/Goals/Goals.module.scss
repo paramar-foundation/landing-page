@@ -13,6 +13,7 @@
   &__title {
     flex-shrink: 0;
     color: $color-purple;
+    max-width: 310px;
   }
 
   &__list {

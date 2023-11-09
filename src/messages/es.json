@@ -21,11 +21,22 @@
     "learn-more": "Conoce nuestros proyectos"
   },
   "about-us": {
-    "title": "About us",
-    "description": "Discover more about our foundation's purpose and goals, who we are as a foundation and how we allocate all our donations.",
-    "what-we-do": "What do we do?",
-    "how-we-help": "How do we help?",
-    "who-we-are": "Who are we?"
+    "title": "Sobre nosotras",
+    "description": "Conoce más sobre nuestra intención y objetivo como fundación, así como también sobre quiénes somos como fundación y cómo asignamos todas nuestras donaciones.",
+    "what-we-do": {
+      "title": "¿Qué hacemos?",
+      "item-1": "Ofrecemos sesiones individualizadas y personalizadas de terapia, a través de nuestro equipo de psicólogos, a mujeres y niñas víctimas de agresiones sexuales. Las sesiones se ofrecen en formato presencial y remoto, individual y grupal.",
+      "item-2": "Hacemos campañas e impartimos cursos de sensibilización a empresas e instituciones para ayudar a reducir el número de mujeres y niñas agredidas."
+    },
+    "how-we-help": {
+      "title": "¿Cómo ayudamos?",
+      "item-1": "El 100% de los beneficios de estas terapias y cursos irán destinados a dar apoyo psicológico gratuito a otras mujeres y niñas, sin recursos, que son también víctimas de agresiones sexuales.",
+      "item-2": "Ofrecemos una plataforma para que otras personas contribuyan con esta misión a través de donaciones a nuestros proyectos."
+    },
+    "who-we-are": {
+      "title": "¿Quiénes somos?",
+      "item-1": "Somos un grupo de profesionales con más de 20 años de experiencia en el campo de la psicología clínica y la dirección de proyectos sociales. Nuestros embajadores y gestores de Paramar Foundation han levantado y gestionado fondos por más de $1Bn USD durante sus carreras, generando un impacto económico y social positivo para diversas regiones a través de colaboraciones con Prodis, Banco iberoamericano de comercio, Naciones Unidas, Instituto mexicano de identidad sexual, etc."
+    }
   },
   "ambassadors": {
     "quote1": "Specialized psychological therapy is crucial in the recovery of those who have experienced sexual violence, providing emotional support and tools for healing and rebuilding their lives.",
@@ -34,34 +45,83 @@
     "know-more": "Conoce más"
   },
   "numbers": {
-    "title": "The Issue in Numbers",
-    "statistics": [
-      "3 BILLION WOMEN will be victims of some form of sexual violence in the next 75 years.",
-      "70% OF THE VICTIMS do not have access to psychological support after the assault.",
-      "130,000 WOMEN AND GIRLS who have suffered sexual assault commit suicide each year."
-    ],
-    "call-to-action": "Help us prevent it.",
-    "source": "World Health Organization, 2019/ UN Women, 2022"
+    "title": "La problemática en cifras",
+    "1": {
+      "number": "3",
+      "type": "Billones de mujeres",
+      "description": "Serán víctimas de algún tipo de violencia sexual durante los próximos 75 años."
+    },
+    "2": {
+      "number": "70%",
+      "type": "De las víctimas",
+      "description": "No tiene acceso a apoyo psicológico tras la agresión."
+    },
+    "3": {
+      "number": "130",
+      "type": "Mil mujeres y niñas",
+      "description": "Que han sufrido agresión sexual se suicidan cada año."
+    },
+    "call-to-action": "Ayúdanos a evitarlo",
+    "source": "Organización Mundial de la Salud, 2019/ UN Women, 2022"
   },
-  "goals-2030": {
-    "title": "Our goals for 2030",
-    "goals": [
-      "250K/ We hope to provide psychological support to 250,000 women and girls.",
-      "1M/ One million free hours of psychological support for women and girls.",
-      "25M/ 25 million dollars invested in social causes.",
-      "80% of free therapies are in the poorest and most affected countries.",
-      "+1K/ Over a thousand training sessions for public and private institutions.",
-      "+5K/ Over 5,000 paying therapy users."
-    ]
+  "goals": {
+    "title": "Nuestras metas para el 2030",
+    "1": {
+      "number": "250K",
+      "description": "Esperamos que 250.000 mujeres y niñas que reciban apoyo psicológico."
+    },
+    "2": {
+      "number": "1M",
+      "description": "Un millón de horas gratuitas de apoyo psicológico a mujeres y niñas."
+    },
+    "3": {
+      "number": "25M",
+      "description": "25 millones de dólares invertidos en causas sociales."
+    },
+    "4": {
+      "number": "80%",
+      "description": "De terapias gratuitas en los países más pobres y con mayor prevalencia."
+    },
+    "5": {
+      "number": "+1K",
+      "description": "De formaciones a instituciones públicas y privadas."
+    },
+    "6": {
+      "number": "+5K",
+      "description": "Más de 5.000 usuarias de terapias de pago."
+    }
   },
   "why-us": {
-    "title": "Why us?",
-    "get-to-know-projects": "Get to know our projects",
+    "title": "¿Por qué donar con nosotras?",
+    "subtitle": "Conoce nuestros proyectos",
     "why-donate": "Why donate to us?",
-    "donate-now": "Donate now",
-    "start-therapy": "Start therapy",
-    "why-choose-therapy": "Why choose therapy with us?",
-    "request-paid-therapy": "Request paid therapy"
+    "1": {
+      "title": "Cuánto más das más ahorras",
+      "description": "Las donaciones a fundaciones sin ánimo de lucro son la mejor manera de pagar menos impuestos"
+    },
+    "2": {
+      "title": "20 años de experiencia",
+      "description": "Gestionando proyectos escalables y capital aplicado a generar impacto social"
+    },
+    "3": {
+      "title": "Transparencia",
+      "description": "Nuestras cuentas son públicas, transparentes y auditadas, el primer trimestre de cada año"
+    },
+    "call-to-action": "Dona ahora"
+  },
+  "therapy": {
+    "title": "¿Por qué tomar terapia con nosotras?",
+    "subtitle": "Comenzar terapia",
+    "why-donate": "Why donate to us?",
+    "1": {
+      "title": "Tu terapia aquí es esperanza para otras",
+      "description": "Por cada hora de terapia de pago una mujer o niña con bajos recursos recibe una hora gratuita de apoyo psicológico."
+    },
+    "2": {
+      "title": "Somos especialistas",
+      "description": "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales."
+    },
+    "call-to-action": "Solicitar terapia de pago"
   },
   "professionals": {
     "title": "Our professionals",
@@ -85,5 +145,67 @@
     "project2": "Project 2",
     "project3": "Project 3",
     "thank-you": "Thank you! All donations received are tax-deductible."
+  },
+  "faqs": {
+    "1": {
+      "question": "¿Cuál es la misión de su organización sin fines de lucro?",
+      "answer": "Nuestra misión es mejorar la salud mental de las mujeres que han experimentado agresión sexual, proporcionando terapia de salud mental gratuita a aquellas con recursos financieros limitados y recaudando fondos para apoyar nuestras iniciativas en todo el mundo."
+    },
+    "2": {
+      "question": "¿A quienes sirve principalmente su organización?",
+      "answer": "Principalmente servimos a mujeres que han sido víctimas de agresión sexual, independientemente de su edad, origen o ubicación. Nuestro objetivo es llegar a mujeres a nivel global y brindarles apoyo."
+    },
+    "3": {
+      "question": "¿Cómo puedo donar a su organización?",
+      "answer": "Puede hacer una donación en nuestro sitio web a través de nuestro portal de donaciones seguro. Aceptamos varios métodos de pago, incluyendo tarjetas de crédito/débito y transferencias electrónicas. Además, puede explorar otras formas de apoyarnos en nuestra página \"Sé parte del cambio\"."
+    },
+    "4": {
+      "question": "¿Son deducibles de impuestos las donaciones?",
+      "answer": "Sí, las donaciones realizadas a nuestra organización sin fines de lucro son deducibles de impuestos en la medida permitida por la ley. Proporcionamos recibos de donación para fines fiscales a pedido."
+    },
+    "5": {
+      "question": "¿Dónde va el dinero donado a su organización?",
+      "answer": "Los fondos donados se utilizan principalmente para proporcionar terapia de salud mental gratuita a mujeres que no pueden pagarla. Una parte de los fondos también se destina a costos administrativos, campañas de concientización y esfuerzos de recaudación de fondos para mantener nuestra misión."
+    },
+    "6": {
+      "question": "¿Cómo garantizan la privacidad y confidencialidad de las sesiones de terapia?",
+      "answer": "Tomamos en serio la confidencialidad de los clientes. Todas las sesiones de terapia son realizadas por profesionales con licencia que cumplen estrictas pautas éticas y requisitos legales. Utilizamos plataformas seguras y encriptadas para proteger la información de los clientes.Tomamos en serio la confidencialidad de los clientes. Todas las sesiones de terapia son realizadas por profesionales con licencia que cumplen estrictas pautas éticas y requisitos legales. Utilizamos plataformas seguras y encriptadas para proteger la información de los clientes."
+    },
+    "7": {
+      "question": "¿Pueden las sobrevivientes de agresión sexual acceder a los servicios de terapia en línea?",
+      "answer": "Sí, ofrecemos servicios de terapia en línea a sobrevivientes de todo el mundo. Nuestra plataforma en línea permite a las sobrevivientes acceder a la terapia desde la comodidad y seguridad de su propio espacio."
+    },
+    "8": {
+      "question": "¿Cómo puedo ser voluntario en su organización?",
+      "answer": "Damos la bienvenida a voluntarios que comparten nuestro compromiso de mejorar la salud mental de las sobrevivientes. Puede encontrar información sobre oportunidades de voluntariado en nuestra página \"Sé parte del cambio\"."
+    },
+    "9": {
+      "question": "¿Cómo puedo referir a alguien a sus servicios de terapia?",
+      "answer": "Si conoce a alguien que podría beneficiarse de nuestros servicios, por favor anímelo a visitar nuestro sitio web y completar nuestro formulario de referencia. Nos pondremos en contacto con ellos lo antes posible."
+    },
+    "10": {
+      "question": "¿Ofrecen apoyo para familiares de sobrevivientes?",
+      "answer": "Si bien nuestro enfoque principal está en las sobrevivientes, entendemos la importancia de apoyar a sus seres queridos. Proporcionamos recursos y referencias a redes de apoyo para familiares que buscan ayuda."
+    },
+    "11": {
+      "question": "¿Se enfoca su organización solo en la terapia o tienen otros programas?",
+      "answer": "La terapia es un componente central de nuestro trabajo, pero también nos involucramos en la promoción, campañas de concientización y programas educativos para abordar las causas fundamentales de la agresión sexual y promover la prevención."
+    },
+    "12": {
+      "question": "¿Cómo garantizan la inclusividad y sensibilidad cultural en sus servicios de terapia?",
+      "answer": "Nuestros terapeutas reciben una formación exhaustiva para asegurarse de ser sensibles a las diferencias culturales e individuales. Nos esforzamos por crear un ambiente seguro e inclusivo para todas las sobrevivientes."
+    },
+    "13": {
+      "question": "¿Puedo compartir mi historia como sobreviviente en su plataforma para crear conciencia?",
+      "answer": "Sí, damos la bienvenida a las historias de sobrevivientes como una forma de crear conciencia e inspirar a otros. Puede ponerse en contacto con nosotros a través de nuestro sitio web para discutir la posibilidad de compartir su historia."
+    },
+    "14": {
+      "question": "¿Cómo puedo mantenerme actualizado sobre las actividades y eventos de su organización?",
+      "answer": "Puede suscribirse a nuestro boletín informativo en nuestro sitio web para recibir actualizaciones regulares sobre nuestros programas, eventos y el impacto de su apoyo."
+    },
+    "15": {
+      "question": "¿Cuáles son los objetivos a largo plazo de su organización para mejorar la salud mental de las sobrevivientes de agresión sexual?",
+      "answer": "Nuestros objetivos a largo plazo incluyen expandir nuestro alcance, aumentar el acceso a servicios de salud mental y abogar por políticas que protejan los derechos y el bienestar de las sobrevivientes. Estamos comprometidos en crear cambios positivos duraderos en la vida de las sobrevivientes en todo el mundo."
+    }
   }
 }

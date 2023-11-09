@@ -49,7 +49,7 @@ export default function Home() {
       <PageSection>
         <Professionals />
       </PageSection>
-      <PageSection bgDefaultColor="#1c1d20">
+      <PageSection id="contact" bgDefaultColor="#1c1d20">
         <Contact />
       </PageSection>
       <PageSection id="projects">
