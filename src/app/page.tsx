@@ -20,9 +20,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <NavigationBar />
-      <PageSection id="hero" bgImage="/bg-hero.jpg" bgDefaultColor="#494a4d">
-        <Hero />
-      </PageSection>
+      <Hero />
       <PageSection id="mission">
         <Mission />
       </PageSection>

@@ -2,6 +2,40 @@
 @import "~/styles/mixins.scss";
 @import "~/styles/variables.scss";
 
+.page-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-color: $color-grey-400;
+  background-image: url("/bg-hero-2.jpg");
+
+  .anchor {
+    position: absolute;
+    top: spacing(-4);
+  }
+
+  & > * {
+    max-width: $section-max-width;
+  }
+
+  &--bg-1 {
+    background-image: url("/bg-hero-1.jpg");
+  }
+  &--bg-2 {
+    background-image: url("/bg-hero-2.jpg");
+  }
+  &--bg-3 {
+    background-image: url("/bg-hero-3.jpg");
+  }
+}
+
 .hero {
   display: flex;
   align-items: flex-start;
