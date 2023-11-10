@@ -241,6 +241,11 @@
           a {
             padding: spacing(2) spacing(1);
             width: 100%;
+            color: $color-purple;
+
+            &:visited {
+              color: $color-purple;
+            }
           }
         }
 
