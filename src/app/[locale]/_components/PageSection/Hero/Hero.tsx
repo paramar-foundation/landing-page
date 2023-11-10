@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 import { Button, eButtonColor } from "../../Button";
 import { Icon, eIcons } from "../../Icon";
@@ -12,6 +13,8 @@ import styles from "./Hero.module.scss";
 
 export const Hero = () => {
   const t = useTranslations("hero");
+  const pathname = usePathname();
+  const router = useRouter();
   const [bgIndex, setBgIndex] = useState(1);
 
   useEffect(() => {
@@ -43,7 +46,10 @@ export const Hero = () => {
           className={styles.hero__quote}
           dangerouslySetInnerHTML={{ __html: t.raw("quote") as string }}
         />
-        <Button color={eButtonColor.orange} onClick={() => console.log("Hero")}>
+        <Button
+          color={eButtonColor.orange}
+          onClick={() => router.replace(pathname + "#projects")}
+        >
           {t("call-to-action")}
         </Button>
         <div className={styles["hero__know-more"]}>

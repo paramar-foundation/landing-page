@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 import Image from "next/image";
 
 import { Button, eButtonColor } from "../../Button";
@@ -9,6 +10,8 @@ import styles from "./Numbers.module.scss";
 
 export const Numbers = () => {
   const t = useTranslations("numbers");
+  const pathname = usePathname();
+  const router = useRouter();
   const numbers = [1, 2, 3] as const;
 
   return (
@@ -28,7 +31,7 @@ export const Numbers = () => {
       </ul>
       <Button
         color={eButtonColor.orange}
-        onClick={() => console.log("Numbers")}
+        onClick={() => router.replace(pathname + "#projects")}
       >
         {t("call-to-action")}
       </Button>

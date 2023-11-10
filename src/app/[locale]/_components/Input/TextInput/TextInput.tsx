@@ -1,3 +1,5 @@
+import { type HTMLInputTypeAttribute } from "react";
+
 import { eInputTheme } from "../index";
 import styles from "../Input.module.scss";
 
@@ -7,6 +9,7 @@ interface ITextInputProps {
   onChange: (value: string) => void;
   value: string;
   form?: string;
+  type?: HTMLInputTypeAttribute;
   disabled?: boolean;
   required?: boolean;
   theme?: eInputTheme;
@@ -18,6 +21,7 @@ export const TextInput = ({
   onChange,
   value,
   form = "",
+  type = "text",
   disabled = false,
   required = true,
   theme = eInputTheme.light,
@@ -50,7 +54,7 @@ export const TextInput = ({
       </label>
       <input
         name={`${name}-input`}
-        type="text"
+        type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}

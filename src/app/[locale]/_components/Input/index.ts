@@ -1,4 +1,5 @@
-export * from "./TextInput/TextInput";
+export * from "./TextInput";
+export * from "./SelectInput";
 
 export enum eInputTheme {
   dark,

@@ -1,6 +1,7 @@
 "use client";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
 
@@ -8,43 +9,44 @@ import { professionalsData } from "~/constants";
 import styles from "./Professionals.module.scss";
 
 export const Professionals = () => {
-  const maxIndex = professionalsData.length - 1;
+  const t = useTranslations("professionals");
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
-  const [professionalIndex, setProfessionalIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const professionals = useMemo(() => ["camila-gonzalez"], []);
 
   const getDotClassName = (index: number) => {
     return [
       styles.professionals__dot,
-      index === professionalIndex ? styles["professionals__dot--active"] : "",
+      index === index ? styles["professionals__dot--active"] : "",
     ].join(" ");
   };
 
   const handlePrevious = () => {
     if (!isPrevDisabled) {
-      setProfessionalIndex((prev) => prev - 1);
+      setIndex((prev) => prev - 1);
     }
   };
 
   const handleNext = () => {
     if (!isNextDisabled) {
-      setProfessionalIndex((prev) => prev + 1);
+      setIndex((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
-    if (professionalIndex >= maxIndex) {
+    if (index >= professionals.length - 1) {
       setNextDisabled(true);
     } else {
       setNextDisabled(false);
     }
 
-    if (professionalIndex <= 0) {
+    if (index <= 0) {
       setPrevDisabled(true);
     } else {
       setPrevDisabled(false);
     }
-  }, [professionalIndex]);
+  }, [index, professionals]);
 
   return (
     <article className={styles.professionals}>
@@ -58,8 +60,12 @@ export const Professionals = () => {
           className={styles["paint-top"]}
         />
         <Image
-          src={professionalsData[professionalIndex]!.profile}
-          alt={`${professionalsData[professionalIndex]?.name} profile picture`}
+          src={`/profile-${professionals[index]}.jpg`}
+          alt={
+            t.rich("profile-picture", {
+              name: professionals[index],
+            }) as string
+          }
           loading="lazy"
           width={600}
           height={700}
@@ -74,41 +80,49 @@ export const Professionals = () => {
         />
       </div>
       <div className={styles.professionals__content}>
-        <p className={styles.professionals__subtitle}>Nuestras profesionales</p>
+        <p className={styles.professionals__subtitle}>{t("title")}</p>
         <h2 className={styles.professionals__title}>
-          {professionalsData[professionalIndex]?.name}
+          {t(`${professionals[index]}.name`)}
         </h2>
         <ul className={styles.professionals__areas}>
-          {professionalsData[professionalIndex]?.expertise.map((area) => (
-            <li className={styles.professionals__area} key={area}>
-              {area}
-            </li>
-          ))}
+          <li className={styles.professionals__area}>
+            {t(`${professionals[index]}.expertise-1`)}
+          </li>
+          <li className={styles.professionals__area}>
+            {t(`${professionals[index]}.expertise-2`)}
+          </li>
+          <li className={styles.professionals__area}>
+            {t(`${professionals[index]}.expertise-3`)}
+          </li>
         </ul>
         <p className={styles.professionals__bio}>
-          {professionalsData[professionalIndex]?.bio}
+          {t(`${professionals[index]}.description`)}
         </p>
-        <div className={styles["professionals__button-container"]}>
-          <IconButton
-            type={eIconButtonType.previous}
-            onClick={() => handlePrevious()}
-            disabled={isPrevDisabled}
-          />
-          <IconButton
-            type={eIconButtonType.next}
-            onClick={() => handleNext()}
-            disabled={isNextDisabled}
-          />
-        </div>
-        <ul className={styles.professionals__dots}>
-          {professionalsData.map(({ name }, index) => (
-            <li
-              className={getDotClassName(index)}
-              key={name}
-              onClick={() => setProfessionalIndex(index)}
-            />
-          ))}
-        </ul>
+        {professionals.length > 1 && (
+          <>
+            <div className={styles["professionals__button-container"]}>
+              <IconButton
+                type={eIconButtonType.previous}
+                onClick={() => handlePrevious()}
+                disabled={isPrevDisabled}
+              />
+              <IconButton
+                type={eIconButtonType.next}
+                onClick={() => handleNext()}
+                disabled={isNextDisabled}
+              />
+            </div>
+            <ul className={styles.professionals__dots}>
+              {professionalsData.map(({ name }, index) => (
+                <li
+                  className={getDotClassName(index)}
+                  key={name}
+                  onClick={() => setIndex(index)}
+                />
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     </article>
   );

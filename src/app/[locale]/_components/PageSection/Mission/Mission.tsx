@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 import { Button, eButtonColor } from "../../Button";
 
@@ -10,6 +11,8 @@ import styles from "./Mission.module.scss";
 
 export const Mission = () => {
   const t = useTranslations("mission");
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <article className={styles.mission}>
@@ -43,7 +46,7 @@ export const Mission = () => {
         <p className={styles.mission__body}>{t("content")}</p>
         <Button
           color={eButtonColor.purple}
-          onClick={() => console.log("Mission")}
+          onClick={() => router.replace(pathname + "#projects")}
         >
           {t("learn-more")}
         </Button>

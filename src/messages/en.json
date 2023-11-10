@@ -39,9 +39,51 @@
     }
   },
   "ambassadors": {
-    "quote1": "Specialized psychological therapy is crucial in the recovery of those who have experienced sexual violence, providing emotional support and tools for healing and rebuilding their lives.",
-    "quote2": "Specialized psychological therapy is essential to help victims of sexual violence heal and recover.",
-    "quote3": "Therapy is like a map that helps individuals navigate their emotional challenges and stay on the right path.",
+    "carlota-corzo": {
+      "name": "Carlota Corzo Álvarez",
+      "picture": "profile-carlota-corzo.jpg",
+      "role": "Cofounder & CEO of Lázzaro, Patron of the Youth Business Spain Foundation",
+      "quote": "Es algo básico que deberiera estar en este tipo de situaciones disponible para todas las personas.",
+      "linked-in": "https://www.linkedin.com/in/carlotacorzoalvarez/",
+      "instagram": "",
+      "x": ""
+    },
+    "silvina-reyes": {
+      "name": "Silvina Reyes",
+      "picture": "profile-silvina-reyes.jpg",
+      "role": "Founder & CEO",
+      "quote": "Contar con el apoyo psicológico adecuado con profesionales especializados es vital para poder sanar y recuperarse de algo tan doloroso",
+      "linked-in": "https://www.linkedin.com/in/silvinareyes/",
+      "instagram": "https://www.instagram.com/silmreyes_familiaenvelero/",
+      "x": ""
+    },
+    "violeta-arus": {
+      "name": "Violeta Arús",
+      "picture": "profile-violeta-arus.jpg",
+      "role": "Tattoo artist",
+      "quote": "Personalmente, la terapia me ha ayudado a enfrentar eventos traumáticos de mi vida ofreciéndome herramientas y comprensión.",
+      "linked-in": "",
+      "instagram": "https://instagram.com/violeta.arus?igshid=MzRlODBiNWFlZA==",
+      "x": ""
+    },
+    "emily-zembo": {
+      "name": "Emily Helen Zembo Vogel",
+      "picture": "profile-emily-zembo.jpg",
+      "role": "Ambassador",
+      "quote": "Recibir terapia, especialmente en las etapas tempranas del crecimiento, es fundamental para establecer bases de confianza, seguridad y autoestima saludables en cada persona. Además, proporciona las herramientas necesarias para afrontar los desafíos cotidianos y cultivar relaciones sanas a lo largo de nuestra vida.",
+      "linked-in": "https://www.linkedin.com/in/emily-zembo-884537127/",
+      "instagram": "",
+      "x": ""
+    },
+    "yu-fu": {
+      "name": "Yu Fu",
+      "picture": "profile-yu-fu.jpg",
+      "role": "Ambassador",
+      "quote": "Sex Education es una serie que me encanta y la historia de Amy es una de mis favoritas. La vida no es una serie pero podemos aprender de ella: Amy era una chica sencilla y feliz y todo cambió después de que sufrió una agresión sexual. Tuvo que recorrer un camino complicado para volver a encontrarse a sí misma. No quiero dar más spoilers, solo destacar que la terapia fue una de las claves. Y creo que lo importante no es solo recibir terapia sino también que todas las personas puedan tener acceso a ella.",
+      "linked-in": "https://www.linkedin.com/in/mad4yu/",
+      "instagram": "https://www.instagram.com/mad4yu",
+      "x": ""
+    },
     "know-more": "Know them all"
   },
   "numbers": {
@@ -125,28 +167,40 @@
   },
   "professionals": {
     "title": "Our professionals",
+    "profile-picture": "{name} profile picture",
     "camila-gonzalez": {
-      "specializations": "Childhood and Adolescence/ Gender-based Violence/ Family",
+      "name": "Camila Gonzalez",
+      "expertise-1": "Childhood and Adolescence",
+      "expertise-2": "Gender-based Violence",
+      "expertise-3": "Family",
       "description": "A prominent psychologist specialized in sexual violence therapy. With a solid academic background and extensive experience in the field, Camila provides therapeutic support to women who are victims of sexual violence in their recovery process. Her therapeutic approach is warm and empathetic, creating a safe space where survivors can share their experiences and emotions. She employs evidence-based therapeutic techniques, such as cognitive-behavioral therapy and exposure therapy, to address trauma and its long-term effects."
     }
   },
   "contact-us": {
     "title": "Contact us",
-    "sensitivity-workshop": "Are you looking for a sensitivity and best practices workshop for your company, or personal therapy, or want to collaborate with us?",
+    "description": "Are you looking for a sensitivity and best practices workshop for your company, or personal therapy, or want to collaborate with us?",
     "name": "Name",
     "last-name": "Last name",
     "email": "Email Address",
-    "information": "What information are you looking for?"
+    "information": "What information are you looking for?",
+    "options": {
+      "workshop": "Awareness workshop",
+      "good-practice": "Good practices for your institution",
+      "therapy": "Paid personal therapy",
+      "collaborate": "Collaborate with us"
+    },
+    "send-btn": "Send"
   },
   "projects": {
-    "title": "Our projects",
-    "be-part-of-change": "Be part of the change",
-    "project1": "Project 1",
-    "project2": "Project 2",
-    "project3": "Project 3",
-    "thank-you": "Thank you! All donations received are tax-deductible."
+    "subtitle": "Our projects",
+    "title": "Be part of the change",
+    "description": "Your generous support for any of our projects is a valuable step toward a better world, where more women and girls can receive the help they need.",
+    "thank-you": "Thank you! All donations received are tax-deductible.",
+    "donate-card-btn": "Donate now",
+    "donate-card-last-donation": "Last donation {time}{unit}"
   },
   "faqs": {
+    "title": "Frequently asked questions",
     "1": {
       "question": "What is the mission of your nonprofit organization?",
       "answer": "Our mission is to improve the mental health of women who have experienced sexual aggression by providing free mental health therapy to those with limited financial resources, and by raising funds to support our initiatives worldwide."

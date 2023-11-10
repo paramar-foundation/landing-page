@@ -1,6 +1,9 @@
-import styles from "./DonateCard.module.scss";
-import { Button, eButtonSize } from "../Button";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+
+import { Button, eButtonSize } from "../Button";
+
+import styles from "./DonateCard.module.scss";
 
 interface IDonateCardProps {
   data:
@@ -9,7 +12,7 @@ interface IDonateCardProps {
         location: string;
         name: string;
         description: string;
-        lastDonation: string;
+        lastDonation: { time: string; unit: string };
         currentAmount: number;
         goalAmount: number;
       }
@@ -17,6 +20,8 @@ interface IDonateCardProps {
 }
 
 export const DonateCard = ({ data }: IDonateCardProps) => {
+  const t = useTranslations("projects");
+
   if (!data) {
     return <></>;
   }
@@ -49,7 +54,12 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
         <p className={styles.content__location}>{location}</p>
         <p className={styles.content__name}>{name}</p>
         <p className={styles.content__description}>{description}</p>
-        <p className={styles.content__last}>{lastDonation}</p>
+        <p className={styles.content__last}>
+          {t.rich("donate-card-last-donation", {
+            time: lastDonation.time,
+            unit: lastDonation.unit,
+          })}
+        </p>
         <div className={styles.content__bar}>
           <div
             className={styles.content__progress}
@@ -61,7 +71,7 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
           {Intl.NumberFormat().format(goalAmount)}
         </p>
         <Button fullWidth size={eButtonSize.small}>
-          Donar Ahora
+          {t("donate-card-btn")}
         </Button>
       </div>
     </article>

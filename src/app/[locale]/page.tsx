@@ -4,7 +4,7 @@ import { PageSection } from "./_components/PageSection";
 import { AboutUs } from "./_components/PageSection/AboutUs";
 import { Ambassadors } from "./_components/PageSection/Ambassadors";
 import { Contact } from "./_components/PageSection/Contact";
-import { Donations } from "./_components/PageSection/Donations";
+import { Projects } from "./_components/PageSection/Projects";
 import { FAQs } from "./_components/PageSection/FAQs";
 import { Goals } from "./_components/PageSection/Goals";
 import { Hero } from "./_components/PageSection/Hero";
@@ -53,7 +53,7 @@ export default function Home() {
         <Contact />
       </PageSection>
       <PageSection id="projects">
-        <Donations />
+        <Projects />
       </PageSection>
       <PageSection id="faqs">
         <FAQs />

@@ -39,9 +39,51 @@
     }
   },
   "ambassadors": {
-    "quote1": "Specialized psychological therapy is crucial in the recovery of those who have experienced sexual violence, providing emotional support and tools for healing and rebuilding their lives.",
-    "quote2": "Specialized psychological therapy is essential to help victims of sexual violence heal and recover.",
-    "quote3": "Therapy is like a map that helps individuals navigate their emotional challenges and stay on the right path.",
+    "carlota-corzo": {
+      "name": "Carlota Corzo Álvarez",
+      "picture": "profile-carlota-corzo.jpg",
+      "role": "Cofundadora & CEO de Lázzaro, Patrona de la Fundación Youth Business Spain",
+      "quote": "Es algo básico que deberiera estar en este tipo de situaciones disponible para todas las personas.",
+      "linked-in": "https://www.linkedin.com/in/carlotacorzoalvarez/",
+      "instagram": "",
+      "x": ""
+    },
+    "silvina-reyes": {
+      "name": "Silvina Reyes",
+      "picture": "profile-silvina-reyes.jpg",
+      "role": "Fundadora & CEO",
+      "quote": "Contar con el apoyo psicológico adecuado con profesionales especializados es vital para poder sanar y recuperarse de algo tan doloroso",
+      "linked-in": "https://www.linkedin.com/in/silvinareyes/",
+      "instagram": "https://www.instagram.com/silmreyes_familiaenvelero/",
+      "x": ""
+    },
+    "violeta-arus": {
+      "name": "Violeta Arús",
+      "picture": "profile-violeta-arus.jpg",
+      "role": "Artista de tatuajes",
+      "quote": "Personalmente, la terapia me ha ayudado a enfrentar eventos traumáticos de mi vida ofreciéndome herramientas y comprensión.",
+      "linked-in": "",
+      "instagram": "https://instagram.com/violeta.arus?igshid=MzRlODBiNWFlZA==",
+      "x": ""
+    },
+    "emily-zembo": {
+      "name": "Emily Helen Zembo Vogel",
+      "picture": "profile-emily-zembo.jpg",
+      "role": "Embajadora",
+      "quote": "Recibir terapia, especialmente en las etapas tempranas del crecimiento, es fundamental para establecer bases de confianza, seguridad y autoestima saludables en cada persona. Además, proporciona las herramientas necesarias para afrontar los desafíos cotidianos y cultivar relaciones sanas a lo largo de nuestra vida.",
+      "linked-in": "https://www.linkedin.com/in/emily-zembo-884537127/",
+      "instagram": "",
+      "x": ""
+    },
+    "yu-fu": {
+      "name": "Yu Fu",
+      "picture": "profile-yu-fu.jpg",
+      "role": "Embajadora",
+      "quote": "Sex Education es una serie que me encanta y la historia de Amy es una de mis favoritas. La vida no es una serie pero podemos aprender de ella: Amy era una chica sencilla y feliz y todo cambió después de que sufrió una agresión sexual. Tuvo que recorrer un camino complicado para volver a encontrarse a sí misma. No quiero dar más spoilers, solo destacar que la terapia fue una de las claves. Y creo que lo importante no es solo recibir terapia sino también que todas las personas puedan tener acceso a ella.",
+      "linked-in": "https://www.linkedin.com/in/mad4yu/",
+      "instagram": "https://www.instagram.com/mad4yu",
+      "x": ""
+    },
     "know-more": "Conoce más"
   },
   "numbers": {
@@ -124,29 +166,41 @@
     "call-to-action": "Solicitar terapia de pago"
   },
   "professionals": {
-    "title": "Our professionals",
+    "title": "Nuestras profesionales",
+    "profile-picture": "Foto de perfil de {name}",
     "camila-gonzalez": {
-      "specializations": "Childhood and Adolescence/ Gender-based Violence/ Family",
-      "description": "A prominent psychologist specialized in sexual violence therapy. With a solid academic background and extensive experience in the field, Camila provides therapeutic support to women who are victims of sexual violence in their recovery process. Her therapeutic approach is warm and empathetic, creating a safe space where survivors can share their experiences and emotions. She employs evidence-based therapeutic techniques, such as cognitive-behavioral therapy and exposure therapy, to address trauma and its long-term effects."
+      "name": "Camila Gonzalez",
+      "expertise-1": "Infancia y adolecencia",
+      "expertise-2": "Violencia de género",
+      "expertise-3": "Familia",
+      "description": "Destacada psicóloga especializada en terapia de violencia sexual. Con una sólida formación académica y una amplia experiencia en el campo. Camila brinda apoyo terapéutico a las mujeres víctimas de violencia sexual en su proceso de recuperación. Su enfoque terapéutico es cálido y empático, creando un espacio seguro donde las sobrevivientes pueden compartir sus experiencias y emociones. Utiliza técnicas terapéuticas basadas en la evidencia, como la terapia cognitivo-conductual y la terapia de exposición, para abordar el trauma y los efectos a largo plazo."
     }
   },
   "contact-us": {
-    "title": "Contact us",
-    "sensitivity-workshop": "Are you looking for a sensitivity and best practices workshop for your company, or personal therapy, or want to collaborate with us?",
-    "name": "Name",
-    "last-name": "Last name",
-    "email": "Email Address",
-    "information": "What information are you looking for?"
+    "title": "Contáctanos",
+    "description": "¿Buscas un taller de sensibilización y buenas prácticas para tu empresa, terapia personal o quieres colaborar con nosotras?",
+    "name": "Nombre(s)",
+    "last-name": "Apellido(s)",
+    "email": "Correo Electrónico",
+    "information": "¿Qué información buscas?",
+    "options": {
+      "workshop": "Taller de sensibilización",
+      "good-practice": "Buenas prácticas para tu institución",
+      "therapy": "Terapia personal paga",
+      "collaborate": "Colabora con nosotras"
+    },
+    "send-btn": "Enviar"
   },
   "projects": {
-    "title": "Our projects",
-    "be-part-of-change": "Be part of the change",
-    "project1": "Project 1",
-    "project2": "Project 2",
-    "project3": "Project 3",
-    "thank-you": "Thank you! All donations received are tax-deductible."
+    "subtitle": "Nuestros proyectos",
+    "title": "Sé parte del cambio",
+    "description": "Tu apoyo generoso a alguno de nuestros proyectos es un paso valioso hacia un mundo mejor, donde más mujeres y niñas puedan recibir la ayuda que necesitan.",
+    "thank-you": "¡Gracias! Todas las donaciones recibidas son deducibles de impuestos.",
+    "donate-card-btn": "Dona ahora",
+    "donate-card-last-donation": "Última donación hace {time}{unit}"
   },
   "faqs": {
+    "title": "Preguntas frecuentes",
     "1": {
       "question": "¿Cuál es la misión de su organización sin fines de lucro?",
       "answer": "Nuestra misión es mejorar la salud mental de las mujeres que han experimentado agresión sexual, proporcionando terapia de salud mental gratuita a aquellas con recursos financieros limitados y recaudando fondos para apoyar nuestras iniciativas en todo el mundo."

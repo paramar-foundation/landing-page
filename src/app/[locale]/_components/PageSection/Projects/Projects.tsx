@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { DonateCard } from "../../DonateCard";
 import { IconButton, eIconButtonType } from "../../IconButton";
 
 import { donationsData } from "~/constants";
-import styles from "./Donations.module.scss";
+import styles from "./Projects.module.scss";
 
-export const Donations = () => {
+export const Projects = () => {
+  const t = useTranslations("projects");
   const maxIndex = donationsData.length - 1;
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
@@ -47,13 +49,9 @@ export const Donations = () => {
 
   return (
     <article className={styles.donations}>
-      <p className={styles.donations__subtitle}>Nuestros proyectos</p>
-      <h2 className={styles.donations__title}>Sé parte del cambio</h2>
-      <p className={styles.donations__body}>
-        Tu apoyo generoso a alguno de nuestros proyectos es un paso valioso
-        hacia un mundo mejor, donde más mujeres y niñas puedan recibir la ayuda
-        que necesitan.
-      </p>
+      <p className={styles.donations__subtitle}>{t("subtitle")}</p>
+      <h2 className={styles.donations__title}>{t("title")}</h2>
+      <p className={styles.donations__body}>{t("description")}</p>
       <div className={styles["donations__cards--desktop"]}>
         {donationsData.map((data) => (
           <DonateCard key={data.id} data={data} />
@@ -88,9 +86,7 @@ export const Donations = () => {
           </ul>
         </div>
       )}
-      <p className={styles.donations__thanks}>
-        ¡Gracias! Todas las donaciones recibidas son deducibles de impuestos
-      </p>
+      <p className={styles.donations__thanks}>{t("thank-you")}</p>
     </article>
   );
 };

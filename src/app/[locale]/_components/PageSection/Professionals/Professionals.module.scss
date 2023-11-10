@@ -81,12 +81,12 @@
 
   &__bio {
     color: $color-black;
-    margin-bottom: spacing(5);
   }
 
   &__button-container {
     display: flex;
     gap: spacing(1);
+    margin-top: spacing(5);
   }
 
   &__dots {

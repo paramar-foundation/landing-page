@@ -24,7 +24,7 @@ export const LanguageSelection = ({
   const handleSelect = (locale: string) => {
     setSelectedLocale(locale);
     setDisplayingOptions(false);
-    router.replace(pathname, { locale });
+    router.replace(pathname, { locale, scroll: false });
   };
 
   const getClassName = () => {

@@ -1,65 +1,81 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-import styles from "./Contact.module.scss";
-import { TextInput } from "../../Input";
+import { TextInput, SelectInput } from "../../Input";
 import { Button } from "../../Button";
-import { SelectInput } from "../../Input/SelectInput/SelectInput";
+
+import styles from "./Contact.module.scss";
 
 export const Contact = () => {
-  const selectOptions = [
-    "Taller de sensibilización",
-    "Buenas prácticas para tu institución",
-    "Terapia personal paga",
-    "Colabora con nosotras",
-  ];
+  const t = useTranslations("contact-us");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [moreInfo, setMoreInfo] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    alert(
+      `Hi ${name} ${lastName}.\nWe will soon contact you to ${email} about: ${moreInfo}`
+    );
+    setName("");
+    setLastName("");
+    setEmail("");
+    setMoreInfo("");
   };
+
+  const formData = [
+    {
+      input: "name",
+      value: name,
+      setFunction: setName,
+    },
+    {
+      input: "last-name",
+      value: lastName,
+      setFunction: setLastName,
+    },
+    {
+      input: "email",
+      value: email,
+      setFunction: setEmail,
+    },
+  ] as const;
+
+  const selectOptions = [
+    "workshop",
+    "good-practice",
+    "therapy",
+    "collaborate",
+  ] as const;
 
   return (
     <article className={styles.contact}>
       <div className={styles.contact__content}>
-        <h2 className={styles.contact__content__title}>Contáctanos</h2>
-        <p className={styles.contact__content__body}>
-          ¿Buscas un taller de sensibilización y buenas prácticas para tu
-          empresa, terapia personal o quieres colaborar con nosotras?
-        </p>
+        <h2 className={styles.contact__content__title}>{t("title")}</h2>
+        <p className={styles.contact__content__body}>{t("description")}</p>
       </div>
       <form className={styles.contact__form} onSubmit={(e) => handleSubmit(e)}>
-        <TextInput
-          label="Nombre(s)"
-          name="name"
-          value={name}
-          onChange={setName}
-        />
-        <TextInput
-          label="Apellido(s)"
-          name="lastName"
-          value={lastName}
-          onChange={setLastName}
-        />
-        <TextInput
-          label="Correo Electronico"
-          name="email"
-          value={email}
-          onChange={setEmail}
-        />
+        {formData.map((data) => (
+          <TextInput
+            key={t(data.input)}
+            label={t(data.input)}
+            name={data.input}
+            value={data.value}
+            onChange={data.setFunction}
+          />
+        ))}
         <SelectInput
-          label="¿Que información buscas?"
+          label={t("information")}
           name="information"
           value={moreInfo}
           onChange={setMoreInfo}
-          options={selectOptions}
+          options={selectOptions.map((option) => t(`options.${option}`))}
         />
         <Button htmlType="submit" fullWidth>
-          Enviar
+          {t("send-btn")}
         </Button>
       </form>
       <Image

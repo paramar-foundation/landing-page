@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next-intl/link";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
 import { Icon, eIcons } from "../../Icon";
@@ -10,57 +11,63 @@ import { Icon, eIcons } from "../../Icon";
 import { ambassadorsData } from "~/constants";
 import styles from "./Ambassadors.module.scss";
 import Image from "next/image";
-import Link from "next/link";
 
 export const Ambassadors = () => {
   const t = useTranslations("ambassadors");
-  const maxIndex = ambassadorsData.length - 1;
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
-  const [ambassadorIndex, setambassadorIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const locale = useLocale();
+  const ambassadors = useMemo(
+    () => [
+      "carlota-corzo",
+      "silvina-reyes",
+      "violeta-arus",
+      "emily-zembo",
+      "yu-fu",
+    ],
+    []
+  );
 
-  const getDotClassName = (index: number) => {
-    return [
-      styles.dot,
-      index === ambassadorIndex ? styles["dot--active"] : "",
-    ].join(" ");
+  const getDotClassName = (i: number) => {
+    return [styles.dot, i === index ? styles["dot--active"] : ""].join(" ");
   };
 
   const handlePrevious = () => {
     if (!isPrevDisabled) {
-      setambassadorIndex((prev) => prev - 1);
+      setIndex((prev) => prev - 1);
     }
   };
 
   const handleNext = () => {
     if (!isNextDisabled) {
-      setambassadorIndex((prev) => prev + 1);
+      setIndex((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
-    if (ambassadorIndex >= maxIndex) {
+    if (index >= ambassadors.length - 1) {
       setNextDisabled(true);
     } else {
       setNextDisabled(false);
     }
 
-    if (ambassadorIndex <= 0) {
+    if (index <= 0) {
       setPrevDisabled(true);
     } else {
       setPrevDisabled(false);
     }
-  }, [ambassadorIndex, maxIndex]);
+  }, [index, ambassadors]);
 
   return (
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>
         <Image
-          src={ambassadorsData[ambassadorIndex]!.profile}
-          alt={`${ambassadorsData[ambassadorIndex]?.name} profile picture`}
+          src={`/profile-${ambassadors[index]}.jpg`}
+          alt={ambassadors[index]!}
           loading="lazy"
-          width={400}
-          height={400}
+          width={450}
+          height={600}
         />
         <Image
           src="/paint-ambassador-bottom.png"
@@ -77,26 +84,26 @@ export const Ambassadors = () => {
           className={styles["ambassadors__quote-icon"]}
         />
         <p className={styles.ambassadors__quote}>
-          “{ambassadorsData[ambassadorIndex]?.quote}”
+          “{t(`${ambassadors[index]}.quote`)}”
         </p>
         <p className={styles.ambassadors__name}>
-          {ambassadorsData[ambassadorIndex]?.name}
+          {t(`${ambassadors[index]}.name`)}
         </p>
         <p className={styles.ambassadors__role}>
-          {ambassadorsData[ambassadorIndex]?.role}
+          {t(`${ambassadors[index]}.role`)}
         </p>
         <ul className={styles.ambassadors__socials}>
-          {ambassadorsData[ambassadorIndex]?.instagram && (
+          {t(`${ambassadors[index]}.instagram`) !== "" && (
             <li>
               <Icon icon={eIcons.socialInstagram} />
             </li>
           )}
-          {ambassadorsData[ambassadorIndex]?.x && (
+          {t(`${ambassadors[index]}.x`) !== "" && (
             <li>
               <Icon icon={eIcons.socialX} />
             </li>
           )}
-          {ambassadorsData[ambassadorIndex]?.linkedin && (
+          {t(`${ambassadors[index]}.linked-in`) !== "" && (
             <li>
               <Icon icon={eIcons.socialLinkedIn} />
             </li>
@@ -114,16 +121,20 @@ export const Ambassadors = () => {
             disabled={isNextDisabled}
           />
           <ul className={styles.ambassadors__dots}>
-            {ambassadorsData.map(({ id }, index) => (
+            {ambassadors.map((ambassador, index) => (
               <li
                 className={getDotClassName(index)}
-                key={id}
-                onClick={() => setambassadorIndex(index)}
+                key={ambassador}
+                onClick={() => setIndex(index)}
               />
             ))}
           </ul>
         </div>
-        <Link href="/ambassadors" className={styles["ambassadors__know-more"]}>
+        <Link
+          href={"/ambassadors"}
+          onClick={() => console.log(locale)}
+          className={styles["ambassadors__know-more"]}
+        >
           <span>{t("know-more")}</span>
           <Icon
             icon={eIcons.arrowRight}

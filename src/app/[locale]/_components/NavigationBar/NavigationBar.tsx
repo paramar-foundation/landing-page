@@ -101,7 +101,7 @@ export const NavigationBar = ({ light = false }) => {
       <article className={styles[style]} ref={menuRef}>
         <ul>
           {menuItems.map((item) => {
-            const anchor = `#${item}`;
+            const anchor = `/#${item}`;
 
             return (
               <li key={item} className={styles[item]}>
