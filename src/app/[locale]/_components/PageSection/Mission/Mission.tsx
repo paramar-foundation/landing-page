@@ -18,7 +18,7 @@ export const Mission = () => {
     <article className={styles.mission}>
       <div className={styles["mission__image-container"]}>
         <Image
-          src="/paint-image-decorator-top.png"
+          src="/paints/planet-artist-half.png"
           alt="Paint Decoration"
           loading="lazy"
           width={300}
@@ -32,7 +32,7 @@ export const Mission = () => {
           height={700}
         />
         <Image
-          src="/paint-image-decorator-bottom.png"
+          src="/paints/planet-artist.png"
           alt="Paint Decoration"
           loading="lazy"
           width={320}

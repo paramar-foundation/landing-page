@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import { IconButton, eIconButtonType } from "../../IconButton";
 
-import { professionalsData } from "~/constants";
+import { professionals } from "~/constants";
 import styles from "./Professionals.module.scss";
 
 export const Professionals = () => {
@@ -13,7 +13,6 @@ export const Professionals = () => {
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
   const [index, setIndex] = useState(0);
-  const professionals = useMemo(() => ["camila-gonzalez"], []);
 
   const getDotClassName = (index: number) => {
     return [
@@ -46,17 +45,17 @@ export const Professionals = () => {
     } else {
       setPrevDisabled(false);
     }
-  }, [index, professionals]);
+  }, [index]);
 
   return (
     <article className={styles.professionals}>
       <div className={styles["professionals__image-container"]}>
         <Image
-          src="/paint-image-decorator-top.png"
+          src="/paints/planet-artist-half.png"
           alt="Paint Decoration"
           loading="lazy"
-          width={300}
-          height={250}
+          width={500}
+          height={400}
           className={styles["paint-top"]}
         />
         <Image
@@ -71,7 +70,7 @@ export const Professionals = () => {
           height={700}
         />
         <Image
-          src="/paint-image-decorator-bottom.png"
+          src="/paints/planet-artist.png"
           alt="Paint Decoration"
           loading="lazy"
           width={320}
@@ -113,10 +112,10 @@ export const Professionals = () => {
               />
             </div>
             <ul className={styles.professionals__dots}>
-              {professionalsData.map(({ name }, index) => (
+              {professionals.map((professional, index) => (
                 <li
                   className={getDotClassName(index)}
-                  key={name}
+                  key={professional}
                   onClick={() => setIndex(index)}
                 />
               ))}

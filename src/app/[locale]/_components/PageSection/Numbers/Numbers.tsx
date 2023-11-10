@@ -37,14 +37,14 @@ export const Numbers = () => {
       </Button>
       <Image
         className={styles["numbers__paint-top"]}
-        src="/paint-numbers-top.png"
+        src="/paints/numbers-top.png"
         alt="Paint splatter decoration"
         width={200}
         height={200}
       />
       <Image
         className={styles["numbers__paint-bottom"]}
-        src="/paint-numbers-bottom.png"
+        src="/paints/numbers-bottom.png"
         alt="Paint splatter decoration"
         width={200}
         height={200}

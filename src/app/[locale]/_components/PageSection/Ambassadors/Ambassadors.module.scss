@@ -210,6 +210,7 @@
 @media (max-width: $breakpoint-sm) {
   .ambassadors {
     @include section-sm;
+    padding-bottom: spacing(8);
 
     &__bio,
     &__subtitle {

@@ -13,10 +13,7 @@ export const Therapy = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const paintList = [
-    "/paint-therapy-card-1.png",
-    "/paint-therapy-card-2.png",
-  ] as const;
+  const paintList = ["/paints/planet.png", "/paints/green.png"] as const;
 
   return (
     <article id="therapy" className={styles.therapy}>
@@ -31,7 +28,7 @@ export const Therapy = () => {
               className={styles.card__image}
               src={paint}
               alt="paint splatter decoration"
-              width={200}
+              width={150}
               height={150}
             />
             <span className={styles.card__title}>

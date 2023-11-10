@@ -61,7 +61,7 @@ export const Hero = () => {
         </div>
         <Image
           className={styles.hero__paint}
-          src={"/paint-hero.png"}
+          src={"/paints/hero.png"}
           alt="Paint splatter decoration"
           width={300}
           height={300}

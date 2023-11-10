@@ -80,14 +80,14 @@ export const Contact = () => {
       </form>
       <Image
         className={styles["contact__paint-top"]}
-        src="/paint-contact-top.png"
+        src="/paints/contact-top.png"
         alt="Paint splatter decoration"
         width={220}
         height={120}
       />
       <Image
         className={styles["contact__paint-bottom"]}
-        src="/paint-contact-bottom.png"
+        src="/paints/contact-bottom.png"
         alt="Paint splatter decoration"
         width={360}
         height={200}

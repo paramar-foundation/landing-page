@@ -15,10 +15,10 @@ export const AboutUs = () => {
         <article className={styles.card}>
           <Image
             className={styles.card__image}
-            src="/paint-aboutus-card-1.png"
+            src="/paints/green.png"
             alt="paint splatter decoration"
             width={150}
-            height={100}
+            height={150}
           />
           <h5 className={styles.card__title}>{t("what-we-do.title")}</h5>
           <ul>
@@ -29,10 +29,10 @@ export const AboutUs = () => {
         <article className={styles.card}>
           <Image
             className={styles.card__image}
-            src="/paint-aboutus-card-2.png"
+            src="/paints/planet.png"
             alt="paint splatter decoration"
             width={150}
-            height={100}
+            height={150}
           />
           <h5 className={styles.card__title}>{t("how-we-help.title")}</h5>
           <ul>
@@ -43,10 +43,10 @@ export const AboutUs = () => {
         <article className={styles.card}>
           <Image
             className={styles.card__image}
-            src="/paint-aboutus-card-3.png"
+            src="/paints/rainbow.png"
             alt="paint splatter decoration"
             width={150}
-            height={100}
+            height={150}
           />
           <h5 className={styles.card__title}>{t("who-we-are.title")}</h5>
           <ul>

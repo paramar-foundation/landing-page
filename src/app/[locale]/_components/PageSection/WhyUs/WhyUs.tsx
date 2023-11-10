@@ -14,9 +14,9 @@ export const WhyUs = () => {
   const router = useRouter();
 
   const paintList = [
-    "/paint-whyus-card-1.png",
-    "/paint-whyus-card-2.png",
-    "/paint-whyus-card-3.png",
+    "/paints/artist.png",
+    "/paints/rainbow.png",
+    "/paints/cold.png",
   ] as const;
 
   return (

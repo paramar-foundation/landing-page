@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next-intl/link";
@@ -8,7 +8,7 @@ import Link from "next-intl/link";
 import { IconButton, eIconButtonType } from "../../IconButton";
 import { Icon, eIcons } from "../../Icon";
 
-import { ambassadorsData } from "~/constants";
+import { ambassadors } from "~/constants";
 import styles from "./Ambassadors.module.scss";
 import Image from "next/image";
 
@@ -18,16 +18,6 @@ export const Ambassadors = () => {
   const [isNextDisabled, setNextDisabled] = useState(false);
   const [index, setIndex] = useState(0);
   const locale = useLocale();
-  const ambassadors = useMemo(
-    () => [
-      "carlota-corzo",
-      "silvina-reyes",
-      "violeta-arus",
-      "emily-zembo",
-      "yu-fu",
-    ],
-    []
-  );
 
   const getDotClassName = (i: number) => {
     return [styles.dot, i === index ? styles["dot--active"] : ""].join(" ");
@@ -57,7 +47,7 @@ export const Ambassadors = () => {
     } else {
       setPrevDisabled(false);
     }
-  }, [index, ambassadors]);
+  }, [index]);
 
   return (
     <article className={styles.ambassadors}>
@@ -70,7 +60,7 @@ export const Ambassadors = () => {
           height={600}
         />
         <Image
-          src="/paint-ambassador-bottom.png"
+          src="/paints/ambassador-bottom.png"
           alt="Paint Decoration"
           loading="lazy"
           width={175}
