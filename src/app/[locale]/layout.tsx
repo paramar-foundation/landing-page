@@ -23,9 +23,11 @@ export const metadata = {
 
 export default async function LocaleLayout({
   children,
+  modal,
   params: { locale },
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
   params: { locale: string };
 }) {
   let messages;
@@ -39,7 +41,10 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
+          <TRPCReactProvider headers={headers()}>
+            {children}
+            {modal}
+          </TRPCReactProvider>
         </NextIntlClientProvider>
       </body>
     </html>

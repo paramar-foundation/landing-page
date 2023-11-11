@@ -1,15 +1,12 @@
-import { useContext } from "react";
+"use client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-import { ModalContext } from "~/src/contexts";
+import { Button } from "../../Button";
 
-import { Button, eButtonSize } from "../Button";
+import styles from "./ProjectModal.module.scss";
 
-import styles from "./DonateCard.module.scss";
-import { ProjectModal } from "../Modal/ProjectModal";
-
-interface IDonateCardProps {
+interface IProjectModalProps {
   data: {
     image: string;
     location: string;
@@ -21,9 +18,8 @@ interface IDonateCardProps {
   };
 }
 
-export const DonateCard = ({ data }: IDonateCardProps) => {
+export const ProjectModal = ({ data }: IProjectModalProps) => {
   const t = useTranslations("projects");
-  const { setContent } = useContext(ModalContext);
 
   const {
     image,
@@ -40,7 +36,8 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
   };
 
   return (
-    <article className={styles["donate-card"]}>
+    <div className={styles["project-modal"]}>
+      <h2>This is the project modal</h2>
       <div className={styles["image-container"]}>
         <Image
           src={image}
@@ -69,14 +66,8 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
           <b>${Intl.NumberFormat().format(currentAmount)} recolectados de </b>$
           {Intl.NumberFormat().format(goalAmount)}
         </p>
-        <Button
-          fullWidth
-          size={eButtonSize.small}
-          onClick={() => setContent(<ProjectModal data={data} />)}
-        >
-          {t("donate-card-btn")}
-        </Button>
+        <Button fullWidth>{t("donate-card-btn")}</Button>
       </div>
-    </article>
+    </div>
   );
 };
