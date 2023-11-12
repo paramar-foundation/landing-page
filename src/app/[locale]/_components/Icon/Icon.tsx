@@ -2,6 +2,7 @@ import {
   ArrowRightIcon,
   ChevronDownIcon,
   DonationIcon,
+  HandsIcon,
   HoursIcon,
   InstitutionIcon,
   SocialFacebook,
@@ -21,6 +22,7 @@ export enum eIcons {
   arrowRight,
   chevronDown,
   donation,
+  hands,
   hours,
   socialFacebook,
   socialInstagram,
@@ -49,6 +51,8 @@ export const Icon = ({
         return <ChevronDownIcon />;
       case eIcons.donation:
         return <DonationIcon />;
+      case eIcons.hands:
+        return <HandsIcon />;
       case eIcons.hours:
         return <HoursIcon />;
       case eIcons.institution:

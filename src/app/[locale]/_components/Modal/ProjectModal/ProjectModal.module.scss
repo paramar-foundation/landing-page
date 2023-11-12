@@ -3,6 +3,181 @@
 @import "~/styles/variables.scss";
 
 .project-modal {
-  padding: spacing(5);
-  background-color: $color-white;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: spacing(3);
+
+  .mobile-image-container {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+
+    img {
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: spacing(1.5);
+    grid-template-columns: 1fr minmax(320px, 35%);
+    overflow: hidden;
+
+    &__description {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(3);
+      max-width: 100%;
+      overflow-y: auto;
+      padding-right: spacing(1.5);
+
+      &__image-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 10px 0 0 10px;
+
+        img {
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+
+      &__caption {
+        display: flex;
+        align-items: center;
+        gap: spacing(2);
+        padding-bottom: spacing(2);
+        border-bottom: solid 2px $color-purple-200;
+
+        .icon {
+          flex: 0 0 auto;
+          width: spacing(6);
+          height: spacing(6);
+          padding: spacing(1);
+          border-radius: spacing(6);
+          background-color: $color-orange-200;
+
+          svg {
+            fill: $color-orange;
+          }
+        }
+      }
+    }
+
+    &__data {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(1.5);
+      padding: spacing(5) spacing(3);
+      background-color: $color-black;
+      color: $color-white;
+      border-radius: 10px;
+
+      &__summary {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+
+        b {
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0px;
+        }
+      }
+
+      &__bar {
+        width: 100%;
+        height: 7px;
+        border-radius: 3px;
+        background-color: $color-grey-100;
+      }
+
+      &__progress {
+        height: 100%;
+        border-radius: 3px;
+        background-color: $color-purple;
+      }
+
+      &__total {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        margin-bottom: spacing(4);
+      }
+
+      &__disclaimer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: spacing(1);
+        padding-top: spacing(4);
+
+        header,
+        p {
+          font-family: "Inter", sans-serif;
+          font-weight: 300;
+          font-size: 13px;
+
+          b {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .project-modal {
+    display: grid;
+
+    .content {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .project-modal {
+    overflow-y: auto;
+
+    .mobile-image-container {
+      display: flex;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column-reverse;
+      overflow: unset;
+
+      &__description {
+        &__image-container {
+          display: none;
+        }
+      }
+    }
+  }
 }

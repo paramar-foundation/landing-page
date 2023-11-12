@@ -3,7 +3,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   color: $color-black;
 }
 
@@ -15,6 +15,27 @@ body {
   font-family: "Lato", sans-serif;
   list-style: none;
   text-decoration: none;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $color-grey-200;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $color-white;
+    border-radius: 5px;
+    border: solid 2px $color-grey-200;
+
+    &:hover {
+      background: $color-purple-100;
+    }
+  }
 }
 
 h1,

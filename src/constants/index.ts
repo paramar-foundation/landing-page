@@ -1,3 +1,5 @@
+import { type IProjects } from "../types";
+
 export const breakpoints = {
   xl: 1440,
   lg: 1024,
@@ -29,6 +31,7 @@ export const donationsData = [
     },
     currentAmount: 50000,
     goalAmount: 70000,
+    totalDonations: 19,
   },
   {
     id: 3,
@@ -43,6 +46,7 @@ export const donationsData = [
     },
     currentAmount: 50000,
     goalAmount: 70000,
+    totalDonations: 19,
   },
   {
     id: 2,
@@ -57,5 +61,6 @@ export const donationsData = [
     },
     currentAmount: 50000,
     goalAmount: 70000,
+    totalDonations: 19,
   },
-];
+] as IProjects[];

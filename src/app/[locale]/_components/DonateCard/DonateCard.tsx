@@ -1,29 +1,16 @@
-import { useContext } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import { ModalContext } from "~/src/contexts";
+import { type IProjects } from "~/src/types";
 
 import { Button, eButtonSize } from "../Button";
 
 import styles from "./DonateCard.module.scss";
-import { ProjectModal } from "../Modal/ProjectModal";
 
-interface IDonateCardProps {
-  data: {
-    image: string;
-    location: string;
-    name: string;
-    description: string;
-    lastDonation: { time: string; unit: string };
-    currentAmount: number;
-    goalAmount: number;
-  };
-}
-
-export const DonateCard = ({ data }: IDonateCardProps) => {
+export const DonateCard = ({ data }: { data: IProjects }) => {
   const t = useTranslations("projects");
-  const { setContent } = useContext(ModalContext);
+  const router = useRouter();
 
   const {
     image,
@@ -37,6 +24,10 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
 
   const getProgressPercent = () => {
     return `${((currentAmount / goalAmount) * 100).toFixed(0)}%`;
+  };
+
+  const handleDonateClick = () => {
+    router.push(`?project=${data.id}`);
   };
 
   return (
@@ -72,7 +63,7 @@ export const DonateCard = ({ data }: IDonateCardProps) => {
         <Button
           fullWidth
           size={eButtonSize.small}
-          onClick={() => setContent(<ProjectModal data={data} />)}
+          onClick={() => handleDonateClick()}
         >
           {t("donate-card-btn")}
         </Button>

@@ -196,8 +196,13 @@
     "title": "Be part of the change",
     "description": "Your generous support for any of our projects is a valuable step toward a better world, where more women and girls can receive the help they need.",
     "thank-you": "Thank you! All donations received are tax-deductible.",
+    "donate-card-last-donation": "Last donation {time}{unit}",
+    "share-card-btn": "Share",
+    "share-card-btn-copied": "Url copied to clipboard!",
     "donate-card-btn": "Donate now",
-    "donate-card-last-donation": "Last donation {time}{unit}"
+    "total-donations": "{total} donations",
+    "disclaimer-title": "<b>Paramar Foundation</b> es seguro:",
+    "disclaimer-content": "Todas tus donaciones están siendo protegidas por estrictas medidas de seguridad y procedimientos diseñados que garantizan que tu generosidad llegará de manera segura a quienes más lo necesitan."
   },
   "faqs": {
     "title": "Frequently asked questions",

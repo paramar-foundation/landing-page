@@ -60,7 +60,7 @@ export const Projects = () => {
       <div className={styles["donations__cards--mobile"]}>
         <DonateCard
           key={donationsData[pageIndex]?.id}
-          data={donationsData[pageIndex]}
+          data={donationsData[pageIndex]!}
         />
       </div>
       {donationsData.length > 1 && (

@@ -5,7 +5,7 @@
 .donate-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 560px;
   max-width: 360px;
   flex: 1 1 280px;
 
@@ -88,6 +88,5 @@
   .donate-card {
     max-width: unset;
     flex-basis: auto;
-    height: 600px;
   }
 }

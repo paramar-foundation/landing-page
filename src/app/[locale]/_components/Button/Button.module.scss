@@ -125,6 +125,7 @@
   }
 
   &__tertiary {
+    border: solid 2px transparent;
     background-color: transparent;
 
     &--purple {
@@ -154,10 +155,10 @@
     }
 
     &--white {
-      color: $color-purple;
+      color: $color-white;
 
       &:hover {
-        color: $color-purple-800;
+        color: $color-purple-100;
       }
 
       &-disabled {

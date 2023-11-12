@@ -16,7 +16,8 @@ export const Therapy = () => {
   const paintList = ["/paints/planet.png", "/paints/green.png"] as const;
 
   return (
-    <article id="therapy" className={styles.therapy}>
+    <article className={styles.therapy}>
+      <div className={styles.anchor} id="therapy"></div>
       <div className={styles.therapy__overlay}></div>
       <p className={styles.therapy__subtitle}>{t("subtitle")}</p>
       <h2 className={styles.therapy__title}>{t("title")}</h2>

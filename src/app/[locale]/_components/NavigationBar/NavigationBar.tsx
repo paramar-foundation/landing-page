@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next-intl/client";
 import Link from "next-intl/link";
@@ -11,6 +11,7 @@ import { LanguageSelection } from "./LanguajeSelection";
 import { Hamburguer } from "./Hamburger";
 
 import styles from "./NavigationBar.module.scss";
+import { MainScrollContext } from "~/src/contexts";
 
 export const NavigationBar = ({ light = false }) => {
   const t = useTranslations("nav");
@@ -26,6 +27,8 @@ export const NavigationBar = ({ light = false }) => {
   const router = useRouter();
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const scroll = useContext(MainScrollContext);
+
   const menuItems = [
     "mission",
     "about-us",
@@ -45,7 +48,7 @@ export const NavigationBar = ({ light = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 220) {
+      if (scroll > 220) {
         setScroll(true);
         setSecondaryCtaColor(eButtonColor.purple);
         setLogoType(eLogoType.color);
@@ -78,14 +81,12 @@ export const NavigationBar = ({ light = false }) => {
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("keydown", handleEscPress);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleEscPress);
     };
-  }, [isMenuOpen, isScroll, light]);
+  }, [isMenuOpen, isScroll, light, scroll]);
 
   const handleCtaClick = (anchor: string) => {
     setMenuOpen(false);

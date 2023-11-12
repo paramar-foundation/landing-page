@@ -7,19 +7,24 @@ import {
   useEffect,
   useContext,
 } from "react";
+import { usePathname, useRouter } from "next-intl/client";
 
 import { ModalContext } from "~/src/contexts";
 
 import styles from "./Modal.module.scss";
+import { Icon, eIcons } from "../Icon";
 
 export const Modal = () => {
   const { content, setContent } = useContext(ModalContext);
   const overlay = useRef(null);
   const container = useRef(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleDismiss = useCallback(() => {
     setContent(null);
-  }, [setContent]);
+    router.replace(pathname);
+  }, [pathname, router, setContent]);
 
   const handleClick: MouseEventHandler = useCallback(
     (e) => {
@@ -45,7 +50,21 @@ export const Modal = () => {
   return (
     <div ref={overlay} className={styles.modal} onClick={handleClick}>
       <div ref={container} className={styles.modal__container}>
-        {content}
+        <>
+          {content}
+          <div className={styles.modal__actions}>
+            <div className={styles.modal__back} onClick={handleDismiss}>
+              <Icon
+                icon={eIcons.arrowRight}
+                className={styles.modal__back__icon}
+              />
+              <span>Volver</span>
+            </div>
+            <div className={styles.modal__close} onClick={handleDismiss}>
+              &times;
+            </div>
+          </div>
+        </>
       </div>
     </div>
   );
