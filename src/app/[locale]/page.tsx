@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useContext, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { MainScrollContext, ModalContext } from "~/src/contexts";

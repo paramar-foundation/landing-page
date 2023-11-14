@@ -99,6 +99,10 @@
 
 @media (max-width: $breakpoint-md) {
   .modal {
+    &__actions {
+      padding: spacing(2.5) spacing(2) spacing(2.5) spacing(3);
+    }
+
     &__container {
       display: flex;
       overflow: hidden;
@@ -106,9 +110,14 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100vw - spacing(8));
-      height: calc(100vh - spacing(6));
+      width: 100vw;
+      height: 100vh;
       max-height: unset;
+
+      & > *:first-child {
+        padding: spacing(11) spacing(3) spacing(3);
+        border-radius: 0;
+      }
     }
   }
 }

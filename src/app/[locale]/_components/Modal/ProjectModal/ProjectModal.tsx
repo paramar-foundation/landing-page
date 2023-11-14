@@ -1,8 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 "use client";
+
 import { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
+
+import type Stripe from "stripe";
 
 import { type IProjects } from "~/src/types";
 
@@ -10,12 +15,20 @@ import { Icon, eIcons } from "../../Icon";
 import { Button, eButtonColor, eButtonType } from "../../Button";
 
 import styles from "./ProjectModal.module.scss";
+import { api } from "~/src/trpc/react";
 
 export const ProjectModal = ({ data }: { data: IProjects }) => {
   const t = useTranslations("projects");
+  const [checkoutDetails, setCheckoutDetails] = useState(
+    {} as Stripe.Response<Stripe.Checkout.Session>
+  );
+  const [isSuccess, setSuccess] = useState(false);
   const [isCopied, setCopied] = useState(false);
+  const router = useRouter();
   const pathName = usePathname();
-  const searhParams = useSearchParams();
+  const queryParams = useSearchParams();
+  const createCheckoutMutation = api.payments.createCheckout.useMutation();
+  const getCheckoutMutation = api.payments.getCheckoutDetails.useMutation();
 
   const { image, name, currentAmount, goalAmount, totalDonations } = data;
 
@@ -26,18 +39,82 @@ export const ProjectModal = ({ data }: { data: IProjects }) => {
     }
   }, [isCopied]);
 
+  useEffect(() => {
+    const checkoutId = queryParams.get("checkout_id");
+    const successValue = queryParams.get("success");
+
+    if (checkoutId) {
+      const getCheckoutDetails = async () => {
+        const checkoutDetails = await getCheckoutMutation.mutateAsync({
+          checkoutId,
+        });
+
+        if (checkoutDetails.id) {
+          setCheckoutDetails(checkoutDetails);
+          setSuccess(
+            Boolean(successValue && successValue.toLowerCase() === "true")
+          );
+        }
+      };
+
+      getCheckoutDetails().catch(console.error);
+    }
+  }, [queryParams]);
+
+  const handleCheckout = async () => {
+    const checkout = await createCheckoutMutation.mutateAsync({
+      priceId: "price_1OC6T4GF6B44pfYavboaPDTL",
+    });
+
+    router.push(checkout.url!);
+  };
+
+  const copyToClip = () => {
+    if (!isCopied) {
+      setCopied(true);
+      const url =
+        window?.location.origin + pathName + `?${queryParams.toString()}`;
+      void navigator.clipboard.writeText(url);
+    }
+  };
+
   const getProgressPercent = () => {
     return `${((currentAmount / goalAmount) * 100).toFixed(0)}%`;
   };
 
-  function copyToClip() {
-    if (!isCopied) {
-      setCopied(true);
-      const url =
-        window?.location.origin + pathName + `?${searhParams.toString()}`;
-      void navigator.clipboard.writeText(url);
-    }
-  }
+  const renderData = () => {
+    return (
+      <>
+        <p className={styles.content__data__summary}>
+          <b>${Intl.NumberFormat().format(currentAmount)}</b> recolectados de $
+          {Intl.NumberFormat().format(goalAmount)}
+        </p>
+        <div className={styles.content__data__bar}>
+          <div
+            className={styles.content__data__progress}
+            style={{ width: getProgressPercent() }}
+          ></div>
+        </div>
+        <p className={styles.content__data__total}>
+          {t.rich("total-donations", {
+            total: totalDonations,
+          })}
+        </p>
+      </>
+    );
+  };
+
+  const renderSuccess = () => {
+    const { customer_details, amount_total } = checkoutDetails;
+    return (
+      <>
+        <h3>Thank you</h3>
+        <p>for your donation!</p>
+        <p>{customer_details?.name}</p>
+        {amount_total && <h3>${(amount_total / 100).toFixed(2)}</h3>}
+      </>
+    );
+  };
 
   return (
     <article className={styles["project-modal"]}>
@@ -86,21 +163,7 @@ export const ProjectModal = ({ data }: { data: IProjects }) => {
           </p>
         </div>
         <div className={styles.content__data}>
-          <p className={styles.content__data__summary}>
-            <b>${Intl.NumberFormat().format(currentAmount)}</b> recolectados de
-            ${Intl.NumberFormat().format(goalAmount)}
-          </p>
-          <div className={styles.content__data__bar}>
-            <div
-              className={styles.content__data__progress}
-              style={{ width: getProgressPercent() }}
-            ></div>
-          </div>
-          <p className={styles.content__data__total}>
-            {t.rich("total-donations", {
-              total: totalDonations,
-            })}
-          </p>
+          {isSuccess ? renderSuccess() : renderData()}
           <Button
             type={isCopied ? eButtonType.tertiary : eButtonType.secondary}
             color={eButtonColor.white}
@@ -109,7 +172,12 @@ export const ProjectModal = ({ data }: { data: IProjects }) => {
           >
             {isCopied ? t("share-card-btn-copied") : t("share-card-btn")}
           </Button>
-          <Button fullWidth>{t("donate-card-btn")}</Button>
+          <Button
+            fullWidth
+            onClick={() => handleCheckout().catch(console.error)}
+          >
+            {t("donate-card-btn")}
+          </Button>
           <article className={styles.content__data__disclaimer}>
             <header
               dangerouslySetInnerHTML={{

@@ -168,14 +168,46 @@
       display: flex;
     }
 
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0px;
+    }
+
     .content {
       display: flex;
       flex-direction: column-reverse;
       overflow: unset;
+      gap: spacing(3);
 
       &__description {
         &__image-container {
           display: none;
+        }
+      }
+
+      &__data {
+        padding: spacing(3);
+
+        &__summary {
+          font-size: 14px;
+          line-height: 16px;
+
+          b {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+
+        &__total {
+          font-size: 14px;
+          line-height: 16px;
+          margin-bottom: spacing(2);
+        }
+
+        &__disclaimer {
+          padding-top: spacing(2);
         }
       }
     }
