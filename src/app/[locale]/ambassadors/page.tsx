@@ -1,13 +1,14 @@
-import { Footer } from "../_components/Footer";
-import { NavigationBar } from "../_components/NavigationBar";
-import { PageSection } from "../_components/PageSection";
-import { Contact } from "../_components/PageSection/Contact";
-
-import styles from "../layout.module.scss";
+import {
+  Contact,
+  Footer,
+  Main,
+  NavigationBar,
+  PageSection,
+} from "../components";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <Main>
       <NavigationBar light />
       <PageSection>
         <div
@@ -25,6 +26,6 @@ export default function Home() {
         <Contact />
       </PageSection>
       <Footer />
-    </main>
+    </Main>
   );
 }
