@@ -50,7 +50,7 @@ export const Hero = () => {
           color={eButtonColor.orange}
           onClick={() => router.replace(pathname + "#projects")}
         >
-          {t("call-to-action")}
+          {t("cta")}
         </Button>
         <div className={styles["hero__know-more"]}>
           <span>{t("know-more")}</span>

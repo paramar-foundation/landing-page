@@ -13,7 +13,7 @@ import { Hamburguer } from "./Hamburger";
 import styles from "./NavigationBar.module.scss";
 import { MainScrollContext } from "~/src/contexts";
 
-export const NavigationBar = ({ light = false }) => {
+export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
   const t = useTranslations("nav");
   const [isScroll, setScroll] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -48,7 +48,7 @@ export const NavigationBar = ({ light = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (scroll > 220) {
+      if (scroll > scrollThreshold) {
         setScroll(true);
         setSecondaryCtaColor(eButtonColor.purple);
         setLogoType(eLogoType.color);
@@ -86,7 +86,7 @@ export const NavigationBar = ({ light = false }) => {
     return () => {
       window.removeEventListener("keydown", handleEscPress);
     };
-  }, [isMenuOpen, isScroll, light, scroll]);
+  }, [isMenuOpen, isScroll, light, scroll, scrollThreshold]);
 
   const handleCtaClick = (anchor: string) => {
     setMenuOpen(false);

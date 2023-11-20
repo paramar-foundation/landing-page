@@ -45,7 +45,7 @@ export const Therapy = () => {
         color={eButtonColor.purple}
         onClick={() => router.replace(pathname + "#contact")}
       >
-        {t("call-to-action")}
+        {t("cta")}
       </Button>
     </article>
   );

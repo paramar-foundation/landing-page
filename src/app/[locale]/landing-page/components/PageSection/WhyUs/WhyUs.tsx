@@ -48,7 +48,7 @@ export const WhyUs = () => {
         color={eButtonColor.purple}
         onClick={() => router.replace(pathname + "#projects")}
       >
-        {t("call-to-action")}
+        {t("cta")}
       </Button>
     </article>
   );

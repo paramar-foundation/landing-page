@@ -11,7 +11,7 @@
   "hero": {
     "source": "Organización Mundial de la Salud, 2019/ UN Women, 2022",
     "quote": "Cada <b>2 segundos</b> una mujer o niña no recibe apoyo psicológico tras una agresión sexual quedando marcada de por vida.",
-    "call-to-action": "AYÚDANOS A EVITARLO",
+    "cta": "AYÚDANOS A EVITARLO",
     "know-more": "Conoce más"
   },
   "mission": {
@@ -39,6 +39,10 @@
     }
   },
   "ambassadors": {
+    "subtitle": "Nuestros Embajadores",
+    "title": "Conoce a las personas que apoyan y están detrás de <b>Paramar Foundation</b>",
+    "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundo",
+    "section-cta": "Contáctanos",
     "carlota-corzo": {
       "name": "Carlota Corzo Álvarez",
       "picture": "profile-carlota-corzo.jpg",
@@ -103,7 +107,7 @@
       "type": "Mil mujeres y niñas",
       "description": "Que han sufrido agresión sexual se suicidan cada año."
     },
-    "call-to-action": "Ayúdanos a evitarlo",
+    "cta": "Ayúdanos a evitarlo",
     "source": "Organización Mundial de la Salud, 2019/ UN Women, 2022"
   },
   "goals": {
@@ -149,7 +153,7 @@
       "title": "Transparencia",
       "description": "Nuestras cuentas son públicas, transparentes y auditadas, el primer trimestre de cada año"
     },
-    "call-to-action": "Dona ahora"
+    "cta": "Dona ahora"
   },
   "therapy": {
     "title": "¿Por qué tomar terapia con nosotras?",
@@ -163,7 +167,7 @@
       "title": "Somos especialistas",
       "description": "Expertos en psicología clínica aplicada a trastornos y traumas provocados por agresiones sexuales."
     },
-    "call-to-action": "Solicitar terapia de pago"
+    "cta": "Solicitar terapia de pago"
   },
   "professionals": {
     "title": "Nuestras profesionales",

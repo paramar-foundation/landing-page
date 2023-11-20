@@ -33,7 +33,7 @@ export const Numbers = () => {
         color={eButtonColor.orange}
         onClick={() => router.replace(pathname + "#projects")}
       >
-        {t("call-to-action")}
+        {t("cta")}
       </Button>
       <Image
         className={styles["numbers__paint-top"]}

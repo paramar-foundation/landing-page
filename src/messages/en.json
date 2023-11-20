@@ -11,7 +11,7 @@
   "hero": {
     "source": "World Health Organization, 2019/ UN Women, 2022",
     "quote": "Every <b>2 seconds</b>, a woman or girl does not receive psychological support after a sexual assault, leaving her marked for life.",
-    "call-to-action": "HELP US PREVENT IT",
+    "cta": "HELP US PREVENT IT",
     "know-more": "Read more"
   },
   "mission": {
@@ -39,6 +39,10 @@
     }
   },
   "ambassadors": {
+    "subtitle": "Our Ambassadors",
+    "title": "Get to know the people who support and are behind <b>Paramar Foundation</b>",
+    "content": "Our ambassadors are the soul and engine that drives our cause. They are passionate and committed people who work tirelessly to promote positive change in our world.",
+    "section-cta": "Contacy us",
     "carlota-corzo": {
       "name": "Carlota Corzo Álvarez",
       "picture": "profile-carlota-corzo.jpg",
@@ -103,7 +107,7 @@
       "type": "Women and girls",
       "description": "who have suffered sexual assault commit suicide each year."
     },
-    "call-to-action": "Help us prevent it.",
+    "cta": "Help us prevent it.",
     "source": "World Health Organization, 2019/ UN Women, 2022"
   },
   "goals": {
@@ -149,7 +153,7 @@
       "title": "Transparency",
       "description": "Our accounts are public, transparent, and audited, within the first quarter of each year."
     },
-    "call-to-action": "Donate now"
+    "cta": "Donate now"
   },
   "therapy": {
     "title": "Why choose therapy with us?",
@@ -163,7 +167,7 @@
       "title": "We are specialists",
       "description": "Experts in clinical psychology applied to disorders and traumas caused by sexual assaults."
     },
-    "call-to-action": "Request paid therapy"
+    "cta": "Request paid therapy"
   },
   "professionals": {
     "title": "Our professionals",

@@ -1,26 +1,96 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+
 import {
+  Button,
   Contact,
   Footer,
+  Icon,
   Main,
   NavigationBar,
   PageSection,
+  eButtonType,
+  eIcons,
 } from "../components";
 
-export default function Home() {
+import { ambassadors } from "~/constants";
+
+import styles from "./ambassadors.module.scss";
+
+export default function Ambassadors() {
+  const t = useTranslations("ambassadors");
+
   return (
     <Main>
-      <NavigationBar light />
+      <NavigationBar scrollThreshold={10} light />
       <PageSection>
-        <div
-          style={{
-            display: "flex",
-            height: "100vh",
-            color: "black",
-            alignItems: "center",
-          }}
-        >
-          <h1>🚧 Ambassadors 🚧</h1>
-        </div>
+        <header className={styles.header}>
+          <p className={styles.header__subtitle}>{t("subtitle")}</p>
+          <h1
+            className={styles.header__title}
+            dangerouslySetInnerHTML={{ __html: t.raw("title") as string }}
+          ></h1>
+          <p className={styles.header__content}>{t("content")}</p>
+          <Button type={eButtonType.secondary}>{t("section-cta")}</Button>
+          <div className={styles["header__paint-left"]}>
+            <Image
+              src="/paints/ambassador-page-left.png"
+              alt="Paint splatter decoration"
+              width={400}
+              height={400}
+            />
+          </div>
+          <div className={styles["header__paint-right"]}>
+            <Image
+              src="/paints/ambassador-page-right.png"
+              alt="Paint splatter decoration"
+              width={400}
+              height={400}
+            />
+          </div>
+        </header>
+        <ul className={styles.ambassadors}>
+          {ambassadors.map((ambassador) => (
+            <li className={styles.ambassador} key={ambassador}>
+              <div className={styles.ambassador__image}>
+                <Image
+                  src={`/profile-${ambassador}.jpg`}
+                  alt={ambassador}
+                  loading="lazy"
+                  width={300}
+                  height={450}
+                />
+              </div>
+              <div className={styles.ambassador__content}>
+                <p className={styles.ambassador__name}>
+                  {t(`${ambassador}.name`)}
+                </p>
+                <p className={styles.ambassador__role}>
+                  {t(`${ambassador}.role`)}
+                </p>
+                <ul className={styles.ambassador__socials}>
+                  {t(`${ambassador}.instagram`) !== "" && (
+                    <li>
+                      <Icon icon={eIcons.socialInstagram} />
+                    </li>
+                  )}
+                  {t(`${ambassador}.x`) !== "" && (
+                    <li>
+                      <Icon icon={eIcons.socialX} />
+                    </li>
+                  )}
+                  {t(`${ambassador}.linked-in`) !== "" && (
+                    <li>
+                      <Icon icon={eIcons.socialLinkedIn} />
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
       </PageSection>
       <PageSection bgDefaultColor="#1c1d20">
         <Contact />

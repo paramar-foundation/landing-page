@@ -151,9 +151,6 @@
   &--menu-open,
   &--on-scroll {
     padding: spacing(4) spacing(8);
-    background-color: $color-white;
-
-    @include card-elevated;
 
     .navigation-bar__menu-items li a {
       color: $color-black;
@@ -180,6 +177,13 @@
         background-color: $color-grey-400;
       }
     }
+  }
+
+  &--menu-open,
+  &--on-scroll {
+    background-color: $color-white;
+
+    @include card-elevated;
   }
 
   &--menu-open {

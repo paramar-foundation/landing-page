@@ -1,10 +1,10 @@
-import { type ReactElement } from "react";
+import { type ReactNode } from "react";
 
 import styles from "./PageSection.module.scss";
 
 interface ISectionProps {
   id?: string;
-  children?: ReactElement | string;
+  children?: ReactNode;
   bgDefaultColor?: string;
   bgImage?: string;
 }
