@@ -34,7 +34,11 @@ export const IconButton = ({
   };
 
   return (
-    <button className={getClassName()} onClick={(e) => onClick && onClick(e)}>
+    <button
+      className={getClassName()}
+      onClick={(e) => onClick && onClick(e)}
+      aria-label={type}
+    >
       <Icon icon={eIcons.chevronDown} />
     </button>
   );

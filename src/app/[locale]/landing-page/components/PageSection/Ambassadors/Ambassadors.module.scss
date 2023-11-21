@@ -91,9 +91,24 @@
     font-family: "Inter", sans-serif;
   }
 
+  &__data {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(1);
+  }
+
   &__socials {
     display: flex;
     gap: spacing(1);
+
+    li {
+      width: spacing(3);
+      height: spacing(3);
+
+      svg {
+        fill: $color-grey-400;
+      }
+    }
   }
 
   &__button-container {

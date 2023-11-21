@@ -76,29 +76,31 @@ export const Ambassadors = () => {
         <p className={styles.ambassadors__quote}>
           “{t(`${ambassadors[index]}.quote`)}”
         </p>
-        <p className={styles.ambassadors__name}>
-          {t(`${ambassadors[index]}.name`)}
-        </p>
-        <p className={styles.ambassadors__role}>
-          {t(`${ambassadors[index]}.role`)}
-        </p>
-        <ul className={styles.ambassadors__socials}>
-          {t(`${ambassadors[index]}.instagram`) !== "" && (
-            <li>
-              <Icon icon={eIcons.socialInstagram} />
-            </li>
-          )}
-          {t(`${ambassadors[index]}.x`) !== "" && (
-            <li>
-              <Icon icon={eIcons.socialX} />
-            </li>
-          )}
-          {t(`${ambassadors[index]}.linked-in`) !== "" && (
-            <li>
-              <Icon icon={eIcons.socialLinkedIn} />
-            </li>
-          )}
-        </ul>
+        <div className={styles.ambassadors__data}>
+          <p className={styles.ambassadors__name}>
+            {t(`${ambassadors[index]}.name`)}
+          </p>
+          <p className={styles.ambassadors__role}>
+            {t(`${ambassadors[index]}.role`)}
+          </p>
+          <ul className={styles.ambassadors__socials}>
+            {t(`${ambassadors[index]}.instagram`) !== "" && (
+              <li>
+                <Icon icon={eIcons.socialInstagram} />
+              </li>
+            )}
+            {t(`${ambassadors[index]}.x`) !== "" && (
+              <li>
+                <Icon icon={eIcons.socialX} />
+              </li>
+            )}
+            {t(`${ambassadors[index]}.linked-in`) !== "" && (
+              <li>
+                <Icon icon={eIcons.socialLinkedIn} />
+              </li>
+            )}
+          </ul>
+        </div>
         <div className={styles["ambassadors__button-container"]}>
           <IconButton
             type={eIconButtonType.previous}
