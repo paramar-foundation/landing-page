@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { usePathname, useRouter } from "next-intl/client";
 
 import {
   Button,
@@ -21,6 +22,8 @@ import styles from "./ambassadors.module.scss";
 
 export default function Ambassadors() {
   const t = useTranslations("ambassadors");
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <Main>
@@ -33,7 +36,12 @@ export default function Ambassadors() {
             dangerouslySetInnerHTML={{ __html: t.raw("title") as string }}
           ></h1>
           <p className={styles.header__content}>{t("content")}</p>
-          <Button type={eButtonType.secondary}>{t("section-cta")}</Button>
+          <Button
+            type={eButtonType.secondary}
+            onClick={() => router.replace(pathname + "#contact")}
+          >
+            {t("section-cta")}
+          </Button>
           <div className={styles["header__paint-left"]}>
             <Image
               src="/paints/ambassador-page-left.png"
@@ -92,7 +100,7 @@ export default function Ambassadors() {
           ))}
         </ul>
       </PageSection>
-      <PageSection bgDefaultColor="#1c1d20">
+      <PageSection id="contact" bgDefaultColor="#1c1d20">
         <Contact />
       </PageSection>
       <Footer />

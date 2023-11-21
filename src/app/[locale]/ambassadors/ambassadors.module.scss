@@ -104,7 +104,7 @@
 
     &__role {
       text-align: center;
-      color: $color-purple;
+      color: $color-purple-800;
       font-size: 18px;
       font-weight: 400;
       line-height: 22px;
@@ -123,6 +123,12 @@
       display: flex;
       gap: spacing(1);
       padding: spacing(1);
+
+      li {
+        svg {
+          fill: $color-black;
+        }
+      }
     }
   }
 }
@@ -203,6 +209,57 @@
 
   .ambassadors {
     grid-template-columns: 1fr;
+    padding: 0 spacing(4) spacing(10);
+    width: 100%;
+    gap: 0;
+
+    .ambassador {
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      border: none;
+      border-bottom: solid 1px $color-grey-200;
+      flex-direction: row;
+      padding: spacing(3) 0;
+      gap: spacing(3);
+
+      &__image {
+        flex-shrink: 0;
+        width: spacing(9);
+        height: spacing(9);
+        border-radius: 10px;
+
+        img {
+          filter: none;
+        }
+      }
+
+      &__content {
+        padding: 0;
+        gap: 1px;
+      }
+
+      &__role {
+        text-align: left;
+        font-size: 14px;
+        line-height: 17px;
+      }
+
+      &__name {
+        text-align: left;
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      &__socials {
+        padding: spacing(1) 0;
+
+        li > div {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
   }
 }
 
