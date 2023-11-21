@@ -7,8 +7,6 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    EMAILJS_PUBLIC_KEY: z.string(),
-    EMAILJS_SECRET_KEY: z.string(),
     STRIPE_PUBLIC_KEY: z.string(),
     STRIPE_SECRET_KEY: z.string(),
     DATABASE_URL: z
@@ -37,8 +35,6 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY,
-    EMAILJS_SECRET_KEY: process.env.EMAILJS_SECRET_KEY,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     DATABASE_URL: process.env.DATABASE_URL,
