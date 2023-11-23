@@ -1,0 +1,68 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 212px;
+  width: 100%;
+}
+
+.faqs {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: spacing(8);
+
+  @include section;
+
+  &__title {
+    flex-shrink: 0;
+    color: $color-purple;
+    max-width: 300px;
+    font-size: 49px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .faqs {
+    @include section-lg;
+
+    &__title {
+      max-width: 240px;
+      font-size: 42px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .faqs {
+    flex-direction: column;
+    gap: spacing(4);
+
+    @include section-md;
+
+    &__title {
+      font-size: 32px;
+      max-width: unset;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .faqs {
+    @include section-sm;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}

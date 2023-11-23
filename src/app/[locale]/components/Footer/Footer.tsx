@@ -1,11 +1,15 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { Logo, eLogoType } from "../Logo";
 import { Icon, eIcons } from "../Icon";
 
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
+  const t = useTranslations("footer");
+
   return (
     <footer className={styles.footer}>
       <hr className={styles.footer__divider} />
@@ -20,12 +24,7 @@ export const Footer = () => {
         <ul className={styles.footer__socials}>
           <li>
             <a href="">
-              <Icon icon={eIcons.socialFacebook}></Icon>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <Icon icon={eIcons.socialX}></Icon>
+              <Icon icon={eIcons.socialLinkedIn}></Icon>
             </a>
           </li>
           <li>
@@ -35,6 +34,7 @@ export const Footer = () => {
           </li>
         </ul>
       </article>
+      <p className={styles.footer__disclaimer}>{t("tax-disclaimer")}</p>
     </footer>
   );
 };

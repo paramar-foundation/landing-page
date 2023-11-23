@@ -95,11 +95,19 @@
   left: 0;
   z-index: 9;
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 112px;
-  gap: spacing(6);
   background-color: transparent;
   padding: spacing(4) spacing(8);
+
+  &__wrapper {
+    display: flex;
+    gap: spacing(6);
+    height: 100%;
+    width: 100%;
+    max-width: $section-max-width;
+  }
 
   &__logo-container {
     display: flex;
@@ -263,16 +271,18 @@
 
 @media (max-width: $breakpoint-xl) {
   .navigation-bar {
-    gap: spacing(3);
     padding: spacing(4);
+
+    &__wrapper {
+      gap: spacing(3);
+    }
 
     &__contents {
       gap: spacing(2);
     }
 
     &__menu-items {
-      .mission,
-      .therapy {
+      .home {
         display: none;
       }
     }

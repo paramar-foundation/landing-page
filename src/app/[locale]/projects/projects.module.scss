@@ -1,0 +1,142 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.header {
+  @include section;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(11);
+  padding-top: spacing(12);
+
+  &__image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 75%;
+    border-radius: 10px 0 0 10px;
+
+    img:not(.paint-bottom, .paint-top) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .paint-bottom,
+    .paint-top {
+      position: absolute;
+      height: auto;
+    }
+
+    .paint-top {
+      width: 40%;
+      top: -14%;
+      right: 5%;
+    }
+
+    .paint-bottom {
+      width: 55%;
+      bottom: -12%;
+      left: -20%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .header__title {
+      margin-bottom: spacing(3);
+    }
+
+    .header__subtitle {
+      text-transform: uppercase;
+      color: $color-purple;
+      margin-bottom: spacing(2);
+    }
+
+    .header__body {
+      color: $color-black;
+      margin-bottom: spacing(5);
+    }
+
+    svg {
+      stroke: $color-purple;
+    }
+  }
+}
+
+.divider {
+  border: solid 1px $color-grey-100;
+  width: 100%;
+}
+
+.content {
+  @include section;
+}
+
+@media (max-width: $breakpoint-lg) {
+  .header {
+    @include section-lg;
+    gap: spacing(4);
+    padding-top: spacing(16);
+
+    &__content {
+      height: fit-content;
+    }
+
+    &__title {
+      font-size: 36px;
+    }
+  }
+
+  .content {
+    @include section-lg;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .header {
+    @include section-md;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: spacing(8);
+    padding-top: spacing(8);
+
+    &__title {
+      font-size: 32px;
+    }
+  }
+
+  .content {
+    @include section-md;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .header {
+    @include section-sm;
+    padding-top: spacing(6);
+
+    &__title {
+      font-size: 25px;
+    }
+
+    &__body,
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .content {
+    @include section-sm;
+  }
+}

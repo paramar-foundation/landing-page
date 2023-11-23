@@ -7,6 +7,8 @@ interface ISectionProps {
   children?: ReactNode;
   bgDefaultColor?: string;
   bgImage?: string;
+  isFirstSection?: boolean;
+  isLastSection?: boolean;
 }
 
 export const PageSection = ({
@@ -14,8 +16,10 @@ export const PageSection = ({
   children,
   bgDefaultColor = "#fff",
   bgImage,
+  isFirstSection = false,
+  isLastSection = false,
 }: ISectionProps) => {
-  const getBgImage = () => {
+  const getBg = () => {
     const styles = {} as { backgroundColor?: string; backgroundImage?: string };
 
     if (bgDefaultColor) styles.backgroundColor = bgDefaultColor;
@@ -23,8 +27,17 @@ export const PageSection = ({
 
     return styles;
   };
+
+  const getClassName = () => {
+    return [
+      styles["page-section"],
+      isFirstSection ? styles["page-section--first"] : "",
+      isLastSection ? styles["page-section--last"] : "",
+    ].join(" ");
+  };
+
   return (
-    <section className={styles["page-section"]} style={getBgImage()}>
+    <section className={getClassName()} style={getBg()}>
       <div className={styles.anchor} id={id}></div>
       {children}
     </section>

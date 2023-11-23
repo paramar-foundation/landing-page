@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next-intl/client";
+import { useRouter } from "next-intl/client";
 import Link from "next-intl/link";
 
 import { Button, eButtonColor, eButtonType } from "../Button";
@@ -23,18 +23,16 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
   const [secondaryCtaColor, setSecondaryCtaColor] = useState(
     light ? eButtonColor.purple : eButtonColor.white
   );
-  const pathname = usePathname();
   const router = useRouter();
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const scroll = useContext(MainScrollContext);
 
   const menuItems = [
-    "mission",
-    "about-us",
-    "why-us",
-    "therapy",
-    "faqs",
+    { value: "home", link: "/" },
+    { value: "ambassadors", link: "/ambassadors" },
+    { value: "contact", link: "/contact" },
+    { value: "faqs", link: "/faqs" },
   ] as const;
 
   const getClassName = () => {
@@ -88,9 +86,9 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
     };
   }, [isMenuOpen, isScroll, light, scroll, scrollThreshold]);
 
-  const handleCtaClick = (anchor: string) => {
+  const handleCtaClick = () => {
     setMenuOpen(false);
-    router.replace(pathname + anchor);
+    router.push("/projects");
   };
 
   const renderMenu = (modifier = "", isResponsive = false) => {
@@ -102,12 +100,10 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
       <article className={styles[style]} ref={menuRef}>
         <ul>
           {menuItems.map((item) => {
-            const anchor = `/#${item}`;
-
             return (
-              <li key={item} className={styles[item]}>
-                <Link onClick={() => setMenuOpen(false)} href={anchor}>
-                  {t(item)}
+              <li key={item.value} className={styles[item.value]}>
+                <Link onClick={() => setMenuOpen(false)} href={item.link}>
+                  {t(item.value)}
                 </Link>
               </li>
             );
@@ -121,7 +117,7 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
               type={eButtonType.secondary}
               color={secondaryCtaColor}
               fullWidth
-              onClick={() => handleCtaClick("#projects")}
+              onClick={() => handleCtaClick()}
             >
               {t("more-info")}
             </Button>
@@ -133,37 +129,37 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
 
   return (
     <header className={getClassName()} ref={headerRef}>
-      <Hamburguer
-        isOpen={isMenuOpen}
-        onClick={() => setMenuOpen((prev) => !prev)}
-      />
-      <Link
-        href="/"
-        className={styles["navigation-bar__logo-container"]}
-        onClick={() => setMenuOpen(false)}
-      >
-        <Logo type={logoType} />
-      </Link>
-      {renderMenu()}
-      <section className={styles["navigation-bar__contents"]}>
-        <div className={styles["navigation-bar__actions"]}>
-          <LanguageSelection />
-          <Button onClick={() => handleCtaClick("#projects")}>
-            {t("donate")}
-          </Button>
-          <Button
-            id={styles["more-info-btn"]}
-            type={eButtonType.secondary}
-            color={secondaryCtaColor}
-            onClick={() => handleCtaClick("#projects")}
-          >
-            {t("more-info")}
-          </Button>
-        </div>
-      </section>
-      <section className={styles["navigation-bar__responsive-menu"]}>
-        {renderMenu("responsive-menu", true)}
-      </section>
+      <div className={styles["navigation-bar__wrapper"]}>
+        <Hamburguer
+          isOpen={isMenuOpen}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        />
+        <Link
+          href="/"
+          className={styles["navigation-bar__logo-container"]}
+          onClick={() => setMenuOpen(false)}
+        >
+          <Logo type={logoType} />
+        </Link>
+        {renderMenu()}
+        <section className={styles["navigation-bar__contents"]}>
+          <div className={styles["navigation-bar__actions"]}>
+            <LanguageSelection />
+            <Button onClick={() => handleCtaClick()}>{t("donate")}</Button>
+            <Button
+              id={styles["more-info-btn"]}
+              type={eButtonType.secondary}
+              color={secondaryCtaColor}
+              onClick={() => handleCtaClick()}
+            >
+              {t("more-info")}
+            </Button>
+          </div>
+        </section>
+        <section className={styles["navigation-bar__responsive-menu"]}>
+          {renderMenu("responsive-menu", true)}
+        </section>
+      </div>
     </header>
   );
 };

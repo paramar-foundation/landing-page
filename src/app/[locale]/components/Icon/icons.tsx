@@ -1,3 +1,19 @@
+const ArrowDownIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 3V21M6 15L11.6464 20.6464C11.8417 20.8417 12.1583 20.8417 12.3536 20.6464L18 15"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
 const ArrowRightIcon = () => (
   <svg
     width="24"
@@ -212,6 +228,7 @@ const WomanIcon = () => (
 );
 
 export {
+  ArrowDownIcon,
   ArrowRightIcon,
   ChevronDownIcon,
   DonationIcon,

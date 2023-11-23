@@ -1,0 +1,15 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.spacer {
+  background-color: #1c1d20;
+  padding-top: spacing(14);
+  width: 100%;
+}
+
+@media (max-width: $breakpoint-md) {
+  .spacer {
+    padding-top: spacing(13);
+  }
+}

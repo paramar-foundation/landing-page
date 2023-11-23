@@ -28,7 +28,7 @@ export default function Ambassadors() {
   return (
     <Main>
       <NavigationBar scrollThreshold={10} light />
-      <PageSection>
+      <PageSection isFirstSection>
         <header className={styles.header}>
           <p className={styles.header__subtitle}>{t("subtitle")}</p>
           <h1
@@ -100,7 +100,7 @@ export default function Ambassadors() {
           ))}
         </ul>
       </PageSection>
-      <PageSection id="contact" bgDefaultColor="#1c1d20">
+      <PageSection id="contact" bgDefaultColor="#1c1d20" isLastSection>
         <Contact />
       </PageSection>
       <Footer />

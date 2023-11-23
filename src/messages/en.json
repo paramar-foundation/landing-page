@@ -1,12 +1,15 @@
 {
   "nav": {
-    "mission": "Our mission",
-    "about-us": "About us",
-    "why-us": "Why us?",
-    "therapy": "Therapy",
+    "home": "Home",
+    "ambassadors": "Ambassadors",
+    "contact": "Contact Us",
     "faqs": "FAQ’s",
     "donate": "Donate here",
     "more-info": "More info"
+  },
+  "footer": {
+    "rights": "@2023 all rights reserved",
+    "tax-disclaimer": "Paramar Foundation is a tax-exempt organization under Section 501(c)(3) of the United States Internal Revenue Code."
   },
   "hero": {
     "source": "World Health Organization, 2019/ UN Women, 2022",
@@ -206,7 +209,12 @@
     "donate-card-btn": "Donate now",
     "total-donations": "{total} donations",
     "disclaimer-title": "<b>Paramar Foundation</b> es seguro:",
-    "disclaimer-content": "Todas tus donaciones están siendo protegidas por estrictas medidas de seguridad y procedimientos diseñados que garantizan que tu generosidad llegará de manera segura a quienes más lo necesitan."
+    "disclaimer-content": "Todas tus donaciones están siendo protegidas por estrictas medidas de seguridad y procedimientos diseñados que garantizan que tu generosidad llegará de manera segura a quienes más lo necesitan.",
+    "page": {
+      "title": "Join us",
+      "description": "Get to know our donation projects",
+      "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundoOur ambassadors are the soul and engine that drives our cause. They are passionate and committed people who work tirelessly to promote positive change in our world."
+    }
   },
   "faqs": {
     "title": "Frequently asked questions",

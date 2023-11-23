@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   gap: spacing(3);
-  padding: spacing(32) spacing(20) spacing(26);
+  padding: spacing(18) spacing(20) spacing(26);
 
   &__subtitle {
     color: $color-purple;
@@ -55,7 +55,7 @@
   }
 
   &__paint-right {
-    top: spacing(20);
+    top: spacing(0);
     left: calc(100% - 130px);
   }
 }
@@ -141,7 +141,7 @@
 
 @media (max-width: $breakpoint-lg) {
   .header {
-    padding: spacing(30) spacing(16) spacing(26);
+    padding: spacing(16) spacing(16) spacing(26);
 
     &__title {
       font-size: 42px;
@@ -161,7 +161,7 @@
 
 @media (max-width: $breakpoint-md) {
   .header {
-    padding: spacing(18) spacing(12) spacing(16);
+    padding: spacing(12) spacing(12) spacing(16);
 
     &__title {
       font-size: 28px;
@@ -202,7 +202,6 @@
     }
 
     &__paint-right {
-      top: spacing(14);
       left: calc(100% - 70px);
     }
   }
@@ -265,10 +264,9 @@
 
 @media (max-width: $breakpoint-sm) {
   .header {
-    padding: spacing(22) spacing(4) spacing(20);
+    padding: spacing(12) spacing(4) spacing(20);
 
     &__paint-right {
-      top: spacing(12);
       left: calc(100% - 70px);
       height: 80px;
 
