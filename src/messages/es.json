@@ -2,14 +2,14 @@
   "nav": {
     "home": "Inicio",
     "ambassadors": "Embajadoras",
-    "contact": "Contactáctanos",
+    "contact": "Contáctanos",
     "faqs": "FAQs",
-    "donate": "Dona aquí",
-    "more-info": "Más información"
+    "projects-cta": "Dona aquí",
+    "request-therapy-cta": "Solicitar terapia"
   },
   "footer": {
     "rights": "@2023 todos los derechos reservados",
-    "tax-disclaimer": "Paramar Foundation es una organización exenta de impuestos según la Sección 501(c)(3) del Código de Rentas Internas de los Estados Unidos."
+    "tax-disclaimer": "Paramar Foundation es una organización exenta de impuestos según la Sección 501(c)(3) del Código de Rentas Internas de los Estados Unidos. <docs>Ver documentos legales.</docs>."
   },
   "hero": {
     "source": "Organización Mundial de la Salud, 2019/ UN Women, 2022",
@@ -213,7 +213,7 @@
     "page": {
       "title": "Únete a nosotras",
       "description": "Conoce nuestros proyectos de donación",
-      "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundo."
+      "content": "Explora aquí todos nuestros proyectos internos y colaboraciones con otras fundaciones, diseñados para transformar positivamente las vidas de mujeres y niñas a través de la terapia psicológica."
     }
   },
   "faqs": {
@@ -278,5 +278,16 @@
       "question": "¿Cuáles son los objetivos a largo plazo de su organización para mejorar la salud mental de las sobrevivientes de agresión sexual?",
       "answer": "Nuestros objetivos a largo plazo incluyen expandir nuestro alcance, aumentar el acceso a servicios de salud mental y abogar por políticas que protejan los derechos y el bienestar de las sobrevivientes. Estamos comprometidos en crear cambios positivos duraderos en la vida de las sobrevivientes en todo el mundo."
     }
+  },
+  "request-therapy": {
+    "title": "Solicita terapia paga",
+    "description": "Cada vez que inviertas en una sesión de terapia, estarás contribuyendo a un fondo que permitirá brindar apoyo psicológico continuo a mujeres y niñas.",
+    "name": "Nombre(s)",
+    "last-name": "Apellido(s)",
+    "email": "Correo Electrónico",
+    "options": {
+      "therapy": "Terapia personal paga"
+    },
+    "send-btn": "Enviar"
   }
 }

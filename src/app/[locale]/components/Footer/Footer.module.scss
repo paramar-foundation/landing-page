@@ -9,6 +9,7 @@
   align-items: center;
   width: 100vw;
   padding: 0;
+  padding-top: spacing(5);
 
   &__divider {
     border: solid 1px $color-grey-100;
@@ -23,6 +24,11 @@
     height: spacing(12);
     padding: spacing(3) spacing(8);
     max-width: $section-max-width;
+
+    a {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__rights {
@@ -46,18 +52,31 @@
     width: 100%;
     color: $color-grey-400;
     background-color: $color-grey-100;
-    padding: spacing(0.5) spacing(8);
+    padding: spacing(1) spacing(8);
     font-family: "Inter", sans-serif;
     font-size: 13px;
     font-weight: 300;
     line-height: 16px;
     letter-spacing: 0px;
     text-align: center;
+
+    a {
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: underline;
+      color: $color-purple;
+
+      &:visited {
+        color: $color-purple;
+      }
+    }
   }
 }
 
 @media (max-width: $breakpoint-md) {
   .footer {
+    padding-top: spacing(3);
+
     &__divider {
       width: calc(100% - spacing(8));
     }
@@ -69,8 +88,8 @@
       height: fit-content;
       padding: spacing(3) spacing(4);
 
-      & > div:first-child {
-        width: 160px;
+      a {
+        height: spacing(6);
       }
     }
 

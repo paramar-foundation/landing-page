@@ -4,12 +4,12 @@
     "ambassadors": "Ambassadors",
     "contact": "Contact Us",
     "faqs": "FAQ’s",
-    "donate": "Donate here",
-    "more-info": "More info"
+    "projects-cta": "Donate here",
+    "request-therapy-cta": "Request therapy"
   },
   "footer": {
     "rights": "@2023 all rights reserved",
-    "tax-disclaimer": "Paramar Foundation is a tax-exempt organization under Section 501(c)(3) of the United States Internal Revenue Code."
+    "tax-disclaimer": "Paramar Foundation is a tax-exempt organization under Section 501(c)(3) of the United States Internal Revenue Code. <docs>View legal documents.</docs>."
   },
   "hero": {
     "source": "World Health Organization, 2019/ UN Women, 2022",
@@ -45,7 +45,7 @@
     "subtitle": "Our Ambassadors",
     "title": "Get to know the people who support and are behind <b>Paramar Foundation</b>",
     "content": "Our ambassadors are the soul and engine that drives our cause. They are passionate and committed people who work tirelessly to promote positive change in our world.",
-    "section-cta": "Contacy us",
+    "section-cta": "Contact us",
     "carlota-corzo": {
       "name": "Carlota Corzo Álvarez",
       "picture": "profile-carlota-corzo.jpg",
@@ -213,7 +213,7 @@
     "page": {
       "title": "Join us",
       "description": "Get to know our donation projects",
-      "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundoOur ambassadors are the soul and engine that drives our cause. They are passionate and committed people who work tirelessly to promote positive change in our world."
+      "content": "Explore here all our internal projects and collaborations with other foundations, designed to positively transform the lives of women and girls through psychological therapy."
     }
   },
   "faqs": {
@@ -278,5 +278,16 @@
       "question": "What long-term goals does your organization have in improving mental health for survivors of sexual aggression?",
       "answer": "Our long-term goals include expanding our reach, increasing access to mental health services, and advocating for policies that protect survivors' rights and well-being. We are committed to making lasting positive changes in the lives of survivors worldwide."
     }
+  },
+  "request-therapy": {
+    "title": "Request paid therapy",
+    "description": "Every time you invest in a therapy session, you will be contributing to a fund that will provide ongoing psychological support to women and girls.",
+    "name": "Name",
+    "last-name": "Last name",
+    "email": "Email Address",
+    "options": {
+      "therapy": "Paid personal therapy"
+    },
+    "send-btn": "Send"
   }
 }

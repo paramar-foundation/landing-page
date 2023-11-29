@@ -86,9 +86,14 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
     };
   }, [isMenuOpen, isScroll, light, scroll, scrollThreshold]);
 
-  const handleCtaClick = () => {
+  const handleProjectsCtaClick = () => {
     setMenuOpen(false);
     router.push("/projects");
+  };
+
+  const handleTherapyCtaClick = () => {
+    setMenuOpen(false);
+    router.push("/request-therapy");
   };
 
   const renderMenu = (modifier = "", isResponsive = false) => {
@@ -117,9 +122,9 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
               type={eButtonType.secondary}
               color={secondaryCtaColor}
               fullWidth
-              onClick={() => handleCtaClick()}
+              onClick={() => handleTherapyCtaClick()}
             >
-              {t("more-info")}
+              {t("request-therapy-cta")}
             </Button>
           </>
         )}
@@ -145,14 +150,16 @@ export const NavigationBar = ({ light = false, scrollThreshold = 220 }) => {
         <section className={styles["navigation-bar__contents"]}>
           <div className={styles["navigation-bar__actions"]}>
             <LanguageSelection />
-            <Button onClick={() => handleCtaClick()}>{t("donate")}</Button>
+            <Button onClick={() => handleProjectsCtaClick()}>
+              {t("projects-cta")}
+            </Button>
             <Button
               id={styles["more-info-btn"]}
               type={eButtonType.secondary}
               color={secondaryCtaColor}
-              onClick={() => handleCtaClick()}
+              onClick={() => handleTherapyCtaClick()}
             >
-              {t("more-info")}
+              {t("request-therapy-cta")}
             </Button>
           </div>
         </section>

@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.faqs {
+.documents {
   @include section;
   display: flex;
   align-items: flex-start;
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: $breakpoint-lg) {
-  .faqs {
+  .documents {
     @include section-lg;
     padding-bottom: 0;
 
@@ -44,7 +44,7 @@
 }
 
 @media (max-width: $breakpoint-md) {
-  .faqs {
+  .documents {
     @include section-md;
     flex-direction: column;
     gap: spacing(4);
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: $breakpoint-sm) {
-  .faqs {
+  .documents {
     @include section-sm;
     padding-bottom: 0;
 

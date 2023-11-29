@@ -12,12 +12,14 @@ import styles from "./Contact.module.scss";
 
 import emailjs from "@emailjs/browser";
 
-export const Contact = () => {
-  const t = useTranslations("contact-us");
+export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
+  const t = useTranslations(pageType);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [moreInfo, setMoreInfo] = useState("");
+  const [moreInfo, setMoreInfo] = useState(
+    hasSelect ? "" : t("options.therapy")
+  );
   const [isSending, setSending] = useState(false);
   const [isSent, setSent] = useState(false);
   const [isError, setError] = useState(false);
@@ -131,14 +133,16 @@ export const Contact = () => {
               theme={eInputTheme.light}
             />
           ))}
-          <SelectInput
-            label={t("information")}
-            name="information"
-            value={moreInfo}
-            onChange={setMoreInfo}
-            options={selectOptions.map((option) => t(`options.${option}`))}
-            theme={eInputTheme.light}
-          />
+          {hasSelect && (
+            <SelectInput
+              label={t("information")}
+              name="information"
+              value={moreInfo}
+              onChange={setMoreInfo}
+              options={selectOptions.map((option) => t(`options.${option}`))}
+              theme={eInputTheme.light}
+            />
+          )}
           <Button htmlType="submit" fullWidth>
             {t("send-btn")}
           </Button>

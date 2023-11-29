@@ -114,6 +114,12 @@
   }
 }
 
+@media (min-width: $breakpoint-2k) {
+  .hero {
+    padding: 0 spacing(20);
+  }
+}
+
 @media (max-width: $breakpoint-lg) {
   .hero {
     &__quote {

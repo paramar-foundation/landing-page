@@ -8,15 +8,15 @@ import {
   PageSection,
 } from "../components";
 
-import styles from "./contact.module.scss";
+import styles from "./request-therapy.module.scss";
 
-export default function ContactPage() {
+export default function RequestTherapyPage() {
   return (
     <Main>
       <NavigationBar scrollThreshold={10} />
       <div className={styles.spacer}></div>
       <PageSection id="contact" bgDefaultColor="#1c1d20" isLastSection>
-        <Contact />
+        <Contact hasSelect={false} pageType="request-therapy" />
       </PageSection>
       <Footer />
     </Main>

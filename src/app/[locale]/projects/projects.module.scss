@@ -4,79 +4,50 @@
 
 .header {
   @include section;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: spacing(11);
-  padding-top: spacing(12);
 
-  &__image-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 75%;
-    border-radius: 10px 0 0 10px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh;
+  padding-top: spacing(14);
 
-    img:not(.paint-bottom, .paint-top) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .paint-bottom,
-    .paint-top {
-      position: absolute;
-      height: auto;
-    }
-
-    .paint-top {
-      width: 40%;
-      top: -14%;
-      right: 5%;
-    }
-
-    .paint-bottom {
-      width: 55%;
-      bottom: -12%;
-      left: -20%;
-    }
-  }
+  background-size: cover;
+  background-position: center;
+  background-image: url("/bg-projects-page.jpg");
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 58%;
 
-    .header__title {
-      margin-bottom: spacing(3);
+    &__title {
+      margin-bottom: spacing(2);
+      color: $color-white;
     }
 
-    .header__subtitle {
+    &__subtitle {
       text-transform: uppercase;
-      color: $color-purple;
+      color: $color-orange;
       margin-bottom: spacing(2);
     }
 
-    .header__body {
-      color: $color-black;
+    &__body {
+      color: $color-white;
       margin-bottom: spacing(5);
     }
-
-    svg {
-      stroke: $color-purple;
-    }
   }
-}
 
-.divider {
-  border: solid 1px $color-grey-100;
-  width: 100%;
+  &__paint {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+  }
 }
 
 .content {
@@ -91,10 +62,14 @@
 
     &__content {
       height: fit-content;
+
+      &__title {
+        font-size: 36px;
+      }
     }
 
-    &__title {
-      font-size: 36px;
+    &__paint {
+      max-width: 35%;
     }
   }
 
@@ -106,13 +81,22 @@
 @media (max-width: $breakpoint-md) {
   .header {
     @include section-md;
+
     display: flex;
     flex-direction: column-reverse;
     gap: spacing(8);
-    padding-top: spacing(8);
+    padding-top: spacing(12);
 
-    &__title {
-      font-size: 32px;
+    &__content {
+      width: 80%;
+
+      &__title {
+        font-size: 32px;
+      }
+    }
+
+    &__paint {
+      max-width: 42%;
     }
   }
 
@@ -126,13 +110,21 @@
     @include section-sm;
     padding-top: spacing(6);
 
-    &__title {
-      font-size: 25px;
+    &__content {
+      width: 100%;
+
+      &__title {
+        font-size: 25px;
+      }
+
+      &__body,
+      &__subtitle {
+        font-size: 14px;
+      }
     }
 
-    &__body,
-    &__subtitle {
-      font-size: 14px;
+    &__paint {
+      max-width: 50%;
     }
   }
 

@@ -6,12 +6,10 @@ import {
   AboutUs,
   Ambassadors,
   Projects,
-  FAQs,
   Goals,
   Hero,
   Mission,
   Numbers,
-  Professionals,
   Therapy,
   WhyUs,
 } from "./components/PageSection";
@@ -21,10 +19,10 @@ export default function LandingPage() {
     <Main>
       <NavigationBar />
       <Hero />
-      <PageSection id="mission">
+      <PageSection>
         <Mission />
       </PageSection>
-      <PageSection id="about-us">
+      <PageSection>
         <AboutUs />
       </PageSection>
       <PageSection>
@@ -37,26 +35,17 @@ export default function LandingPage() {
         <Goals />
       </PageSection>
       <PageSection
-        id="why-us"
-        bgImage="bg-projects-and-therapy.jpg"
+        bgImage="/bg-projects-and-therapy.jpg"
         bgDefaultColor="#494a4d"
       >
-        <>
-          <WhyUs />
-          <Therapy />
-        </>
+        <WhyUs />
+        <Therapy />
       </PageSection>
       <PageSection>
-        <Professionals />
-      </PageSection>
-      <PageSection id="contact" bgDefaultColor="#1c1d20">
-        <Contact />
-      </PageSection>
-      <PageSection id="projects">
         <Projects />
       </PageSection>
-      <PageSection id="faqs">
-        <FAQs />
+      <PageSection bgDefaultColor="#1c1d20">
+        <Contact />
       </PageSection>
       <Footer />
     </Main>
