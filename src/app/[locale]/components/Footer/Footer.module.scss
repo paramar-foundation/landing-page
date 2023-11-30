@@ -9,7 +9,7 @@
   align-items: center;
   width: 100vw;
   padding: 0;
-  padding-top: spacing(5);
+  padding-top: spacing(4);
 
   &__divider {
     border: solid 1px $color-grey-100;
@@ -75,7 +75,7 @@
 
 @media (max-width: $breakpoint-md) {
   .footer {
-    padding-top: spacing(3);
+    padding-top: spacing(2);
 
     &__divider {
       width: calc(100% - spacing(8));

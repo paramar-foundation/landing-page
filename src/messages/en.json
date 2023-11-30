@@ -289,5 +289,10 @@
       "therapy": "Paid personal therapy"
     },
     "send-btn": "Send"
+  },
+  "documents": {
+    "title": "Legal documents",
+    "last-update": "Last update: {date}",
+    "go-back-link": "Go back to documents"
   }
 }

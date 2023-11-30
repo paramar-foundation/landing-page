@@ -2,13 +2,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import { type IProjects } from "~/src/types";
+import { type IProject } from "~/src/types";
 
 import { Button, eButtonSize } from "../Button";
 
 import styles from "./DonateCard.module.scss";
 
-export const DonateCard = ({ data }: { data: IProjects }) => {
+export const DonateCard = ({ data }: { data: IProject }) => {
   const t = useTranslations("projects");
   const router = useRouter();
 

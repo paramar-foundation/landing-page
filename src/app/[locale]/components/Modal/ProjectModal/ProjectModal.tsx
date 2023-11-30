@@ -9,7 +9,7 @@ import Image from "next/image";
 
 import type Stripe from "stripe";
 
-import { type IProjects } from "~/src/types";
+import { type IProject } from "~/src/types";
 
 import { Icon, eIcons } from "../../Icon";
 import { Button, eButtonColor, eButtonType } from "../../Button";
@@ -17,7 +17,7 @@ import { Button, eButtonColor, eButtonType } from "../../Button";
 import styles from "./ProjectModal.module.scss";
 import { api } from "~/src/trpc/react";
 
-export const ProjectModal = ({ data }: { data: IProjects }) => {
+export const ProjectModal = ({ data }: { data: IProject }) => {
   const t = useTranslations("projects");
   const [checkoutDetails, setCheckoutDetails] = useState(
     {} as Stripe.Response<Stripe.Checkout.Session>

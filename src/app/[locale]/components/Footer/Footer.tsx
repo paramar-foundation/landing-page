@@ -39,7 +39,7 @@ export const Footer = () => {
       </article>
       <p className={styles.footer__disclaimer}>
         {t.rich("tax-disclaimer", {
-          docs: (chunks) => <Link href="/legal">{chunks}</Link>,
+          docs: (chunks) => <Link href="/documents">{chunks}</Link>,
         })}
       </p>
     </footer>

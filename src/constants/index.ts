@@ -1,4 +1,4 @@
-import { type IProjects } from "../types";
+import type { IDocument, IProject } from "../types";
 
 export const breakpoints = {
   xl: 1440,
@@ -63,4 +63,31 @@ export const donationsData = [
     goalAmount: 70000,
     totalDonations: 19,
   },
-] as IProjects[];
+] as IProject[];
+
+export const documentsData = [
+  {
+    name: "articles-of-incorporation",
+    displayName: "Articles of Incorporation (EN)",
+  },
+  {
+    name: "brochure",
+    displayName: "Brochure (EN)",
+  },
+  {
+    name: "certificate-of-incorporation",
+    displayName: "Certificate of Incorporation (EN)",
+  },
+  {
+    name: "cover-letter",
+    displayName: "Cover Letter (EN)",
+  },
+  {
+    name: "folleto",
+    displayName: "Folleto (ES)",
+  },
+  {
+    name: "tax-number",
+    displayName: "TAX Number (EN)",
+  },
+] as IDocument[];

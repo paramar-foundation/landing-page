@@ -1,4 +1,4 @@
-export interface IProjects {
+export interface IProject {
   id: number;
   image: string;
   location: string;
@@ -8,4 +8,9 @@ export interface IProjects {
   currentAmount: number;
   goalAmount: number;
   totalDonations: number;
+}
+
+export interface IDocument {
+  name: string;
+  displayName: string;
 }

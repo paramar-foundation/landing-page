@@ -289,5 +289,10 @@
       "therapy": "Terapia personal paga"
     },
     "send-btn": "Enviar"
+  },
+  "documents": {
+    "title": "Documentos legales",
+    "last-update": "Última actualización: {date}",
+    "go-back-link": "Volver a documentos"
   }
 }
