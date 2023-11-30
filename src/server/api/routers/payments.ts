@@ -22,7 +22,7 @@ export const paymentRouter = createTRPCRouter({
         success_url:
           getBaseUrl() +
           "?project=3&checkout_id={CHECKOUT_SESSION_ID}&success=true",
-        cancel_url: getBaseUrl() + "?project=3&success=false",
+        cancel_url: getBaseUrl() + "/projects",
       });
 
       return checkout;

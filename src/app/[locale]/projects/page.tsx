@@ -20,8 +20,8 @@ export default function ProjectsPage() {
   return (
     <Main>
       <NavigationBar scrollThreshold={10} />
-      <PageSection isLastSection>
-        <header className={styles.header}>
+      <PageSection bgImage="/bg-projects-page.jpg">
+        <div className={styles.header}>
           <div className={styles.header__content}>
             <p className={styles.header__content__subtitle}>{t("title")}</p>
             <h2 className={styles.header__content__title}>
@@ -36,10 +36,12 @@ export default function ProjectsPage() {
             width={300}
             height={300}
           />
-        </header>
-        <article className={styles.content}>
+        </div>
+      </PageSection>
+      <PageSection isLastSection>
+        <div className={styles.content}>
           <ProjectModal data={donationsData[1]!} />
-        </article>
+        </div>
       </PageSection>
       <Footer />
     </Main>
