@@ -3,6 +3,7 @@
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   gap: 3%;
 
@@ -21,7 +22,6 @@
   }
 
   &__text {
-    flex-grow: 1;
     height: 80%;
     aspect-ratio: 7 / 2.3;
   }
