@@ -3,7 +3,7 @@
 import { useState, type ReactNode, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { Modal, ProjectModal } from "../Modal";
+import { Modal, Project } from "../Modal";
 
 import { donationsData } from "~/src/constants";
 import styles from "./Main.module.scss";
@@ -21,7 +21,7 @@ export const Main = ({ children }: { children: ReactNode }) => {
     );
 
     if (projectData) {
-      setModalContent(<ProjectModal data={projectData} />);
+      setModalContent(<Project data={projectData} />);
     }
   }, [queryParams]);
 

@@ -2,7 +2,7 @@
 @import "~/styles/mixins.scss";
 @import "~/styles/variables.scss";
 
-.project-modal {
+.project {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: spacing(3);
@@ -84,6 +84,7 @@
     &__data {
       display: flex;
       flex-direction: column;
+      height: fit-content;
       gap: spacing(1.5);
       padding: spacing(5) spacing(3);
       background-color: $color-black;
@@ -151,7 +152,7 @@
 }
 
 @media (max-width: $breakpoint-lg) {
-  .project-modal {
+  .project {
     display: grid;
 
     .content {
@@ -161,7 +162,7 @@
 }
 
 @media (max-width: $breakpoint-md) {
-  .project-modal {
+  .project {
     overflow-y: auto;
 
     .mobile-image-container {

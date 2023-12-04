@@ -1,0 +1,191 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(3);
+  padding: spacing(20) spacing(40);
+
+  &__title {
+    font-weight: 700;
+    text-align: center;
+
+    b {
+      font-family: "Inter", sans-serif;
+      color: $color-purple;
+    }
+  }
+
+  &__body {
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: spacing(2);
+  }
+
+  &__paint-left,
+  &__paint-right {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__paint-left {
+    width: 630px;
+    height: 570px;
+    bottom: 0;
+    right: calc(100% - 240px);
+  }
+
+  &__paint-right {
+    width: 400px;
+    height: 570px;
+    top: 0;
+    left: calc(100% - 180px);
+  }
+}
+
+.certificate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: spacing(4);
+  width: 1280px;
+  height: 720px;
+  min-width: 1280px;
+  min-height: 720px;
+  color: black;
+  padding: 112px 220px 170px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+
+  background: url("/certificate-background.jpg");
+  background-size: cover;
+
+  & > div {
+    width: 220px;
+    margin-bottom: spacing(2);
+  }
+
+  &__subtitle {
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $color-purple;
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 74px;
+    letter-spacing: -0.5px;
+  }
+
+  &__body {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  &__details {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: $color-grey-400;
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .content {
+    padding: spacing(16);
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__paint-left,
+    &__paint-right {
+      transform: scale(0.8);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .content {
+    padding: spacing(12);
+
+    &__title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 34px;
+    }
+
+    &__body {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: spacing(2);
+    }
+
+    &__paint-left,
+    &__paint-right {
+      transform: scale(0.5);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .content {
+    padding: spacing(12) spacing(4) spacing(12);
+
+    &__paint-left,
+    &__paint-right {
+      transform: scale(0.4);
+    }
+
+    &__paint-left {
+      top: 20%;
+      bottom: auto;
+      right: calc(100% - 260px);
+    }
+
+    &__paint-right {
+      top: auto;
+      bottom: 20%;
+      left: calc(100% - 160px);
+    }
+  }
+}

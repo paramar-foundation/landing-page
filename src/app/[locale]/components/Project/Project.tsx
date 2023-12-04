@@ -1,34 +1,25 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 "use client";
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-
-import type Stripe from "stripe";
+import { api } from "~/src/trpc/react";
 
 import { type IProject } from "~/src/types";
 
-import { Icon, eIcons } from "../../Icon";
-import { Button, eButtonColor, eButtonType } from "../../Button";
+import { Icon, eIcons } from "../Icon";
+import { Button, eButtonColor, eButtonType } from "../Button";
 
-import styles from "./ProjectModal.module.scss";
-import { api } from "~/src/trpc/react";
+import styles from "./Project.module.scss";
 
-export const ProjectModal = ({ data }: { data: IProject }) => {
+export const Project = ({ data }: { data: IProject }) => {
   const t = useTranslations("projects");
-  const [checkoutDetails, setCheckoutDetails] = useState(
-    {} as Stripe.Response<Stripe.Checkout.Session>
-  );
-  const [isSuccess, setSuccess] = useState(false);
   const [isCopied, setCopied] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
   const queryParams = useSearchParams();
   const createCheckoutMutation = api.payments.createCheckout.useMutation();
-  const getCheckoutMutation = api.payments.getCheckoutDetails.useMutation();
 
   const { image, name, currentAmount, goalAmount, totalDonations } = data;
 
@@ -39,32 +30,12 @@ export const ProjectModal = ({ data }: { data: IProject }) => {
     }
   }, [isCopied]);
 
-  useEffect(() => {
-    const checkoutId = queryParams.get("checkout_id");
-    const successValue = queryParams.get("success");
-
-    if (checkoutId) {
-      const getCheckoutDetails = async () => {
-        const checkoutDetails = await getCheckoutMutation.mutateAsync({
-          checkoutId,
-        });
-
-        if (checkoutDetails.id) {
-          setCheckoutDetails(checkoutDetails);
-          setSuccess(
-            Boolean(successValue && successValue.toLowerCase() === "true")
-          );
-        }
-      };
-
-      getCheckoutDetails().catch(console.error);
-    }
-  }, [queryParams]);
-
   const handleCheckout = async () => {
     const checkout = await createCheckoutMutation.mutateAsync({
       priceId: "price_1OC6T4GF6B44pfYavboaPDTL",
     });
+
+    console.log(checkout);
 
     router.push(checkout.url!);
   };
@@ -104,20 +75,8 @@ export const ProjectModal = ({ data }: { data: IProject }) => {
     );
   };
 
-  const renderSuccess = () => {
-    const { customer_details, amount_total } = checkoutDetails;
-    return (
-      <>
-        <h3>Thank you</h3>
-        <p>for your donation!</p>
-        <p>{customer_details?.name}</p>
-        {amount_total && <h3>${(amount_total / 100).toFixed(2)}</h3>}
-      </>
-    );
-  };
-
   return (
-    <article className={styles["project-modal"]}>
+    <article className={styles.project}>
       <div className={styles["mobile-image-container"]}>
         <Image
           src={image}
@@ -163,7 +122,7 @@ export const ProjectModal = ({ data }: { data: IProject }) => {
           </p>
         </div>
         <div className={styles.content__data}>
-          {isSuccess ? renderSuccess() : renderData()}
+          {renderData()}
           <Button
             type={isCopied ? eButtonType.tertiary : eButtonType.secondary}
             color={eButtonColor.white}

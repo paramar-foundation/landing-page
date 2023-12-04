@@ -31,10 +31,11 @@ export default function Ambassadors() {
       <PageSection isFirstSection>
         <header className={styles.header}>
           <p className={styles.header__subtitle}>{t("subtitle")}</p>
-          <h1
-            className={styles.header__title}
-            dangerouslySetInnerHTML={{ __html: t.raw("title") as string }}
-          ></h1>
+          <h1 className={styles.header__title}>
+            {t.rich("title", {
+              purple: (chunks) => <b>{chunks}</b>,
+            })}
+          </h1>
           <p className={styles.header__content}>{t("content")}</p>
           <Button
             type={eButtonType.secondary}
@@ -64,7 +65,7 @@ export default function Ambassadors() {
             <li className={styles.ambassador} key={ambassador}>
               <div className={styles.ambassador__image}>
                 <Image
-                  src={`/profile-${ambassador}.jpg`}
+                  src={`https://paramar-foundation.sirv.com/Images/profile-${ambassador}.jpg`}
                   alt={ambassador}
                   loading="lazy"
                   width={300}

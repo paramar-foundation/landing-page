@@ -8,7 +8,7 @@ import {
   Main,
   NavigationBar,
   PageSection,
-  ProjectModal,
+  Project,
 } from "../components";
 
 import styles from "./projects.module.scss";
@@ -38,10 +38,8 @@ export default function ProjectsPage() {
           />
         </div>
       </PageSection>
-      <PageSection isLastSection>
-        <div className={styles.content}>
-          <ProjectModal data={donationsData[1]!} />
-        </div>
+      <PageSection className={styles.content} isLastSection>
+        <Project data={donationsData[1]!} />
       </PageSection>
       <Footer />
     </Main>

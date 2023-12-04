@@ -43,7 +43,7 @@
   },
   "ambassadors": {
     "subtitle": "Nuestros Embajadores",
-    "title": "Conoce a las personas que apoyan y están detrás de <b>Paramar Foundation</b>",
+    "title": "Conoce a las personas que apoyan y están detrás de <purple>Paramar Foundation</purple>",
     "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundo",
     "section-cta": "Contáctanos",
     "carlota-corzo": {
@@ -294,5 +294,16 @@
     "title": "Documentos legales",
     "last-update": "Última actualización: {date}",
     "go-back-link": "Volver a documentos"
+  },
+  "thank-you": {
+    "title": "¡Gracias <purple>{name}</purple>!",
+    "content": "Tu generosidad nos llena de inspiración. Juntos, estamos cambiando vidas mediante la terapia psicológica como herramienta de sanación.",
+    "back-cta": "Volver a proyectos",
+    "share-cta": "Descargar certificado"
+  },
+  "certificate": {
+    "subtitle": "Otorga un reconocimiento a:",
+    "body": "En agradecimiento por haberse sumado a la causa y ayudarnos a salvar vidas a través de la terapia psicológica.",
+    "details": "Por tu donación de ${amount} a la campaña {campaign}, el día {date}"
   }
 }

@@ -1,2 +1,2 @@
-export * from "./ProjectModal";
+export * from "../Project";
 export * from "./Modal";

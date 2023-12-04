@@ -4,6 +4,7 @@ import styles from "./PageSection.module.scss";
 
 interface ISectionProps {
   id?: string;
+  className?: string;
   children?: ReactNode;
   bgDefaultColor?: string;
   bgImage?: string;
@@ -13,6 +14,7 @@ interface ISectionProps {
 
 export const PageSection = ({
   id,
+  className,
   children,
   bgDefaultColor = "#fff",
   bgImage,
@@ -33,6 +35,7 @@ export const PageSection = ({
       styles["page-section"],
       isFirstSection ? styles["page-section--first"] : "",
       isLastSection ? styles["page-section--last"] : "",
+      className ? className : "",
     ].join(" ");
   };
 

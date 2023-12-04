@@ -13,15 +13,16 @@ export const paymentRouter = createTRPCRouter({
       const checkout = await stripe.checkout.sessions.create({
         currency: "usd",
         mode: "payment",
+        invoice_creation: {
+          enabled: true,
+        },
         line_items: [
           {
             price: input.priceId,
             quantity: 1,
           },
         ],
-        success_url:
-          getBaseUrl() +
-          "?project=3&checkout_id={CHECKOUT_SESSION_ID}&success=true",
+        success_url: getBaseUrl() + "/thank-you/{CHECKOUT_SESSION_ID}",
         cancel_url: getBaseUrl() + "/projects",
       });
 
