@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next-intl/client";
+import { useRouter } from "next-intl/client";
 import Image from "next/image";
 
 import { Button, eButtonColor } from "../../../../components/Button";
@@ -10,7 +10,6 @@ import styles from "./WhyUs.module.scss";
 
 export const WhyUs = () => {
   const t = useTranslations("why-us");
-  const pathname = usePathname();
   const router = useRouter();
 
   const paintList = [
@@ -46,7 +45,7 @@ export const WhyUs = () => {
       </ul>
       <Button
         color={eButtonColor.purple}
-        onClick={() => router.replace(pathname + "#projects")}
+        onClick={() => router.push("/projects")}
       >
         {t("cta")}
       </Button>

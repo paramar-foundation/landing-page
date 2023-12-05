@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next-intl/client";
+import { useRouter } from "next-intl/client";
 import Image from "next/image";
 
 import { Button, eButtonColor } from "../../../../components/Button";
@@ -10,7 +10,6 @@ import styles from "./Therapy.module.scss";
 
 export const Therapy = () => {
   const t = useTranslations("therapy");
-  const pathname = usePathname();
   const router = useRouter();
 
   const paintList = ["/paints/planet.png", "/paints/green.png"] as const;
@@ -43,7 +42,7 @@ export const Therapy = () => {
       </ul>
       <Button
         color={eButtonColor.purple}
-        onClick={() => router.replace(pathname + "#contact")}
+        onClick={() => router.push("/request-therapy")}
       >
         {t("cta")}
       </Button>
