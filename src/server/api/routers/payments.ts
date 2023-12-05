@@ -4,7 +4,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { getBaseUrl } from "~/src/trpc/shared";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_TEST_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export const paymentRouter = createTRPCRouter({
   createCheckout: publicProcedure
