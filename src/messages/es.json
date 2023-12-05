@@ -7,7 +7,7 @@
   },
   "nav": {
     "home": "Inicio",
-    "ambassadors": "Embajadoras",
+    "ambassadors": "Embajadoras/es",
     "contact": "Contáctanos",
     "faqs": "FAQs",
     "projects-cta": "Dona aquí",
@@ -48,7 +48,7 @@
     }
   },
   "ambassadors": {
-    "subtitle": "Nuestros Embajadores",
+    "subtitle": "Nuestras Embajadoras/es",
     "title": "Conoce a las personas que apoyan y están detrás de <purple>Paramar Foundation</purple>",
     "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundo",
     "section-cta": "Contáctanos",
@@ -56,7 +56,7 @@
       "name": "Carlota Corzo Álvarez",
       "picture": "profile-carlota-corzo.jpg",
       "role": "Cofundadora & CEO de Lázzaro, Patrona de la Fundación Youth Business Spain",
-      "quote": "Es algo básico que deberiera estar en este tipo de situaciones disponible para todas las personas.",
+      "quote": "Es algo básico que debería estar en este tipo de situaciones disponible para todas las personas.",
       "linked-in": "https://www.linkedin.com/in/carlotacorzoalvarez/",
       "instagram": "",
       "x": ""

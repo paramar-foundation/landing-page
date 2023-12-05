@@ -53,4 +53,14 @@ export const projectRouter = createTRPCRouter({
       },
     });
   }),
+
+  findUnique: publicProcedure
+    .input(z.object({ projectId: z.number() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.project.findUnique({
+        where: {
+          id: input.projectId,
+        },
+      });
+    }),
 });

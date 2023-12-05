@@ -121,7 +121,9 @@
 
     &__socials {
       display: flex;
-      gap: spacing(1);
+      align-items: center;
+      justify-content: center;
+      gap: spacing(5);
       padding: spacing(1);
 
       li {

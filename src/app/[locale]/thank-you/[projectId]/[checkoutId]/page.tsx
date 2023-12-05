@@ -20,15 +20,15 @@ import {
   NavigationBar,
   PageSection,
   eButtonType,
-} from "../../components";
+} from "../../../components";
 import Certificate from "./Certificate";
 
 import styles from "./thank-you.module.scss";
 
 export default function ThankYou({
-  params: { checkoutId },
+  params: { projectId, checkoutId },
 }: {
-  params: { checkoutId: string };
+  params: { projectId: string; checkoutId: string };
 }) {
   const t = useTranslations("thank-you");
   const [certificateDisplay, setCertificateDisplay] = useState("none");
@@ -37,6 +37,12 @@ export default function ThankYou({
   );
   const router = useRouter();
   const getCheckoutMutation = api.payments.getCheckoutDetails.useMutation();
+  const createDonationMutation = api.donations.create.useMutation();
+
+  const handleError = (e: Error) => {
+    // router.replace("/projects");
+    console.error(e);
+  };
 
   useEffect(() => {
     const getCheckoutDetails = async () => {
@@ -44,16 +50,23 @@ export default function ThankYou({
         checkoutId,
       });
 
-      if (checkoutDetails.id) {
+      const { id, amount_total, customer_details } = checkoutDetails;
+
+      if (id && amount_total && customer_details) {
         setCheckoutDetails(checkoutDetails);
+        const success = await createDonationMutation.mutateAsync({
+          checkoutId,
+          projectId: Number(projectId),
+          amount: amount_total / 100,
+          author: customer_details,
+        });
+
+        if (!success) throw new Error("Checkout already exists");
       }
     };
 
-    getCheckoutDetails().catch(() => {
-      router.replace("/projects");
-      console.error;
-    });
-  }, [checkoutId]);
+    getCheckoutDetails().catch(handleError);
+  }, []);
 
   useEffect(() => {
     const height = 720;
@@ -138,7 +151,7 @@ export default function ThankYou({
           top: "100%",
         }}
       >
-        <Certificate checkoutDetails={checkoutDetails} />
+        <Certificate checkoutDetails={checkoutDetails} projectId={projectId} />
       </div>
       <Footer />
     </Main>

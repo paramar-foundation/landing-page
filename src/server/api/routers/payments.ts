@@ -4,11 +4,11 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { getBaseUrl } from "~/src/trpc/shared";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_TEST_KEY!);
 
 export const paymentRouter = createTRPCRouter({
   createCheckout: publicProcedure
-    .input(z.object({ priceId: z.string() }))
+    .input(z.object({ projectId: z.number(), priceId: z.string() }))
     .mutation(async ({ input }) => {
       const checkout = await stripe.checkout.sessions.create({
         currency: "usd",
@@ -22,7 +22,9 @@ export const paymentRouter = createTRPCRouter({
             quantity: 1,
           },
         ],
-        success_url: getBaseUrl() + "/thank-you/{CHECKOUT_SESSION_ID}",
+        success_url: `${getBaseUrl()}/thank-you/${
+          input.projectId
+        }/{CHECKOUT_SESSION_ID}`,
         cancel_url: getBaseUrl() + "/projects",
       });
 

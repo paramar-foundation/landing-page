@@ -29,6 +29,10 @@
       display: flex;
       justify-content: center;
     }
+
+    & > a {
+      width: 180px;
+    }
   }
 
   &__rights {

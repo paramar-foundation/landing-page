@@ -19,6 +19,7 @@ import {
 import { ambassadors } from "~/constants";
 
 import styles from "./ambassadors.module.scss";
+import Link from "next/link";
 
 export default function Ambassadors() {
   const t = useTranslations("ambassadors");
@@ -82,17 +83,23 @@ export default function Ambassadors() {
                 <ul className={styles.ambassador__socials}>
                   {t(`${ambassador}.instagram`) !== "" && (
                     <li>
-                      <Icon icon={eIcons.socialInstagram} />
+                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
+                        <Icon icon={eIcons.socialInstagram} />
+                      </Link>
                     </li>
                   )}
                   {t(`${ambassador}.x`) !== "" && (
                     <li>
-                      <Icon icon={eIcons.socialX} />
+                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
+                        <Icon icon={eIcons.socialX} />
+                      </Link>
                     </li>
                   )}
                   {t(`${ambassador}.linked-in`) !== "" && (
                     <li>
-                      <Icon icon={eIcons.socialLinkedIn} />
+                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
+                        <Icon icon={eIcons.socialLinkedIn} />
+                      </Link>
                     </li>
                   )}
                 </ul>

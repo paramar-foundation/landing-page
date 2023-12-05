@@ -26,14 +26,17 @@ export const Footer = () => {
         </div>
         <ul className={styles.footer__socials}>
           <li>
-            <a href="">
+            <Link href="">
               <Icon icon={eIcons.socialLinkedIn}></Icon>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link
+              href="https://www.instagram.com/paramarfoundation/"
+              target="_blank"
+            >
               <Icon icon={eIcons.socialInstagram}></Icon>
-            </a>
+            </Link>
           </li>
         </ul>
       </article>

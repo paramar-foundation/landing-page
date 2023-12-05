@@ -56,6 +56,7 @@ export const Project = ({ data }: { data: IProject }) => {
   const handleCheckout = async () => {
     const checkout = await createCheckoutMutation.mutateAsync({
       priceId,
+      projectId: data.id,
     });
 
     router.push(checkout.url!);
