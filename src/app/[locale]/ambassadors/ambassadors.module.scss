@@ -253,6 +253,8 @@
       }
 
       &__socials {
+        justify-content: flex-start;
+        gap: spacing(1);
         padding: spacing(1) 0;
 
         li > div {
