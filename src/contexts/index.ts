@@ -2,6 +2,7 @@
 
 import type { SetStateAction, Dispatch } from "react";
 import { createContext } from "react";
+import type { IProject } from "../types";
 
 export const ModalContext = createContext({
   content: null as null | string | React.ReactNode,
@@ -9,3 +10,4 @@ export const ModalContext = createContext({
 });
 
 export const MainScrollContext = createContext(0);
+export const ProjectsContext = createContext<IProject[] | undefined>(undefined);

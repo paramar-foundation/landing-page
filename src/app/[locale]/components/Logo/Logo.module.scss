@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  gap: 3%;
+  gap: 4%;
 
   &__black svg {
     fill: $color-black;
@@ -44,6 +44,8 @@
 
 @media (max-width: $breakpoint-md) {
   .logo--responsive {
+    align-items: flex-start;
+
     .logo__text {
       display: none;
     }

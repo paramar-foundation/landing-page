@@ -47,6 +47,7 @@
 
 .content {
   @include section;
+  gap: spacing(4);
 }
 
 @media (max-width: $breakpoint-lg) {

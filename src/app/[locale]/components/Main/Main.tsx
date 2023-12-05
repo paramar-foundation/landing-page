@@ -5,25 +5,24 @@ import { useSearchParams } from "next/navigation";
 
 import { Modal, Project } from "../Modal";
 
-import { donationsData } from "~/src/constants";
 import styles from "./Main.module.scss";
 import { MainScrollContext, ModalContext } from "~/src/contexts";
+import { api } from "~/src/trpc/react";
 
 export const Main = ({ children }: { children: ReactNode }) => {
-  const [modalContent, setModalContent] = useState(null as ReactNode | null);
+  const [modalContent, setModalContent] = useState<ReactNode | null>(null);
   const [scroll, setScroll] = useState(0);
   const queryParams = useSearchParams();
+  const { data: projects } = api.projects.getAll.useQuery();
 
   useEffect(() => {
     const project = queryParams.get("project");
-    const projectData = donationsData.find(
-      ({ id }) => id.toString() === project
-    );
+    const projectData = projects?.find(({ id }) => id.toString() === project);
 
     if (projectData) {
       setModalContent(<Project data={projectData} />);
     }
-  }, [queryParams]);
+  }, [queryParams, projects]);
 
   const getClassName = () => {
     return [styles.main, modalContent && styles["main--modal-open"]].join(" ");

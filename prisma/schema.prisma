@@ -19,3 +19,40 @@ model ambassador {
 
   @@index([name])
 }
+
+model project {
+  id        Int        @id @default(autoincrement())
+  is_test   Boolean
+  image     String
+  location  String
+  goal      Float
+  donations donation[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // English Fields
+  stripe_price_id_en String
+  title_en           String
+  details_en         String
+  description_en     String @db.VarChar(1024)
+
+  // Spanish Fields
+  stripe_price_id_es String
+  title_es           String
+  details_es         String
+  description_es     String @db.VarChar(1024)
+
+  @@index([id])
+}
+
+model donation {
+  id        Int      @id @default(autoincrement())
+  project   project? @relation(fields: [projectId], references: [id])
+  projectId Int?
+  author    Json
+  amount    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
+}

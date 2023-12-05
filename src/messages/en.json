@@ -1,4 +1,10 @@
 {
+  "generic": {
+    "-": "",
+    "minutes": "minutos",
+    "hours": "horas",
+    "days": "días"
+  },
   "nav": {
     "home": "Home",
     "ambassadors": "Ambassadors",
@@ -203,7 +209,7 @@
     "title": "Be part of the change",
     "description": "Your generous support for any of our projects is a valuable step toward a better world, where more women and girls can receive the help they need.",
     "thank-you": "Thank you! All donations received are tax-deductible.",
-    "donate-card-last-donation": "Last donation {time}{unit}",
+    "donate-card-last-donation": "Last donation: {time} {unit}",
     "share-card-btn": "Share",
     "share-card-btn-copied": "Url copied to clipboard!",
     "donate-card-btn": "Donate now",

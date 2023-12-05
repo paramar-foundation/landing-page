@@ -92,3 +92,15 @@ a {
   font-weight: 400;
   letter-spacing: 0.25px;
 }
+
+br {
+  display: block;
+  content: "";
+  margin-top: 8px;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: solid 1px $color-purple-400;
+}

@@ -1,8 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { Fragment } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
+import { api } from "~/src/trpc/react";
 import {
   Footer,
   Main,
@@ -12,10 +14,10 @@ import {
 } from "../components";
 
 import styles from "./projects.module.scss";
-import { donationsData } from "~/src/constants";
 
 export default function ProjectsPage() {
   const t = useTranslations("projects.page");
+  const { data: projects } = api.projects.getAll.useQuery();
 
   return (
     <Main>
@@ -39,7 +41,14 @@ export default function ProjectsPage() {
         </div>
       </PageSection>
       <PageSection className={styles.content} isLastSection>
-        <Project data={donationsData[1]!} />
+        {projects
+          ?.filter((project) => !project.is_test)
+          .map((project, index) => (
+            <Fragment key={project.id}>
+              {projects.length > 1 && index !== 0 && <hr />}
+              <Project data={project} />
+            </Fragment>
+          ))}
       </PageSection>
       <Footer />
     </Main>

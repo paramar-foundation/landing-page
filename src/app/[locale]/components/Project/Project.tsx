@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { api } from "~/src/trpc/react";
 
@@ -15,13 +15,36 @@ import styles from "./Project.module.scss";
 
 export const Project = ({ data }: { data: IProject }) => {
   const t = useTranslations("projects");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [priceId, setPriceId] = useState("");
+  const [totalDonated, setTotalDonated] = useState(0);
   const [isCopied, setCopied] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
   const queryParams = useSearchParams();
+  const locale = useLocale();
   const createCheckoutMutation = api.payments.createCheckout.useMutation();
 
-  const { image, name, currentAmount, goalAmount, totalDonations } = data;
+  const {
+    image,
+    donations,
+    goal,
+    _count: { donations: totalDonations },
+  } = data;
+
+  useEffect(() => {
+    if (locale === "es" || locale === "en") {
+      setTitle(data[`title_${locale}`]);
+      setDescription(data[`description_${locale}`]);
+      setPriceId(data[`stripe_price_id_${locale}`]);
+    }
+  }, [data, locale]);
+
+  useEffect(() => {
+    const total = donations.reduce((partialSum, a) => partialSum + a.amount, 0);
+    setTotalDonated(total);
+  }, [donations]);
 
   useEffect(() => {
     if (isCopied) {
@@ -32,10 +55,8 @@ export const Project = ({ data }: { data: IProject }) => {
 
   const handleCheckout = async () => {
     const checkout = await createCheckoutMutation.mutateAsync({
-      priceId: "price_1OC6T4GF6B44pfYavboaPDTL",
+      priceId,
     });
-
-    console.log(checkout);
 
     router.push(checkout.url!);
   };
@@ -50,15 +71,15 @@ export const Project = ({ data }: { data: IProject }) => {
   };
 
   const getProgressPercent = () => {
-    return `${((currentAmount / goalAmount) * 100).toFixed(0)}%`;
+    return `${((totalDonated / goal) * 100).toFixed(0)}%`;
   };
 
   const renderData = () => {
     return (
       <>
         <p className={styles.content__data__summary}>
-          <b>${Intl.NumberFormat().format(currentAmount)}</b> recolectados de $
-          {Intl.NumberFormat().format(goalAmount)}
+          <b>${Intl.NumberFormat().format(totalDonated)}</b> recolectados de $
+          {Intl.NumberFormat().format(goal)}
         </p>
         <div className={styles.content__data__bar}>
           <div
@@ -80,46 +101,27 @@ export const Project = ({ data }: { data: IProject }) => {
       <div className={styles["mobile-image-container"]}>
         <Image
           src={image}
-          alt={`${name} donation cover`}
+          alt={`${title} donation cover`}
           width={400}
           height={400}
         />
       </div>
-      <h3 className={styles.title}>{name}</h3>
+      <h3 className={styles.title}>{title}</h3>
       <div className={styles.content}>
         <div className={styles.content__description}>
           <div className={styles["content__description__image-container"]}>
             <Image
               src={image}
-              alt={`${name} donation cover`}
+              alt={`${title} donation cover`}
               width={400}
               height={400}
             />
           </div>
           <div className={styles.content__description__caption}>
             <Icon icon={eIcons.hands} className={styles.icon} />
-            <span>
-              Paramar Foundation busca ofrecer apoyo psicológico gratuito a
-              mujeres y niñas que hayan sido víctimas de agresiones sexuales en
-              algún momento de su vida.
-            </span>
+            <span></span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod. tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod. tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: description }} />
         </div>
         <div className={styles.content__data}>
           {renderData()}

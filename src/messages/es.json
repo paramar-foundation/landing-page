@@ -1,4 +1,10 @@
 {
+  "generic": {
+    "-": "",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days"
+  },
   "nav": {
     "home": "Inicio",
     "ambassadors": "Embajadoras",
@@ -203,7 +209,7 @@
     "title": "Sé parte del cambio",
     "description": "Tu apoyo generoso a alguno de nuestros proyectos es un paso valioso hacia un mundo mejor, donde más mujeres y niñas puedan recibir la ayuda que necesitan.",
     "thank-you": "¡Gracias! Todas las donaciones recibidas son deducibles de impuestos.",
-    "donate-card-last-donation": "Última donación hace {time}{unit}",
+    "donate-card-last-donation": "Última donación: {time} {unit}",
     "share-card-btn": "Compartir",
     "donate-card-btn": "Dona ahora",
     "share-card-btn-copied": "¡Url copiada en portapapeles!",

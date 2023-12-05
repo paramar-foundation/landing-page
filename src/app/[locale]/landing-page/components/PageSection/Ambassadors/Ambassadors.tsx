@@ -53,7 +53,7 @@ export const Ambassadors = () => {
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>
         <Image
-          src={`/profile-${ambassadors[index]}.jpg`}
+          src={`https://paramar-foundation.sirv.com/Images/profile-${ambassadors[index]}.jpg`}
           alt={ambassadors[index]!}
           loading="lazy"
           width={450}
