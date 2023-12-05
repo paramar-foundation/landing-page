@@ -90,14 +90,14 @@ export default function Ambassadors() {
                   )}
                   {t(`${ambassador}.x`) !== "" && (
                     <li>
-                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
+                      <Link href={t(`${ambassador}.x`)} target="_blank">
                         <Icon icon={eIcons.socialX} />
                       </Link>
                     </li>
                   )}
                   {t(`${ambassador}.linked-in`) !== "" && (
                     <li>
-                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
+                      <Link href={t(`${ambassador}.linked-in`)} target="_blank">
                         <Icon icon={eIcons.socialLinkedIn} />
                       </Link>
                     </li>
