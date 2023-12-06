@@ -125,6 +125,21 @@
 
 @media (max-width: $breakpoint-md) {
   .countdown {
+    & > div:first-of-type {
+      //logo
+      max-width: 220px;
+    }
+
+    h3 {
+      span {
+        font-size: 20px;
+      }
+
+      b {
+        font-size: 28px;
+      }
+    }
+
     .time {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -135,16 +150,27 @@
       }
 
       &__item {
+        width: 90px;
+
+        .time__item__number {
+          font-size: 48px;
+          line-height: 36px;
+        }
+
+        .time__item__unit {
+          font-size: 14px;
+        }
+
         &:last-child {
-          width: 120px;
+          width: 90px;
 
           .time__item__number {
-            font-size: 64px;
-            line-height: 54px;
+            font-size: 48px;
+            line-height: 36px;
           }
 
           .time__item__unit {
-            font-size: 20px;
+            font-size: 14px;
           }
         }
       }
