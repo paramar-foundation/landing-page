@@ -125,29 +125,43 @@
 
 @media (max-width: $breakpoint-md) {
   .countdown {
+    .time {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      p {
+        display: none;
+      }
+
+      &__item {
+        &:last-child {
+          width: 120px;
+
+          .time__item__number {
+            font-size: 64px;
+            line-height: 54px;
+          }
+
+          .time__item__unit {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
     &__paint-left,
     &__paint-right {
       transform: scale(0.5);
     }
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  .countdown {
-    &__paint-left,
-    &__paint-right {
-      transform: scale(0.4);
-    }
 
     &__paint-left {
-      top: 20%;
-      bottom: auto;
+      bottom: -10%;
       right: calc(100% - 260px);
     }
 
     &__paint-right {
-      top: auto;
-      bottom: 20%;
+      top: -10%;
       left: calc(100% - 160px);
     }
   }
