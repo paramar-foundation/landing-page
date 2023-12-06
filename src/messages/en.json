@@ -1,9 +1,12 @@
 {
   "generic": {
     "-": "",
-    "minutes": "minutos",
-    "hours": "horas",
-    "days": "días"
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "launch": "Our page will be available on",
+    "launch-date": "Diciembre 10, 2023."
   },
   "nav": {
     "home": "Home",
