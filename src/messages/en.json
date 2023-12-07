@@ -42,12 +42,12 @@
       "item-2": "We run campaigns and offer awareness courses to companies and institutions to help reduce the number of women and girls who are assaulted."
     },
     "how-we-help": {
-      "title": "What do we do?",
+      "title": "How do we help?",
       "item-1": "100% of the profit from these therapies and courses will be dedicated to provide free psychological support to other women and girls without resources who are also victims of sexual assault.",
       "item-2": "We provide a platform for other individuals to contribute to this mission through donations to our projects."
     },
     "who-we-are": {
-      "title": "What do we do?",
+      "title": "Who we are?",
       "item-1": "We are a group of professionals with over 20 years of experience in the fields of clinical psychology and social project management. Our ambassadors and Paramar Foundation's managers have raised and managed funds totaling over $1 billion USD throughout their careers, generating positive economic and social impacts in various regions through collaborations with organizations such as Prodis, Ibero-American Commerce Bank, United Nations, Mexican Institute of Sexual Identity, and more."
     }
   },
@@ -174,7 +174,7 @@
     "share-card-btn-copied": "Url copied to clipboard!",
     "donate-card-btn": "Donate now",
     "total-donations": "{total} donations",
-    "raised": "raised of",
+    "raised": "collected out of",
     "caption": "<b>Paramar Foundation</b>  aims to provide free psychological support to women and girls who have been victims of sexual assaults at any point in their lives",
     "disclaimer-title": "<b>Paramar Foundation</b> is safe:",
     "disclaimer-content": "All your donations are being safeguarded by strict security measures and designed procedures, ensuring that your generosity securely reaches those who need it the most.",
