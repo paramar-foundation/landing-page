@@ -6,7 +6,8 @@
     "hours": "horas",
     "days": "días",
     "launch": "Nuestra página estará disponible en",
-    "launch-date": "Diciembre 10, 2023."
+    "launch-date": "Diciembre 10, 2023.",
+    "success-btn": "✅ Tu solicitud ha sido enviada exitosamente."
   },
   "nav": {
     "home": "Inicio",
@@ -172,6 +173,8 @@
     "donate-card-btn": "Dona ahora",
     "share-card-btn-copied": "¡Url copiada en portapapeles!",
     "total-donations": "{total} donaciones",
+    "raised": "recolectados de",
+    "caption": "<b>Paramar Foundation</b> busca ofrecer apoyo psicológico gratuito a mujeres y niñas que hayan sido víctimas de agresiones sexuales en algún momento de su vida.",
     "disclaimer-title": "<b>Paramar Foundation</b> es seguro:",
     "disclaimer-content": "Todas tus donaciones están siendo protegidas por estrictas medidas de seguridad y procedimientos diseñados que garantizan que tu generosidad llegará de manera segura a quienes más lo necesitan.",
     "page": {

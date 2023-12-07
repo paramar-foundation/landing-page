@@ -79,7 +79,7 @@ export const Project = ({ data }: { data: IProject }) => {
     return (
       <>
         <p className={styles.content__data__summary}>
-          <b>${Intl.NumberFormat().format(totalDonated)}</b> recolectados de $
+          <b>${Intl.NumberFormat().format(totalDonated)}</b> {t("raised")} $
           {Intl.NumberFormat().format(goal)}
         </p>
         <div className={styles.content__data__bar}>
@@ -120,7 +120,11 @@ export const Project = ({ data }: { data: IProject }) => {
           </div>
           <div className={styles.content__description__caption}>
             <Icon icon={eIcons.hands} className={styles.icon} />
-            <span></span>
+            <span>
+              {t.rich("caption", {
+                b: (chunks) => <b>{chunks}</b>,
+              })}
+            </span>
           </div>
           <p dangerouslySetInnerHTML={{ __html: description }} />
         </div>

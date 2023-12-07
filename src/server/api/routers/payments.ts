@@ -2,7 +2,6 @@ import Stripe from "stripe";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-import { getBaseUrl } from "~/src/trpc/shared";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -22,10 +21,8 @@ export const paymentRouter = createTRPCRouter({
             quantity: 1,
           },
         ],
-        success_url: `${getBaseUrl()}/thank-you/${
-          input.projectId
-        }/{CHECKOUT_SESSION_ID}`,
-        cancel_url: getBaseUrl() + "/projects",
+        success_url: `${process.env.BASE_URL}/thank-you/${input.projectId}/{CHECKOUT_SESSION_ID}`,
+        cancel_url: process.env.BASE_URL + "/projects",
       });
 
       return checkout;

@@ -31,6 +31,7 @@ export default function ThankYou({
   params: { projectId: string; checkoutId: string };
 }) {
   const t = useTranslations("thank-you");
+  const [isCreated, setCreated] = useState(false);
   const [certificateDisplay, setCertificateDisplay] = useState("none");
   const [checkoutDetails, setCheckoutDetails] = useState(
     {} as Stripe.Response<Stripe.Checkout.Session>
@@ -40,7 +41,7 @@ export default function ThankYou({
   const createDonationMutation = api.donations.create.useMutation();
 
   const handleError = (e: Error) => {
-    // router.replace("/projects");
+    router.replace("/projects");
     console.error(e);
   };
 
@@ -52,7 +53,8 @@ export default function ThankYou({
 
       const { id, amount_total, customer_details } = checkoutDetails;
 
-      if (id && amount_total && customer_details) {
+      if (id && amount_total && customer_details && !isCreated) {
+        setCreated(true);
         setCheckoutDetails(checkoutDetails);
         const success = await createDonationMutation.mutateAsync({
           checkoutId,

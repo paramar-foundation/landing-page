@@ -62,6 +62,8 @@ export const Ambassadors = () => {
     }
   }, [ambassadors, index, locale]);
 
+  if (!ambassadors) return <></>;
+
   return (
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>

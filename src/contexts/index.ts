@@ -5,7 +5,7 @@ import { createContext } from "react";
 import type { IProject } from "../types";
 
 export const ModalContext = createContext({
-  content: null as null | string | React.ReactNode,
+  content: null as null | React.ReactNode,
   setContent: (() => null) as Dispatch<SetStateAction<any>>,
 });
 

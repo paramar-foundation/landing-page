@@ -32,7 +32,6 @@ export const Projects = () => {
 
   useEffect(() => {
     if (projects) {
-      console.log(projects);
       setMaxIndex(projects.length - 1);
     }
   }, [projects]);
@@ -62,6 +61,8 @@ export const Projects = () => {
       return <DonateCard key={projects?.[pageIndex]?.id} data={project} />;
     }
   };
+
+  if (!projects) return <></>;
 
   return (
     <article className={styles.donations}>

@@ -1,6 +1,7 @@
 import { ambassadorRouter } from "~/server/api/routers/ambassador";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { donationRouter } from "./routers/donation";
+import { mailingRouter } from "./routers/mailing";
 import { paymentRouter } from "./routers/payments";
 import { projectRouter } from "./routers/projects";
 
@@ -12,6 +13,7 @@ import { projectRouter } from "./routers/projects";
 export const appRouter = createTRPCRouter({
   ambassador: ambassadorRouter,
   donations: donationRouter,
+  mailing: mailingRouter,
   payments: paymentRouter,
   projects: projectRouter,
 });

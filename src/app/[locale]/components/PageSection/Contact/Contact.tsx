@@ -10,64 +10,43 @@ import { Button } from "../../Button";
 
 import styles from "./Contact.module.scss";
 
-import emailjs from "@emailjs/browser";
+import { api } from "~/src/trpc/react";
 
 export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
   const t = useTranslations(pageType);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [moreInfo, setMoreInfo] = useState(
-    hasSelect ? "" : t("options.therapy")
-  );
+  const [subject, setSubject] = useState(hasSelect ? "" : t("options.therapy"));
   const [isSending, setSending] = useState(false);
   const [isSent, setSent] = useState(false);
   const [isError, setError] = useState(false);
-  const [isMoreInfoError, setMoreInfoError] = useState(false);
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   name: false,
-  //   lastName: false,
-  //   email: false,
-  //   moreInfo,
-  // });
+  const [isSubjectError, setSubjectError] = useState(false);
+
+  const sendEmailMutation = api.mailing.sendEmail.useMutation();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (moreInfo === "") {
-      return setMoreInfoError(true);
+    if (subject === "") {
+      return setSubjectError(true);
     }
 
     setSending(true);
 
-    const templateParams = {
-      name: name,
-      email: email,
-      lastname: lastName,
-      subject: moreInfo,
-    };
+    if (!isSent && !isError) {
+      await sendEmailMutation.mutateAsync({
+        name: name,
+        email: email,
+        lastname: lastName,
+        subject: subject,
+      });
+    }
+
+    setSending(false);
+    setSent(true);
 
     try {
-      const { status } = await emailjs.send(
-        "default_service",
-        "template_efx47rn",
-        templateParams,
-        "SOs7nlEDZqSNcqyP_"
-      );
-
-      if (status === 200) {
-        setSending(false);
-        setSent(true);
-        alert(
-          `Hi ${name} ${lastName}.\nWe will soon contact you to ${email} about: ${moreInfo}`
-        );
-      } else {
-        setSending(false);
-        setError(true);
-        alert(
-          `Oops! Something went wrong with the contact form.\n Please try again later.`
-        );
-      }
     } catch (error) {
       setSending(false);
       setError(true);
@@ -79,7 +58,7 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
     setName("");
     setLastName("");
     setEmail("");
-    setMoreInfo("");
+    setSubject("");
 
     setTimeout(() => {
       setSent(false);
@@ -115,67 +94,48 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
     "collaborate",
   ] as const;
 
-  const renderContent = () => {
-    if (isSending) {
-      return <div className={styles.contact__content__body}>Sendind...</div>;
-    } else if (isSent) {
-      return (
-        <div className={styles.contact__content__body}>
-          Thank you for contacting us! <br />
-          We will soon be contacting you.
-        </div>
-      );
-    } else if (isError) {
-      return (
-        <div className={styles.contact__content__body}>
-          Sorry! Something went wrong with the contact form. <br />
-          Plase try again later.
-        </div>
-      );
-    } else {
-      return (
-        <form
-          className={styles.contact__form}
-          onSubmit={(e) => handleSubmit(e)}
-        >
-          {formData.map((data) => (
-            <TextInput
-              key={t(data.input)}
-              label={t(data.input)}
-              name={data.input}
-              value={data.value}
-              type={data.type}
-              onChange={data.setFunction}
-              theme={eInputTheme.light}
-            />
-          ))}
-          {hasSelect && (
-            <SelectInput
-              label={t("information")}
-              name="information"
-              value={moreInfo}
-              onChange={setMoreInfo}
-              options={selectOptions.map((option) => t(`options.${option}`))}
-              theme={eInputTheme.light}
-              error={isMoreInfoError}
-              setError={setMoreInfoError}
-            />
-          )}
-          <Button htmlType="submit" fullWidth>
-            {t("send-btn")}
-          </Button>
-        </form>
-      );
-    }
-  };
-
   return (
     <article className={styles.contact}>
       <div className={styles.contact__content}>
         <h2 className={styles.contact__content__title}>{t("title")}</h2>
         <p className={styles.contact__content__body}>{t("description")}</p>
       </div>
-      {renderContent()}
+      <form className={styles.contact__form} onSubmit={(e) => handleSubmit(e)}>
+        {formData.map((data) => (
+          <TextInput
+            key={t(data.input)}
+            label={t(data.input)}
+            name={data.input}
+            value={data.value}
+            type={data.type}
+            onChange={data.setFunction}
+            theme={eInputTheme.light}
+            disabled={isSending || isSent}
+          />
+        ))}
+        {hasSelect && (
+          <SelectInput
+            label={t("information")}
+            name="information"
+            value={subject}
+            onChange={setSubject}
+            options={selectOptions.map((option) => t(`options.${option}`))}
+            theme={eInputTheme.light}
+            error={isSubjectError}
+            setError={setSubjectError}
+            disabled={isSending || isSent}
+          />
+        )}
+        <Button
+          htmlType="submit"
+          fullWidth
+          isLoading={isSending}
+          disabled={isSending}
+          isSuccess={!isSending && isSent}
+        >
+          {t("send-btn")}
+        </Button>
+      </form>
       <Image
         className={styles["contact__paint-top"]}
         src="/paints/contact-top.png"

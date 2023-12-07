@@ -26,7 +26,10 @@ export const Footer = () => {
         </div>
         <ul className={styles.footer__socials}>
           <li>
-            <Link href="">
+            <Link
+              href="https://www.linkedin.com/company/paramar-foundation/"
+              target="_blank"
+            >
               <Icon icon={eIcons.socialLinkedIn}></Icon>
             </Link>
           </li>

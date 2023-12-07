@@ -7,6 +7,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    BASE_URL: z.string(),
     STRIPE_PUBLIC_KEY: z.string(),
     STRIPE_SECRET_KEY: z.string(),
     DATABASE_URL: z
@@ -39,6 +40,7 @@ export const env = createEnv({
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+    BASE_URL: process.env.BASE_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

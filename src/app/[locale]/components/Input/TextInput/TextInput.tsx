@@ -36,6 +36,7 @@ export const TextInput = ({
       styles.fieldset,
       themeClass[theme],
       value !== "" && styles["fieldset--filled"],
+      disabled && styles["fieldset--disabled"],
     ];
 
     return classes.join(" ");

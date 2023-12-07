@@ -12,18 +12,23 @@
   line-height: 16px;
   cursor: pointer;
 
-  &--standard {
-    max-height: spacing(8);
-  }
+  &__loader {
+    display: inline-block;
+    position: relative;
+    width: spacing(1);
+    height: spacing(1);
 
-  &--small {
-    height: fit-content;
-    padding: spacing(1.5);
-  }
+    div {
+      position: absolute;
+      border: 3px solid $color-white;
+      opacity: 1;
+      border-radius: 50%;
+      animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
 
-  &--fullwidth {
-    justify-content: center;
-    width: 100%;
+    div:nth-child(2) {
+      animation-delay: -0.5s;
+    }
   }
 
   &__primary {
@@ -170,5 +175,71 @@
 
   &:hover {
     @include card;
+  }
+
+  &--standard {
+    max-height: spacing(8);
+  }
+
+  &--small {
+    height: fit-content;
+    padding: spacing(1.5);
+  }
+
+  &--fullwidth {
+    justify-content: center;
+    width: 100%;
+  }
+
+  &--loading {
+    &.button--purple-disabled {
+      background-color: $color-purple;
+      pointer-events: none;
+    }
+
+    &.button--orange-disabled {
+      background-color: $color-orange;
+    }
+
+    &.button--white-disabled {
+      background-color: $color-white;
+    }
+  }
+
+  &--success {
+    background-color: $color-green;
+    color: $color-white;
+    pointer-events: none;
+  }
+}
+
+@keyframes loading {
+  0% {
+    top: spacing(0.5);
+    left: spacing(0.5);
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: spacing(0.5);
+    left: spacing(0.5);
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: spacing(0.5);
+    left: spacing(0.5);
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: spacing(-1.5);
+    left: spacing(-1.5);
+    width: spacing(4);
+    height: spacing(4);
+    opacity: 0;
   }
 }

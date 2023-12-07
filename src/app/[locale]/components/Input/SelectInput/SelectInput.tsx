@@ -38,8 +38,10 @@ export const SelectInput = ({
   const selectRef = useRef(null);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-    setError(false);
+    if (!disabled) {
+      setIsOpen(!isOpen);
+      setError(false);
+    }
   };
 
   const handleOptionClick = (option: string) => {
@@ -57,6 +59,7 @@ export const SelectInput = ({
       styles.fieldset,
       styles.select,
       themeClass[theme],
+      disabled && styles["fieldset--disabled"],
       isOpen && styles["fieldset--select-open"],
       error && styles["fieldset--error"],
       value !== "" && styles["fieldset--filled"],
