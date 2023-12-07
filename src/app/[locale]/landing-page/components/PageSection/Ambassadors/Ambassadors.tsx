@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -41,8 +44,8 @@ export const Ambassadors = () => {
   useEffect(() => {
     if (ambassadors) {
       if (locale === "es" || locale === "en") {
-        setRole(ambassadors?.[index]?.[`role_${locale}`] as string);
-        setQuote(ambassadors?.[index]?.[`quote_${locale}`] as string);
+        setRole(ambassadors?.[index]?.[`role_${locale}`] ?? "");
+        setQuote(ambassadors?.[index]?.[`quote_${locale}`] ?? "");
       }
 
       if (index >= ambassadors.length - 1) {
@@ -63,7 +66,7 @@ export const Ambassadors = () => {
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>
         <Image
-          src={ambassadors?.[index]?.picture as string}
+          src={ambassadors?.[index]?.picture ?? ""}
           alt={`${ambassadors?.[index]?.name} profile picture`}
           loading="lazy"
           width={450}
@@ -93,7 +96,7 @@ export const Ambassadors = () => {
             {ambassadors?.[index]?.instagram && (
               <li>
                 <Link
-                  href={ambassadors?.[index]?.instagram as string}
+                  href={ambassadors?.[index]?.instagram ?? ""}
                   target="_blank"
                 >
                   <Icon icon={eIcons.socialInstagram} />
@@ -102,7 +105,7 @@ export const Ambassadors = () => {
             )}
             {ambassadors?.[index]?.x && (
               <li>
-                <Link href={ambassadors?.[index]?.x as string} target="_blank">
+                <Link href={ambassadors?.[index]?.x ?? ""} target="_blank">
                   <Icon icon={eIcons.socialX} />
                 </Link>
               </li>
@@ -110,7 +113,7 @@ export const Ambassadors = () => {
             {ambassadors?.[index]?.linkedin && (
               <li>
                 <Link
-                  href={ambassadors?.[index]?.linkedin as string}
+                  href={ambassadors?.[index]?.linkedin ?? ""}
                   target="_blank"
                 >
                   <Icon icon={eIcons.socialLinkedIn} />

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -32,16 +34,16 @@ export default function Ambassadors() {
       let role = "";
 
       if (locale === "es") {
-        role = ambassador.role_es as string;
+        role = ambassador.role_es;
       } else {
-        role = ambassador.role_en as string;
+        role = ambassador.role_en;
       }
 
       return (
         <li className={styles.ambassador} key={ambassador.id}>
           <div className={styles.ambassador__image}>
             <Image
-              src={ambassador.picture as string}
+              src={ambassador.picture}
               alt={`${ambassador.name} profile picture`}
               loading="lazy"
               width={300}
@@ -54,21 +56,21 @@ export default function Ambassadors() {
             <ul className={styles.ambassador__socials}>
               {ambassador.instagram && (
                 <li>
-                  <Link href={ambassador.instagram as string} target="_blank">
+                  <Link href={ambassador.instagram} target="_blank">
                     <Icon icon={eIcons.socialInstagram} />
                   </Link>
                 </li>
               )}
               {ambassador.x && (
                 <li>
-                  <Link href={ambassador.x as string} target="_blank">
+                  <Link href={ambassador.x} target="_blank">
                     <Icon icon={eIcons.socialX} />
                   </Link>
                 </li>
               )}
               {ambassador.linkedin && (
                 <li>
-                  <Link href={ambassador.linkedin as string} target="_blank">
+                  <Link href={ambassador.linkedin} target="_blank">
                     <Icon icon={eIcons.socialLinkedIn} />
                   </Link>
                 </li>
