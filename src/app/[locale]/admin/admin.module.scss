@@ -1,0 +1,55 @@
+@import "~/styles/functions.scss";
+@import "~/styles/mixins.scss";
+@import "~/styles/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(4);
+  height: 100%;
+  padding: 0 spacing(8);
+  padding-bottom: spacing(10);
+
+  form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: spacing(2);
+  }
+}
+
+.admin {
+  width: 100%;
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid $color-purple-400;
+    text-align: left;
+    padding: 8px;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: spacing(2);
+      font-size: 20px;
+    }
+  }
+
+  th {
+    color: $color-white;
+    background-color: $color-purple;
+  }
+
+  tr:nth-child(even) {
+    background-color: $color-purple-100;
+  }
+}
