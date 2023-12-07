@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next-intl/link";
 
+import { api } from "~/src/trpc/react";
 import { IconButton, eIconButtonType } from "../../../../components/IconButton";
 import { Icon, eIcons } from "../../../../components/Icon";
 
-import { ambassadors } from "~/constants";
 import styles from "./Ambassadors.module.scss";
 import Image from "next/image";
 
@@ -17,7 +17,10 @@ export const Ambassadors = () => {
   const [isPrevDisabled, setPrevDisabled] = useState(true);
   const [isNextDisabled, setNextDisabled] = useState(false);
   const [index, setIndex] = useState(0);
+  const [role, setRole] = useState("");
+  const [quote, setQuote] = useState("");
   const locale = useLocale();
+  const { data: ambassadors } = api.ambassador.getAll.useQuery();
 
   const getDotClassName = (i: number) => {
     return [styles.dot, i === index ? styles["dot--active"] : ""].join(" ");
@@ -36,25 +39,32 @@ export const Ambassadors = () => {
   };
 
   useEffect(() => {
-    if (index >= ambassadors.length - 1) {
-      setNextDisabled(true);
-    } else {
-      setNextDisabled(false);
-    }
+    if (ambassadors) {
+      if (locale === "es" || locale === "en") {
+        setRole(ambassadors?.[index]?.[`role_${locale}`] as string);
+        setQuote(ambassadors?.[index]?.[`quote_${locale}`] as string);
+      }
 
-    if (index <= 0) {
-      setPrevDisabled(true);
-    } else {
-      setPrevDisabled(false);
+      if (index >= ambassadors.length - 1) {
+        setNextDisabled(true);
+      } else {
+        setNextDisabled(false);
+      }
+
+      if (index <= 0) {
+        setPrevDisabled(true);
+      } else {
+        setPrevDisabled(false);
+      }
     }
-  }, [index]);
+  }, [ambassadors, index, locale]);
 
   return (
     <article className={styles.ambassadors}>
       <div className={styles.ambassadors__image}>
         <Image
-          src={`https://paramar-foundation.sirv.com/Images/profile-${ambassadors[index]}.jpg`}
-          alt={ambassadors[index]!}
+          src={ambassadors?.[index]?.picture as string}
+          alt={`${ambassadors?.[index]?.name} profile picture`}
           loading="lazy"
           width={450}
           height={600}
@@ -73,30 +83,38 @@ export const Ambassadors = () => {
           icon={eIcons.quote}
           className={styles["ambassadors__quote-icon"]}
         />
-        <p className={styles.ambassadors__quote}>
-          “{t(`${ambassadors[index]}.quote`)}”
-        </p>
+        <p className={styles.ambassadors__quote}>“{quote}”</p>
         <div className={styles.ambassadors__data}>
           <p className={styles.ambassadors__name}>
-            {t(`${ambassadors[index]}.name`)}
+            {ambassadors?.[index]?.name}
           </p>
-          <p className={styles.ambassadors__role}>
-            {t(`${ambassadors[index]}.role`)}
-          </p>
+          <p className={styles.ambassadors__role}>{role}</p>
           <ul className={styles.ambassadors__socials}>
-            {t(`${ambassadors[index]}.instagram`) !== "" && (
+            {ambassadors?.[index]?.instagram && (
               <li>
-                <Icon icon={eIcons.socialInstagram} />
+                <Link
+                  href={ambassadors?.[index]?.instagram as string}
+                  target="_blank"
+                >
+                  <Icon icon={eIcons.socialInstagram} />
+                </Link>
               </li>
             )}
-            {t(`${ambassadors[index]}.x`) !== "" && (
+            {ambassadors?.[index]?.x && (
               <li>
-                <Icon icon={eIcons.socialX} />
+                <Link href={ambassadors?.[index]?.x as string} target="_blank">
+                  <Icon icon={eIcons.socialX} />
+                </Link>
               </li>
             )}
-            {t(`${ambassadors[index]}.linked-in`) !== "" && (
+            {ambassadors?.[index]?.linkedin && (
               <li>
-                <Icon icon={eIcons.socialLinkedIn} />
+                <Link
+                  href={ambassadors?.[index]?.linkedin as string}
+                  target="_blank"
+                >
+                  <Icon icon={eIcons.socialLinkedIn} />
+                </Link>
               </li>
             )}
           </ul>
@@ -113,10 +131,10 @@ export const Ambassadors = () => {
             disabled={isNextDisabled}
           />
           <ul className={styles.ambassadors__dots}>
-            {ambassadors.map((ambassador, index) => (
+            {ambassadors?.map((ambassador, index) => (
               <li
                 className={getDotClassName(index)}
-                key={ambassador}
+                key={ambassador.id}
                 onClick={() => setIndex(index)}
               />
             ))}

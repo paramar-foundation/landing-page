@@ -12,8 +12,21 @@ generator client {
 }
 
 model ambassador {
-  id        Int      @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   name      String
+  picture   String
+  linkedin  String?
+  instagram String?
+  x         String?
+
+  // English Fields
+  role_en  String
+  quote_en String @db.VarChar(600)
+
+  // Spanish Fields
+  role_es  String
+  quote_es String @db.VarChar(600)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -27,8 +40,6 @@ model project {
   location  String
   goal      Float
   donations donation[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
 
   // English Fields
   stripe_price_id_en String
@@ -41,6 +52,9 @@ model project {
   title_es           String
   details_es         String
   description_es     String @db.VarChar(1024)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([id])
 }

@@ -12,10 +12,12 @@ interface ISelectInputProps {
   name: string;
   options: string[];
   onChange: (value: string) => void;
+  setError: (value: boolean) => void;
   value: string;
   form?: string;
   disabled?: boolean;
   required?: boolean;
+  error?: boolean;
   theme: eInputTheme;
 }
 
@@ -24,17 +26,20 @@ export const SelectInput = ({
   label,
   options,
   onChange,
+  setError,
   value,
   theme,
   form = "",
   disabled = false,
   required = true,
+  error = true,
 }: ISelectInputProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setError(false);
   };
 
   const handleOptionClick = (option: string) => {
@@ -53,6 +58,7 @@ export const SelectInput = ({
       styles.select,
       themeClass[theme],
       isOpen && styles["fieldset--select-open"],
+      error && styles["fieldset--error"],
       value !== "" && styles["fieldset--filled"],
     ];
 

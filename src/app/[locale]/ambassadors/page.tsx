@@ -1,8 +1,9 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { usePathname, useRouter } from "next-intl/client";
+import { api } from "~/src/trpc/react";
 
 import {
   Button,
@@ -16,15 +17,68 @@ import {
   eIcons,
 } from "../components";
 
-import { ambassadors } from "~/constants";
-
 import styles from "./ambassadors.module.scss";
 import Link from "next/link";
 
 export default function Ambassadors() {
   const t = useTranslations("ambassadors");
+  const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const { data: ambassadors } = api.ambassador.getAll.useQuery();
+
+  const renderAmbassadorCards = () => {
+    return ambassadors?.map((ambassador) => {
+      let role = "";
+
+      if (locale === "es") {
+        role = ambassador.role_es as string;
+      } else {
+        role = ambassador.role_en as string;
+      }
+
+      return (
+        <li className={styles.ambassador} key={ambassador.id}>
+          <div className={styles.ambassador__image}>
+            <Image
+              src={ambassador.picture as string}
+              alt={`${ambassador.name} profile picture`}
+              loading="lazy"
+              width={300}
+              height={450}
+            />
+          </div>
+          <div className={styles.ambassador__content}>
+            <p className={styles.ambassador__name}>{ambassador.name}</p>
+            <p className={styles.ambassador__role}>{role}</p>
+            <ul className={styles.ambassador__socials}>
+              {ambassador.instagram && (
+                <li>
+                  <Link href={ambassador.instagram as string} target="_blank">
+                    <Icon icon={eIcons.socialInstagram} />
+                  </Link>
+                </li>
+              )}
+              {ambassador.x && (
+                <li>
+                  <Link href={ambassador.x as string} target="_blank">
+                    <Icon icon={eIcons.socialX} />
+                  </Link>
+                </li>
+              )}
+              {ambassador.linkedin && (
+                <li>
+                  <Link href={ambassador.linkedin as string} target="_blank">
+                    <Icon icon={eIcons.socialLinkedIn} />
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        </li>
+      );
+    });
+  };
 
   return (
     <Main>
@@ -61,52 +115,7 @@ export default function Ambassadors() {
             />
           </div>
         </header>
-        <ul className={styles.ambassadors}>
-          {ambassadors.map((ambassador) => (
-            <li className={styles.ambassador} key={ambassador}>
-              <div className={styles.ambassador__image}>
-                <Image
-                  src={`https://paramar-foundation.sirv.com/Images/profile-${ambassador}.jpg`}
-                  alt={ambassador}
-                  loading="lazy"
-                  width={300}
-                  height={450}
-                />
-              </div>
-              <div className={styles.ambassador__content}>
-                <p className={styles.ambassador__name}>
-                  {t(`${ambassador}.name`)}
-                </p>
-                <p className={styles.ambassador__role}>
-                  {t(`${ambassador}.role`)}
-                </p>
-                <ul className={styles.ambassador__socials}>
-                  {t(`${ambassador}.instagram`) !== "" && (
-                    <li>
-                      <Link href={t(`${ambassador}.instagram`)} target="_blank">
-                        <Icon icon={eIcons.socialInstagram} />
-                      </Link>
-                    </li>
-                  )}
-                  {t(`${ambassador}.x`) !== "" && (
-                    <li>
-                      <Link href={t(`${ambassador}.x`)} target="_blank">
-                        <Icon icon={eIcons.socialX} />
-                      </Link>
-                    </li>
-                  )}
-                  {t(`${ambassador}.linked-in`) !== "" && (
-                    <li>
-                      <Link href={t(`${ambassador}.linked-in`)} target="_blank">
-                        <Icon icon={eIcons.socialLinkedIn} />
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <ul className={styles.ambassadors}>{renderAmbassadorCards()}</ul>
       </PageSection>
       <PageSection id="contact" bgDefaultColor="#1c1d20" isLastSection>
         <Contact />

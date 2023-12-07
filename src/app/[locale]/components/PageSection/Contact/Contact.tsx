@@ -23,9 +23,21 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
   const [isSending, setSending] = useState(false);
   const [isSent, setSent] = useState(false);
   const [isError, setError] = useState(false);
+  const [isMoreInfoError, setMoreInfoError] = useState(false);
+  // const [fieldErrors, setFieldErrors] = useState({
+  //   name: false,
+  //   lastName: false,
+  //   email: false,
+  //   moreInfo,
+  // });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (moreInfo === "") {
+      return setMoreInfoError(true);
+    }
+
     setSending(true);
 
     const templateParams = {
@@ -79,16 +91,19 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
     {
       input: "name",
       value: name,
+      type: "text",
       setFunction: setName,
     },
     {
       input: "last-name",
       value: lastName,
+      type: "text",
       setFunction: setLastName,
     },
     {
       input: "email",
       value: email,
+      type: "email",
       setFunction: setEmail,
     },
   ] as const;
@@ -129,6 +144,7 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
               label={t(data.input)}
               name={data.input}
               value={data.value}
+              type={data.type}
               onChange={data.setFunction}
               theme={eInputTheme.light}
             />
@@ -141,6 +157,8 @@ export const Contact = ({ hasSelect = true, pageType = "contact-us" }) => {
               onChange={setMoreInfo}
               options={selectOptions.map((option) => t(`options.${option}`))}
               theme={eInputTheme.light}
+              error={isMoreInfoError}
+              setError={setMoreInfoError}
             />
           )}
           <Button htmlType="submit" fullWidth>

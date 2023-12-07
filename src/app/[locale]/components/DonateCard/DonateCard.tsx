@@ -23,7 +23,7 @@ export const DonateCard = ({ data }: { data: IProject }) => {
   const router = useRouter();
   const locale = useLocale();
 
-  const { image, location, donations, goal, is_test } = data;
+  const { image, location, donations, goal } = data;
 
   useEffect(() => {
     if (locale === "es" || locale === "en") {

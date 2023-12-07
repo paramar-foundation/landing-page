@@ -6,7 +6,7 @@
     "hours": "horas",
     "days": "días",
     "launch": "Nuestra página estará disponible en",
-    "launch-date": "December 10th, 2023."
+    "launch-date": "Diciembre 10, 2023."
   },
   "nav": {
     "home": "Inicio",
@@ -55,51 +55,6 @@
     "title": "Conoce a las personas que apoyan y están detrás de <purple>Paramar Foundation</purple>",
     "content": "Nuestras embajadoras y embajadores son el alma y el motor que impulsa nuestra causa. Son personas apasionadas y comprometidas  que trabajan incansablemente para promover un cambio positivo en nuestro mundo",
     "section-cta": "Contáctanos",
-    "carlota-corzo": {
-      "name": "Carlota Corzo Álvarez",
-      "picture": "profile-carlota-corzo.jpg",
-      "role": "Cofundadora & CEO de Lázzaro, Patrona de la Fundación Youth Business Spain",
-      "quote": "Es algo básico que debería estar en este tipo de situaciones disponible para todas las personas.",
-      "linked-in": "https://www.linkedin.com/in/carlotacorzoalvarez/",
-      "instagram": "",
-      "x": ""
-    },
-    "silvina-reyes": {
-      "name": "Silvina Reyes",
-      "picture": "profile-silvina-reyes.jpg",
-      "role": "Fundadora & CEO",
-      "quote": "Contar con el apoyo psicológico adecuado con profesionales especializados es vital para poder sanar y recuperarse de algo tan doloroso",
-      "linked-in": "https://www.linkedin.com/in/silvinareyes/",
-      "instagram": "https://www.instagram.com/silmreyes_familiaenvelero/",
-      "x": ""
-    },
-    "violeta-arus": {
-      "name": "Violeta Arús",
-      "picture": "profile-violeta-arus.jpg",
-      "role": "Artista de tatuajes",
-      "quote": "Personalmente, la terapia me ha ayudado a enfrentar eventos traumáticos de mi vida ofreciéndome herramientas y comprensión.",
-      "linked-in": "",
-      "instagram": "https://instagram.com/violeta.arus?igshid=MzRlODBiNWFlZA==",
-      "x": ""
-    },
-    "emily-zembo": {
-      "name": "Emily Helen Zembo Vogel",
-      "picture": "profile-emily-zembo.jpg",
-      "role": "Embajadora",
-      "quote": "Recibir terapia, especialmente en las etapas tempranas del crecimiento, es fundamental para establecer bases de confianza, seguridad y autoestima saludables en cada persona. Además, proporciona las herramientas necesarias para afrontar los desafíos cotidianos y cultivar relaciones sanas a lo largo de nuestra vida.",
-      "linked-in": "https://www.linkedin.com/in/emily-zembo-884537127/",
-      "instagram": "",
-      "x": ""
-    },
-    "yu-fu": {
-      "name": "Yu Fu",
-      "picture": "profile-yu-fu.jpg",
-      "role": "Embajadora",
-      "quote": "Sex Education es una serie que me encanta y la historia de Amy es una de mis favoritas. La vida no es una serie pero podemos aprender de ella: Amy era una chica sencilla y feliz y todo cambió después de que sufrió una agresión sexual. Tuvo que recorrer un camino complicado para volver a encontrarse a sí misma. No quiero dar más spoilers, solo destacar que la terapia fue una de las claves. Y creo que lo importante no es solo recibir terapia sino también que todas las personas puedan tener acceso a ella.",
-      "linked-in": "https://www.linkedin.com/in/mad4yu/",
-      "instagram": "https://www.instagram.com/mad4yu",
-      "x": ""
-    },
     "know-more": "Conoce más"
   },
   "numbers": {
