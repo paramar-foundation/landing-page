@@ -1,30 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import styles from "./Countdown.module.scss";
 import { Logo } from "../Logo";
 import Image from "next/image";
 
-export const Countdown = () => {
+export const Countdown = ({ timeRemaining }: { timeRemaining: number }) => {
   const t = useTranslations("generic");
-  const [timeRemaining, setTimeRemaining] = useState(0);
-
-  useEffect(() => {
-    function calculateTimeRemaining() {
-      const currentDate = new Date();
-      const targetDate = new Date("2023-12-10T00:00:00Z");
-      const difference = targetDate.getTime() - currentDate.getTime();
-      return Math.max(0, difference);
-    }
-
-    const interval = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
     .toString()

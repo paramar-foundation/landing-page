@@ -45,13 +45,13 @@ model project {
   stripe_price_id_en String
   title_en           String
   details_en         String
-  description_en     String @db.VarChar(1024)
+  description_en     String @db.VarChar(2048)
 
   // Spanish Fields
   stripe_price_id_es String
   title_es           String
   details_es         String
-  description_es     String @db.VarChar(1024)
+  description_es     String @db.VarChar(2048)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
