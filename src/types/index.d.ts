@@ -1,7 +1,7 @@
 export interface IDonation {
   id: number;
   projectId: number | null;
-  author: Prisma.JsonValue;
+  email: string;
   amount: number;
   createdAt: Date;
   updatedAt: Date;
