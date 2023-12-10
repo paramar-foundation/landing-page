@@ -21,6 +21,11 @@ export const paymentRouter = createTRPCRouter({
             quantity: 1,
           },
         ],
+        payment_intent_data: {
+          metadata: {
+            projectId: input.projectId,
+          },
+        },
         success_url: `${process.env.BASE_URL}/thank-you/${input.projectId}/{CHECKOUT_SESSION_ID}`,
         cancel_url: process.env.BASE_URL + "/projects",
       });

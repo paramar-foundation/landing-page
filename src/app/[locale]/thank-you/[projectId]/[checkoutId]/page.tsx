@@ -31,14 +31,12 @@ export default function ThankYou({
   params: { projectId: string; checkoutId: string };
 }) {
   const t = useTranslations("thank-you");
-  const [isCreated, setCreated] = useState(false);
   const [certificateDisplay, setCertificateDisplay] = useState("none");
   const [checkoutDetails, setCheckoutDetails] = useState(
     {} as Stripe.Response<Stripe.Checkout.Session>
   );
   const router = useRouter();
   const getCheckoutMutation = api.payments.getCheckoutDetails.useMutation();
-  const createDonationMutation = api.donations.create.useMutation();
 
   const handleError = (e: Error) => {
     router.replace("/projects");
@@ -51,19 +49,12 @@ export default function ThankYou({
         checkoutId,
       });
 
-      const { id, amount_total, customer_details } = checkoutDetails;
-
-      if (id && amount_total && customer_details && !isCreated) {
-        setCreated(true);
+      if (
+        checkoutDetails.id &&
+        checkoutDetails.amount_total &&
+        checkoutDetails.customer_details
+      ) {
         setCheckoutDetails(checkoutDetails);
-        const success = await createDonationMutation.mutateAsync({
-          checkoutId,
-          projectId: Number(projectId),
-          amount: amount_total / 100,
-          author: customer_details,
-        });
-
-        if (!success) throw new Error("Checkout already exists");
       }
     };
 

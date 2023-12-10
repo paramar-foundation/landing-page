@@ -60,14 +60,13 @@ model project {
 }
 
 model donation {
-  id         Int      @id @default(autoincrement())
-  project    project  @relation(fields: [projectId], references: [id])
-  projectId  Int
-  checkoutId String
-  author     Json
-  amount     Float
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  project   project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  email     String
+  amount    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([projectId])
 }

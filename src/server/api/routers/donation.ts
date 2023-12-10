@@ -7,26 +7,17 @@ export const donationRouter = createTRPCRouter({
     .input(
       z.object({
         amount: z.number(),
-        checkoutId: z.string(),
         projectId: z.number(),
-        author: z.any(),
+        email: z.string().email(),
       })
     )
-    .mutation(async ({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
       try {
-        const matchDonations = await ctx.db.donation.findMany({
-          where: { checkoutId: input.checkoutId },
-        });
-
-        if (matchDonations.length > 0) throw new Error();
-
         await ctx.db.donation.create({
           data: {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            author: input.author,
             amount: input.amount,
+            email: input.email,
             projectId: input.projectId,
-            checkoutId: input.checkoutId,
           },
         });
 

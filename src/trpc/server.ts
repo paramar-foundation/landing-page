@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import {
   createTRPCProxyClient,
   loggerLink,
   unstable_httpBatchStreamLink,
 } from "@trpc/client";
-import { headers } from "next/headers";
+import { cookies } from "next/headers";
+// import fetchPonyfill from "fetch-ponyfill";
 
 import { type AppRouter } from "~/server/api/root";
 import { getUrl, transformer } from "./shared";
@@ -19,7 +22,8 @@ export const api = createTRPCProxyClient<AppRouter>({
     unstable_httpBatchStreamLink({
       url: getUrl(),
       headers() {
-        const heads = new Map(headers());
+        const heads = new Map();
+        heads.set("cookie", cookies().toString());
         heads.set("x-trpc-source", "rsc");
         return Object.fromEntries(heads);
       },

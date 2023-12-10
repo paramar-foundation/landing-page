@@ -8,6 +8,7 @@ export const env = createEnv({
    */
   server: {
     BASE_URL: z.string(),
+    STRIPE_WEBHOOK_ID: z.string(),
     STRIPE_PUBLIC_KEY: z.string(),
     STRIPE_SECRET_KEY: z.string(),
     DATABASE_URL: z
@@ -36,6 +37,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    STRIPE_WEBHOOK_ID: process.env.STRIPE_WEBHOOK_ID,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     DATABASE_URL: process.env.DATABASE_URL,
