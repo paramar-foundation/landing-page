@@ -51,6 +51,9 @@ export const projectRouter = createTRPCRouter({
         donations: true,
         _count: true,
       },
+      where: {
+        is_test: false,
+      },
     });
   }),
 

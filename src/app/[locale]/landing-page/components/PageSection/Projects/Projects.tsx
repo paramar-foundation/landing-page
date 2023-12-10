@@ -70,9 +70,9 @@ export const Projects = () => {
       <h2 className={styles.donations__title}>{t("title")}</h2>
       <p className={styles.donations__body}>{t("description")}</p>
       <div className={styles["donations__cards--desktop"]}>
-        {projects
-          ?.filter((project) => !project.is_test)
-          .map((data) => data && <DonateCard key={data.id} data={data} />)}
+        {projects?.map(
+          (data) => data && <DonateCard key={data.id} data={data} />
+        )}
       </div>
       <div className={styles["donations__cards--mobile"]}>
         {renderMobileCard()}

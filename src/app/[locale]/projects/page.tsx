@@ -41,14 +41,12 @@ export default function ProjectsPage() {
         </div>
       </PageSection>
       <PageSection className={styles.content} isLastSection>
-        {projects
-          ?.filter((project) => !project.is_test)
-          .map((project, index) => (
-            <Fragment key={project.id}>
-              {projects.length > 1 && index !== 0 && <hr />}
-              <Project data={project} />
-            </Fragment>
-          ))}
+        {projects?.map((project, index) => (
+          <Fragment key={project.id}>
+            {projects.length > 1 && index !== 0 && <hr />}
+            <Project data={project} />
+          </Fragment>
+        ))}
       </PageSection>
       <Footer />
     </Main>
