@@ -1,41 +1,70 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import { api } from "~/src/trpc/react";
 import Image from "next/image";
 
-import styles from "./admin.module.scss";
+import type { ambassador } from "@prisma/client";
+import { Ambassador } from "./Components/Ambassador";
 
-export const AdminPanel = () => {
+import styles from "./admin.module.scss";
+import { Button, eButtonColor, eButtonSize } from "../components";
+
+export const AdminPanel = ({
+  setModalContent,
+}: {
+  setModalContent: Dispatch<SetStateAction<ReactNode>>;
+}) => {
   const { data: ambassadors } = api.ambassador.getAll.useQuery();
   // const { data: projects } = api.projects.getAll.useQuery();
+
+  const handleCreateAmbassador = () => {
+    setModalContent(<Ambassador create />);
+  };
+
+  const handleOpenAmbassador = (ambassador: null | undefined | ambassador) => {
+    if (!ambassador) return;
+    setModalContent(<Ambassador ambassador={ambassador} />);
+  };
+
   return (
     <article className={styles.admin}>
-      <div>
-        <h3>Ambassadors</h3>
-        <table>
-          <tr>
-            <th>#</th>
-            <th>Ambassador</th>
-            <th>Actions</th>
-          </tr>
+      <div className={styles.table}>
+        <div className={styles.header}>
+          <div className={styles.header__item}>Ambassadors</div>
+          <div className={styles.header__item}>
+            <Button
+              color={eButtonColor.white}
+              size={eButtonSize.small}
+              onClick={handleCreateAmbassador}
+            >
+              + New Ambassador
+            </Button>
+          </div>
+        </div>
+        <div className={styles.body}>
           {ambassadors?.map((ambassador) => (
-            <tr key={ambassador.id}>
-              <td>{ambassador.id}</td>
-              <td>
-                <span>
+            <div className={styles.body__row} key={ambassador?.id}>
+              <div className={styles.body__row__item}>
+                <div className={styles["image-container"]}>
                   <Image
-                    src={ambassador.picture}
+                    src={ambassador?.picture}
                     alt="picture"
-                    width={45}
-                    height={60}
+                    width={60}
+                    height={80}
                   />
-                  {ambassador.name}
-                </span>
-              </td>
-              <td>edit</td>
-            </tr>
+                </div>
+              </div>
+              <div className={styles.body__row__item}>{ambassador?.name}</div>
+              <div
+                className={styles.body__row__item}
+                onClick={() => handleOpenAmbassador(ambassador)}
+              >
+                View
+              </div>
+            </div>
           ))}
-        </table>
+        </div>
       </div>
     </article>
   );

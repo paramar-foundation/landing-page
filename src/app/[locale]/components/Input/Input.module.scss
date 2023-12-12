@@ -33,6 +33,11 @@
     background: none;
     font-size: 16px;
     line-height: 12px;
+    resize: vertical;
+  }
+
+  textarea {
+    line-height: 20px;
   }
 
   &--disabled {

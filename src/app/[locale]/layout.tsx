@@ -11,6 +11,8 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -39,7 +41,10 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
+          <TRPCReactProvider headers={headers()}>
+            {children}
+            <SpeedInsights />
+          </TRPCReactProvider>
         </NextIntlClientProvider>
       </body>
     </html>

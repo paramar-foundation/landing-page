@@ -24,32 +24,81 @@
 .admin {
   width: 100%;
 
-  table {
+  .table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
 
-  td,
-  th {
-    border: 1px solid $color-purple-400;
-    text-align: left;
-    padding: 8px;
+    .header,
+    .body__row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      width: 100%;
 
-    span {
-      display: flex;
-      align-items: center;
-      gap: spacing(2);
-      font-size: 20px;
+      padding: 0 spacing(1);
+      border: solid 1px $color-purple-600;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: spacing(1) spacing(1);
+      }
     }
-  }
 
-  th {
-    color: $color-white;
-    background-color: $color-purple;
-  }
+    .header {
+      background-color: $color-purple-400;
+      color: $color-purple;
+      font-size: 24px;
+      font-weight: 700;
+      border-radius: spacing(1) spacing(1) 0 0;
+      grid-template-columns: 1fr auto;
 
-  tr:nth-child(even) {
-    background-color: $color-purple-100;
+      &__item {
+        padding: spacing(2) spacing(1);
+      }
+    }
+
+    .body__row {
+      border-top: 0;
+
+      &:last-of-type {
+        border-radius: 0 0 spacing(1) spacing(1);
+      }
+
+      &:nth-child(even) {
+        background-color: $color-purple-100;
+      }
+
+      &__item {
+        height: 80px;
+
+        &:last-of-type {
+          color: $color-purple;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .image-container {
+          position: relative;
+          overflow: hidden;
+          border-radius: 60px;
+          height: 100%;
+          width: 100%;
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
   }
 }

@@ -3,28 +3,57 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const ambassadorRouter = createTRPCRouter({
-  create: publicProcedure
+  createOrUpdate: publicProcedure
     .input(
       z.object({
+        id: z.number(),
         name: z.string(),
         picture: z.string(),
-        quote_en: z.string(),
-        quote_es: z.string(),
-        role_en: z.string(),
-        role_es: z.string(),
+        linkedin: z.string(),
+        instagram: z.string(),
+        x: z.string(),
+        roleEN: z.string(),
+        quoteEN: z.string(),
+        roleES: z.string(),
+        quoteES: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
       try {
-        await ctx.db.ambassador.create({
-          data: {
-            name: input.name,
-            picture: input.picture,
-            quote_en: input.quote_en,
-            quote_es: input.quote_es,
-            role_en: input.role_en,
-            role_es: input.role_es,
-          },
+        const ambassador = {
+          name: input.name,
+          picture: input.picture,
+          linkedin: input.linkedin,
+          instagram: input.instagram,
+          x: input.x,
+          role_en: input.roleEN,
+          quote_en: input.quoteEN,
+          role_es: input.roleES,
+          quote_es: input.quoteES,
+        };
+
+        await ctx.db.ambassador.upsert({
+          where: { id: input.id },
+          create: ambassador,
+          update: ambassador,
+        });
+
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }),
+
+  delete: publicProcedure
+    .input(
+      z.object({
+        id: z.number(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      try {
+        await ctx.db.ambassador.delete({
+          where: { id: input.id },
         });
 
         return true;
