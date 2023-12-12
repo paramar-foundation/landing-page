@@ -39,29 +39,34 @@ export const Ambassador = ({
   const deleteMutation = api.ambassador.delete.useMutation();
 
   useEffect(() => {
-    if (
-      name !== (ambassador?.name ?? "") ||
-      picture !== (ambassador?.picture ?? "") ||
-      linkedin !== (ambassador?.linkedin ?? "") ||
-      instagram !== (ambassador?.instagram ?? "") ||
-      x !== (ambassador?.x ?? "") ||
-      roleEN !== (ambassador?.role_en ?? "") ||
-      quoteEN !== (ambassador?.quote_en ?? "") ||
-      roleES !== (ambassador?.role_es ?? "") ||
-      quoteES !== (ambassador?.quote_es ?? "")
-    ) {
-      setDifferent(true);
-    }
-
-    if (
-      name !== "" &&
-      picture !== "" &&
-      roleEN !== "" &&
-      quoteEN !== "" &&
-      roleES !== "" &&
-      quoteES !== ""
-    ) {
-      setFilled(true);
+    if (!create) {
+      if (
+        name !== (ambassador?.name ?? "") ||
+        picture !== (ambassador?.picture ?? "") ||
+        linkedin !== (ambassador?.linkedin ?? "") ||
+        instagram !== (ambassador?.instagram ?? "") ||
+        x !== (ambassador?.x ?? "") ||
+        roleEN !== (ambassador?.role_en ?? "") ||
+        quoteEN !== (ambassador?.quote_en ?? "") ||
+        roleES !== (ambassador?.role_es ?? "") ||
+        quoteES !== (ambassador?.quote_es ?? "")
+      ) {
+        setDifferent(true);
+      }
+    } else {
+      if (
+        name !== "" &&
+        picture !== "" &&
+        String(picture).includes(
+          "https://paramar-foundation.sirv.com/Images/ambassadors"
+        ) &&
+        roleEN !== "" &&
+        quoteEN !== "" &&
+        roleES !== "" &&
+        quoteES !== ""
+      ) {
+        setFilled(true);
+      }
     }
   }, [instagram, linkedin, name, picture, quoteEN, quoteES, roleEN, roleES, x]);
 

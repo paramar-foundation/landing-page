@@ -29,11 +29,24 @@ export default function Admin() {
   const adminLoginMutation = api.admin.login.useMutation();
 
   useEffect(() => {
+    const session = window.sessionStorage.getItem("admin-access");
+
+    if (session === "true") {
+      setDisplay(true);
+    }
+
+    setTimeout(() => {
+      window.sessionStorage.clear();
+    }, 1000 * 60 * 10);
+  }, []);
+
+  useEffect(() => {
     setModalContent(modalContent);
   }, [modalContent]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
     setLoading(true);
     const success = await adminLoginMutation.mutateAsync({ password });
 
@@ -42,6 +55,7 @@ export default function Admin() {
 
       setTimeout(() => {
         setDisplay(true);
+        window.sessionStorage.setItem("admin-access", "true");
       }, 1000 * 1);
     } else {
       alert("Oops, wrong password");
