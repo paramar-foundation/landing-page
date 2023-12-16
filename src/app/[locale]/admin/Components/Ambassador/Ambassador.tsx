@@ -66,12 +66,14 @@ export const Ambassador = ({
         quoteES !== ""
       ) {
         setFilled(true);
+        setDifferent(true);
       }
     }
   }, [instagram, linkedin, name, picture, quoteEN, quoteES, roleEN, roleES, x]);
 
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
+
     if (!isDifferent) return;
 
     setLoading(true);

@@ -91,6 +91,7 @@
         width: 100%;
         object-fit: cover;
         filter: grayscale(100%);
+        transition: filter 0.2s ease-in-out;
       }
     }
 
@@ -129,6 +130,14 @@
       li {
         svg {
           fill: $color-black;
+        }
+      }
+    }
+
+    &:hover {
+      .ambassador__image {
+        img {
+          filter: grayscale(0);
         }
       }
     }
