@@ -17,26 +17,27 @@ export const ambassadors = [
 
 export const professionals = ["camila-gonzalez"];
 
+// {
+//   name: "articles-of-incorporation",
+//   displayName: "Articles of Incorporation (EN)",
+// },
+// {
+//   name: "brochure",
+//   displayName: "Brochure (EN)",
+// },
+// {
+//   name: "cover-letter",
+//   displayName: "Cover Letter (EN)",
+// },
+// {
+//   name: "folleto",
+//   displayName: "Folleto (ES)",
+// },
+
 export const documentsData = [
-  {
-    name: "articles-of-incorporation",
-    displayName: "Articles of Incorporation (EN)",
-  },
-  {
-    name: "brochure",
-    displayName: "Brochure (EN)",
-  },
   {
     name: "certificate-of-incorporation",
     displayName: "Certificate of Incorporation (EN)",
-  },
-  {
-    name: "cover-letter",
-    displayName: "Cover Letter (EN)",
-  },
-  {
-    name: "folleto",
-    displayName: "Folleto (ES)",
   },
   {
     name: "tax-number",
